@@ -26,7 +26,7 @@
 #include "stm32f429i_discovery_ts.h"
 
 #include "menu.h"
-
+#include "gpio.h"
 
 /******************************************************************************
  * Defines
@@ -44,9 +44,9 @@
 static MENU_item_t MENU_transition = MENU_NONE;	///< Transition to this menu
 static MENU_entry_t MENU_entry[MENU_ENTRY_COUNT] = {
 		{"Sin-",	"gle",		LCD_COLOR_BLACK,	LCD_COLOR_LIGHTBLUE},
-		{"Timer",	"+IRQ",		LCD_COLOR_BLACK,	LCD_COLOR_LIGHTGREEN},
-		{"DMA",	    "+IRQ",		LCD_COLOR_BLACK,	LCD_COLOR_LIGHTRED},
-		{"DMA",	    "dual",		LCD_COLOR_BLACK,	LCD_COLOR_LIGHTCYAN},
+		{"Conti-",	"nuous",	LCD_COLOR_BLACK,	LCD_COLOR_LIGHTGREEN},
+		{"LED",	    "",			LCD_COLOR_BLACK,	LCD_COLOR_LIGHTRED},
+		{"PWR",	    "",			LCD_COLOR_BLACK,	LCD_COLOR_LIGHTCYAN},
 		{"DMA",	    "scan",		LCD_COLOR_BLACK,	LCD_COLOR_LIGHTMAGENTA},
 		{"DAC",	    "on",		LCD_COLOR_BLACK,	LCD_COLOR_LIGHTYELLOW}
 };										///< All the menu entries
@@ -78,12 +78,30 @@ void MENU_draw(void)
 		BSP_LCD_FillRect(x+m, y+m, w-2*m, h-2*m);
 		BSP_LCD_SetBackColor(MENU_entry[i].back_color);
 		BSP_LCD_SetTextColor(MENU_entry[i].text_color);
-		BSP_LCD_DisplayStringAt(x+3*m, y+3*m,
+		BSP_LCD_DisplayStringAt(x+3*m, y+m,
 				(uint8_t *)MENU_entry[i].line1, LEFT_MODE);
 		BSP_LCD_DisplayStringAt(x+3*m, y+h/2,
 				(uint8_t *)MENU_entry[i].line2, LEFT_MODE);
 	}
 }
+
+
+/** ***************************************************************************
+ * @brief lets direction led blink.
+ *
+ *****************************************************************************/
+void blink_direction(void)
+{
+	HAL_GPIO_TogglePin(led1_GPIO_Port, led1_Pin);
+	HAL_GPIO_TogglePin(led2_GPIO_Port, led2_Pin);
+	HAL_GPIO_TogglePin(led3_GPIO_Port, led3_Pin);
+	HAL_GPIO_TogglePin(led4_GPIO_Port, led4_Pin);
+	HAL_GPIO_TogglePin(led5_GPIO_Port, led5_Pin);
+
+}
+
+
+
 
 
 /** ***************************************************************************
