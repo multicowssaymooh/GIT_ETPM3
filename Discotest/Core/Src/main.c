@@ -82,6 +82,8 @@ int main(void)
 
 	uint32_t	adc_PC1=0,adc_PA5=0,adc_PC3=0;
 	uint32_t	adc_PF8=0, adc_PF6=0;
+	ADC_ChannelConfTypeDef sConfig = {0};
+	GPIO_InitTypeDef GPIO_InitStruct = {0};
 
 
 
@@ -137,7 +139,7 @@ int main(void)
 
   MENU_hint();
 
-  gyro_disable();
+
 
   //HAL_ADC_Start(&hadc1);
   //HAL_ADC_Start(&hadc3);
@@ -151,36 +153,72 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-	  HAL_GPIO_TogglePin(LD3_GPIO_Port, LD3_Pin);
+	  	HAL_GPIO_TogglePin(LD3_GPIO_Port, LD3_Pin);
 	  //HAL_UART_Transmit(&huart1, "Hello world\n", 12, 500);
-	  HAL_Delay(200);
+	  	HAL_Delay(500);
+
+	  	HAL_GPIO_WritePin(LD4_GPIO_Port, LD4_Pin,1);
+
+	    GPIO_InitStruct.Pin = GPIO_PIN_1|GPIO_PIN_3;
+	    GPIO_InitStruct.Mode = GPIO_MODE_ANALOG;
+	    GPIO_InitStruct.Pull = GPIO_NOPULL;
+	    HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
 
 	  //ADC1
-	    HAL_ADC_Start(&hadc1);
-	    HAL_ADC_PollForConversion(&hadc1, 5);
-	    adc_PC1 = HAL_ADC_GetValue(&hadc1);
-	    adc_PA5 = HAL_ADC_GetValue(&hadc1);
-	    adc_PC3 = HAL_ADC_GetValue(&hadc1);
-	    HAL_ADC_Stop(&hadc1);
+	  	HAL_ADC_Start(&hadc1);
+	  	HAL_ADC_PollForConversion(&hadc1, 5);
+	  	adc_PC1 = HAL_ADC_GetValue(&hadc1);
+	  	adc_PA5 = HAL_ADC_GetValue(&hadc1);
+	  	adc_PC3 = HAL_ADC_GetValue(&hadc1);
+
+	  	HAL_ADC_Stop(&hadc1);
+
+	    gyro_disable();
+
+	    sConfig.Channel = ADC_CHANNEL_6;
+	    sConfig.Rank = 1;
+	    sConfig.SamplingTime = ADC_SAMPLETIME_3CYCLES;
+	    if (HAL_ADC_ConfigChannel(&hadc3, &sConfig) != HAL_OK)
+	    {
+	      Error_Handler();
+	    }
+
+	    HAL_ADC_Start(&hadc3);
+	    HAL_ADC_PollForConversion(&hadc3, 10);
+	    adc_PF8 = HAL_ADC_GetValue(&hadc3);
+	    HAL_ADC_Stop(&hadc3);
+
+
+	    sConfig.Channel = ADC_CHANNEL_4;
+	    sConfig.Rank = 1;
+	    sConfig.SamplingTime = ADC_SAMPLETIME_3CYCLES;
+	    if (HAL_ADC_ConfigChannel(&hadc3, &sConfig) != HAL_OK)
+	    {
+	       Error_Handler();
+	    }
+
+	    HAL_ADC_Start(&hadc3);
+	    HAL_ADC_PollForConversion(&hadc3, 10);
+	    adc_PF6 = HAL_ADC_GetValue(&hadc3);
+	    HAL_ADC_Stop(&hadc3);
+
+	    HAL_GPIO_WritePin(LD4_GPIO_Port, LD4_Pin,0);
+	    while(1){}
+
+	    //testasldkfjasdlkfj
+
+	    /** Configure for the selected ADC regular channel its corresponding rank in the sequencer and its sample time.
+	    */
+
 
 	    //ADC1
-	    /*
+
 	    snprintf(text, 10, "PC1=%4d\n", (int)(adc_PC1 & 0xffff));
 	    HAL_UART_Transmit(&huart1, text, 9, 500);
 	    snprintf(text, 10, "PA5=%4d\n", (int)(adc_PA5 & 0xffff));
 	    HAL_UART_Transmit(&huart1, text, 9, 500);
 	    snprintf(text, 10, "PC3=%4d\n", (int)(adc_PC3 & 0xffff));
 	    HAL_UART_Transmit(&huart1, text, 9, 500);
-
-*/
-	    HAL_ADC_Start(&hadc3);
-	    HAL_ADC_PollForConversion(&hadc3, 5);
-	    adc_PF8 = HAL_ADC_GetValue(&hadc3);
-	    adc_PF6 = HAL_ADC_GetValue(&hadc3);
-	    HAL_ADC_Stop(&hadc3);
-
-
-
 
 	    //ADC3
 	    snprintf(text, 10, "PF8=%4d\n", (int)(adc_PF8 & 0xffff));
