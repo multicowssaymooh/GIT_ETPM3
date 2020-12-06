@@ -39,6 +39,7 @@
 #include "string.h"
 
 #include "menu.h"
+#include "measure.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -315,6 +316,11 @@ void SystemClock_Config(void)
 }
 
 /* USER CODE BEGIN 4 */
+/**
+ * @brief Disables gyro in order to measure on pin PC1
+ * @param none
+ * @retval none
+ */
 void gyro_disable(void)
 {
 	__HAL_RCC_GPIOC_CLK_ENABLE();		// Enable Clock for GPIO port C
@@ -322,13 +328,13 @@ void gyro_disable(void)
 	GPIOC->MODER &= ~GPIO_MODER_MODER1; // Reset mode for PC1
 	GPIOC->MODER |= GPIO_MODER_MODER1_0;	// Set PC1 as output
 	GPIOC->BSRR |= GPIO_BSRR_BR1;		// Set GYRO (CS) to 0 for a short time
-	HAL_Delay(10);						// Wait some time
+	Delay_us(1);						// Wait some time
 	GPIOC->MODER |= GPIO_MODER_MODER1_Msk; // Analog mode PC1 = ADC123_IN11
 	__HAL_RCC_GPIOF_CLK_ENABLE();		// Enable Clock for GPIO port F
 	GPIOF->OSPEEDR &= ~GPIO_OSPEEDR_OSPEED8;	// Reset speed of PF8
 	GPIOF->AFR[1] &= ~GPIO_AFRH_AFSEL8;			// Reset alternate func. of PF8
 	GPIOF->PUPDR &= ~GPIO_PUPDR_PUPD8;			// Reset pulup/down of PF8
-	HAL_Delay(10);						// Wait some time
+	Delay_us(1);						// Wait some time
 	GPIOF->MODER |= GPIO_MODER_MODER8_Msk; // Analog mode for PF6 = ADC3_IN4
 }
 

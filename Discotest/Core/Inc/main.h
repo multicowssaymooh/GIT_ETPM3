@@ -55,7 +55,7 @@ extern "C" {
 void Error_Handler(void);
 
 /* USER CODE BEGIN EFP */
-
+void gyro_disable(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
@@ -209,8 +209,16 @@ void Error_Handler(void);
 #define D3_GPIO_Port GPIOD
 #define G7_Pin GPIO_PIN_3
 #define G7_GPIO_Port GPIOD
+#define led4_Pin GPIO_PIN_4
+#define led4_GPIO_Port GPIOD
+#define led5_Pin GPIO_PIN_5
+#define led5_GPIO_Port GPIOD
 #define B2_Pin GPIO_PIN_6
 #define B2_GPIO_Port GPIOD
+#define led1_Pin GPIO_PIN_7
+#define led1_GPIO_Port GPIOD
+#define led2_Pin GPIO_PIN_9
+#define led2_GPIO_Port GPIOG
 #define G3_Pin GPIO_PIN_10
 #define G3_GPIO_Port GPIOG
 #define B3_Pin GPIO_PIN_11
@@ -223,6 +231,8 @@ void Error_Handler(void);
 #define LD4_GPIO_Port GPIOG
 #define SDNCAS_Pin GPIO_PIN_15
 #define SDNCAS_GPIO_Port GPIOG
+#define led3_Pin GPIO_PIN_4
+#define led3_GPIO_Port GPIOB
 #define SDCKE1_Pin GPIO_PIN_5
 #define SDCKE1_GPIO_Port GPIOB
 #define SDNE1_Pin GPIO_PIN_6
