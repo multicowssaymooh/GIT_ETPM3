@@ -1,0 +1,22 @@
+digraph "Delay_us"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="RL";
+  Node1 [label="Delay_us",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="This functions is used for delays in us. Example wait for ADC to stabilize."];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="gyro_disable",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$main_8c.html#a2ac9c311ff05671105348142908ecda3",tooltip="Disables gyro in order to measure on pin PC1."];
+  Node2 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="Get_ADC1_Values",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$measure_8c.html#ac5e4d3ca3005c4f2a3103576271d357d",tooltip="Reads value from ADC of PAD1."];
+  Node3 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="main",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$main_8c.html#a840291bc02cba5474a4cb46a9b9566fe",tooltip="The application entry point."];
+  Node3 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="Single_Measurement_Pads",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$calculations_8c.html#a91e6a19a001aad3ebbbdb9d01e24c9c9",tooltip="Reads one period of samples, calculates the."];
+  Node5 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 [label="Get_ADC3_Values",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$measure_8c.html#a512f60472a91474ff08abcf7389cd275",tooltip="Reads value from ADC of PAD2."];
+  Node6 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+}

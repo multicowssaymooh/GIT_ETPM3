@@ -47,11 +47,11 @@ void Delay_us (uint32_t delay)
 /**
  * @brief Reads value from ADC of PAD1
  * @param none
- * @retval result pointer to uint16_t array with 3x 12bit values from pads. result[0] = pad1, result[2] = pad2, result[3] = pad3
+ * @retval result pointer to uint16_t array with 3x 12bit values. result[0] = PC1/hall/coil1, result[1] = PA5/PAD3 , result[2] = PC3/Coil2
  * @todo Überprüfen reihenfolge der AD Wandlungen. Pad1 in res0 etc.
  *
  */
-uint16_t *Get_ADC_Values_Pads(void)
+uint16_t *Get_ADC1_Values(void)
 {
 	static uint16_t result[]={0,0,0};
 
@@ -78,10 +78,10 @@ uint16_t *Get_ADC_Values_Pads(void)
 /**
  * @brief Reads value from ADC of PAD2
  * @param none
- * @retval result 12bit value from ADC
+ * @retval result 12bit value from ADC. result[0] = PF8/PAD1, result[1] = PF6/PAD2
  * @todo Überprüfen reihenfolge der AD Wandlungen. Coil1 in res0 etc.
  */
-uint16_t *Get_ADC_Values_Coils(void)
+uint16_t *Get_ADC3_Values(void)
 {
 	static uint16_t result[]={0,0};
 
@@ -119,33 +119,7 @@ uint16_t *Get_ADC_Values_Coils(void)
 	return result;
 }
 
-/**
- * @brief Reads value from ADC of PAD3
- * @param none
- * @retval result 12bit value from ADC
- */
-uint16_t 	Get_ADC_Pad1(void)
-{
-	uint16_t result=0;
 
-
-	//ADC1
-	/*
-	snprintf(text, 10, "PC1=%4d\n", (int)(adc_PC1 & 0xffff));
-	HAL_UART_Transmit(&huart1, text, 9, 500);
-	snprintf(text, 10, "PA5=%4d\n", (int)(adc_PA5 & 0xffff));
-	HAL_UART_Transmit(&huart1, text, 9, 500);
-	snprintf(text, 10, "PC3=%4d\n", (int)(adc_PC3 & 0xffff));
-	HAL_UART_Transmit(&huart1, text, 9, 500);
-
-	//ADC3
-	snprintf(text, 10, "PF8=%4d\n", (int)(adc_PF8 & 0xffff));
-	HAL_UART_Transmit(&huart1, text, 9, 500);
-	snprintf(text, 10, "PF6=%4d\n", (int)(adc_PF6 & 0xffff));
-	HAL_UART_Transmit(&huart1, text, 9, 500);
-*/
-	return result;
-}
 
 
 

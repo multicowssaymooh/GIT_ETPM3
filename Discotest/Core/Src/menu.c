@@ -36,6 +36,7 @@
 #define MENU_MARGIN				2		///< Margin around a menu entry
 /** Position of menu bar: 0 = top, (BSP_LCD_GetYSize()-MENU_HEIGHT) = bottom */
 #define MENU_Y					(BSP_LCD_GetYSize()-MENU_HEIGHT)
+#define ADC_DAC_RES				12
 
 
 /******************************************************************************
@@ -88,6 +89,8 @@ void MENU_draw(void)
 
 /** ***************************************************************************
  * @brief lets direction led blink.
+ * @param none
+ * @retval none
  *
  *****************************************************************************/
 void blink_direction(void)
@@ -100,6 +103,84 @@ void blink_direction(void)
 
 }
 
+
+/** ***************************************************************************
+ * @brief Displays peak peak value from PAD1-PAD3 for debbuging purposes
+ * @param PP1,PP2,PP3 Peak peak values to be displayed
+ * @retval none
+ * @bug First line for display must be outputed twice in order to work corectly
+ *
+ *****************************************************************************/
+void Display_peak_peak(uint16_t PP1, uint16_t PP2, uint16_t PP3)
+{
+	const uint32_t Y_OFFSET = 260;
+	const uint32_t X_SIZE = 240;
+	const uint32_t f = (1 << ADC_DAC_RES) / Y_OFFSET + 1;	// Scaling factor
+	//char text[14]={""};
+	uint32_t data;
+	uint32_t data_last;
+	/* Clear the display */
+	BSP_LCD_SetTextColor(LCD_COLOR_WHITE);
+	BSP_LCD_FillRect(0, 0, X_SIZE, Y_OFFSET+1);
+	/* Write first 2 samples as numbers */
+	//BSP_LCD_SetFont(&Font24);
+	BSP_LCD_SetFont(&Font20);
+	BSP_LCD_SetBackColor(LCD_COLOR_WHITE);
+	BSP_LCD_SetTextColor(LCD_COLOR_BLACK);
+
+	char text[16];
+	snprintf(text, 15, "              ", (int)(PP1 & 0xffff));
+	BSP_LCD_DisplayStringAt(0, 50, (uint8_t *)text, LEFT_MODE);
+	snprintf(text, 15, "PP Pad1 = %4d", (int)(PP1 & 0xffff));
+	BSP_LCD_DisplayStringAt(0, 50, (uint8_t *)text, LEFT_MODE);
+	snprintf(text, 15, "PP Pad2 = %4d", (int)(PP2 & 0xffff));
+	BSP_LCD_DisplayStringAt(0, 80, (uint8_t *)text, LEFT_MODE);
+	snprintf(text, 15, "PP Pad3 = %4d", (int)(PP3 & 0xffff));
+	BSP_LCD_DisplayStringAt(0, 110, (uint8_t *)text, LEFT_MODE);
+
+
+	/*
+	snprintf(text, 14, "1. PAD1= %4d", (int)(PP1 & 0xffff));
+	Delay_us(1);
+	BSP_LCD_DisplayStringAt(0, 80, (uint8_t *)text, LEFT_MODE);
+	Delay_us(1);
+	snprintf(text, 14, "2. PAD1= %4d", (int)(PP2 & 0xffff));
+	BSP_LCD_DisplayStringAt(0, 110, (uint8_t *)text, LEFT_MODE);*/
+
+	/*
+	// Draw the lower values of the buffer content as a curve
+	data = (ADC_samples[0] & 0xffff) / f;
+	BSP_LCD_SetTextColor(LCD_COLOR_GREEN);
+	for (uint32_t i = 1; i < ADC_NUMS; i++){
+		data_last = data;
+		data = (ADC_samples[i] & 0xffff) / f;
+		if (data > Y_OFFSET) { data = Y_OFFSET; }// Limit value, prevent crash
+		BSP_LCD_DrawLine(4*(i-1), Y_OFFSET-data_last, 4*i, Y_OFFSET-data);
+		BSP_LCD_DrawPixel(4*(i-1), Y_OFFSET-data_last, LCD_COLOR_RED);
+	}
+	BSP_LCD_DrawPixel(4*(ADC_NUMS-1), 260-data, LCD_COLOR_RED);
+	// Draw the upper values of the buffer content as a curve
+	data = (ADC_samples[0] >> 16) / f;
+	if (data > Y_OFFSET) { data = Y_OFFSET; }	// Limit value, prevent crash
+	BSP_LCD_SetTextColor(LCD_COLOR_YELLOW);
+	for (uint32_t i = 1; i < ADC_NUMS; i++){
+		data_last = data;
+		data = (ADC_samples[i] >> 16) / f;
+		if (data > Y_OFFSET) { data = Y_OFFSET; }// Limit value, prevent crash
+		BSP_LCD_DrawLine(4*(i-1), Y_OFFSET-data_last, 4*i, Y_OFFSET-data);
+		BSP_LCD_DrawPixel(4*(i-1), Y_OFFSET-data_last, LCD_COLOR_BLUE);
+	}
+	BSP_LCD_DrawPixel(4*(ADC_NUMS-1), 260-data, LCD_COLOR_BLUE);
+	// Clear buffer and flag
+	for (uint32_t i = 0; i < ADC_NUMS; i++){
+		ADC_samples[i] = 0;
+		ADC_samples[i] = 0;
+	}
+	ADC_sample_count = 0;
+	MEAS_data_ready = false;
+
+*/
+}
 
 
 

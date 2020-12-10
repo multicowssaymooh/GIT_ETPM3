@@ -47,7 +47,9 @@ void MENU_set_entry(const MENU_item_t item, const MENU_entry_t entry);
 MENU_entry_t MENU_get_entry(const MENU_item_t item);
 void MENU_check_transition(void);
 MENU_item_t MENU_get_transition(void);
+void blink_direction(void);
 
+void Display_peak_peak(uint16_t PP1, uint16_t PP2, uint16_t PP3);
 
 #endif
 

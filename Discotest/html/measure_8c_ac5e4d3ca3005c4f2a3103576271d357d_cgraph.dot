@@ -1,0 +1,12 @@
+digraph "Get_ADC1_Values"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="Get_ADC1_Values",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Reads value from ADC of PAD1."];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="gyro_disable",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$main_8h.html#a2ac9c311ff05671105348142908ecda3",tooltip="Disables gyro in order to measure on pin PC1."];
+  Node2 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="Delay_us",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$measure_8h.html#a19cbc2c54977f6422dc53734e11748fe",tooltip="This functions is used for delays in us. Example wait for ADC to stabilize."];
+}
