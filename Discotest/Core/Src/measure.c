@@ -23,9 +23,10 @@
 #include "stm32f429i_discovery_ts.h"
 
 #include "gpio.h"
+#include "adc.h"
 
-
-
+ADC_ChannelConfTypeDef sConfig = {0};
+GPIO_InitTypeDef GPIO_InitStruct = {0};
 
 
 
@@ -40,3 +41,198 @@ void Delay_us (uint32_t delay)
 	for(i;i<(delay);i++){}
 
 }
+
+
+
+/**
+ * @brief Reads value from ADC of PAD1
+ * @param none
+ * @retval result pointer to uint16_t array with 3x 12bit values from pads. result[0] = pad1, result[2] = pad2, result[3] = pad3
+ * @todo Überprüfen reihenfolge der AD Wandlungen. Pad1 in res0 etc.
+ *
+ */
+uint16_t *Get_ADC_Values_Pads(void)
+{
+	static uint16_t result[]={0,0,0};
+
+	GPIO_InitStruct.Pin = GPIO_PIN_1|GPIO_PIN_3;
+	GPIO_InitStruct.Mode = GPIO_MODE_ANALOG;
+	GPIO_InitStruct.Pull = GPIO_NOPULL;
+	HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
+
+	//ADC1
+	HAL_ADC_Start(&hadc1);
+	HAL_ADC_PollForConversion(&hadc1, 5);
+	result[0] = HAL_ADC_GetValue(&hadc1);  	//PC1
+	result[1] = HAL_ADC_GetValue(&hadc1);	//PA5
+	result[2] = HAL_ADC_GetValue(&hadc1);	//PC3
+
+	HAL_ADC_Stop(&hadc1);
+
+	gyro_disable();
+
+	return result;
+}
+
+
+/**
+ * @brief Reads value from ADC of PAD2
+ * @param none
+ * @retval result 12bit value from ADC
+ * @todo Überprüfen reihenfolge der AD Wandlungen. Coil1 in res0 etc.
+ */
+uint16_t *Get_ADC_Values_Coils(void)
+{
+	static uint16_t result[]={0,0};
+
+	gyro_disable();
+
+	sConfig.Channel = ADC_CHANNEL_6;
+	sConfig.Rank = 1;
+	sConfig.SamplingTime = ADC_SAMPLETIME_3CYCLES;
+	if (HAL_ADC_ConfigChannel(&hadc3, &sConfig) != HAL_OK)
+	{
+	  Error_Handler();
+	}
+	//PF8
+	HAL_ADC_Start(&hadc3);
+	HAL_ADC_PollForConversion(&hadc3, 10);
+	result[0] = HAL_ADC_GetValue(&hadc3);
+	HAL_ADC_Stop(&hadc3);
+
+
+	sConfig.Channel = ADC_CHANNEL_4;
+	sConfig.Rank = 1;
+	sConfig.SamplingTime = ADC_SAMPLETIME_3CYCLES;
+	if (HAL_ADC_ConfigChannel(&hadc3, &sConfig) != HAL_OK)
+	{
+	   Error_Handler();
+	}
+	//PF6
+	HAL_ADC_Start(&hadc3);
+	HAL_ADC_PollForConversion(&hadc3, 10);
+	result[1] = HAL_ADC_GetValue(&hadc3);
+	HAL_ADC_Stop(&hadc3);
+
+
+
+	return result;
+}
+
+/**
+ * @brief Reads value from ADC of PAD3
+ * @param none
+ * @retval result 12bit value from ADC
+ */
+uint16_t 	Get_ADC_Pad1(void)
+{
+	uint16_t result=0;
+
+
+	//ADC1
+	/*
+	snprintf(text, 10, "PC1=%4d\n", (int)(adc_PC1 & 0xffff));
+	HAL_UART_Transmit(&huart1, text, 9, 500);
+	snprintf(text, 10, "PA5=%4d\n", (int)(adc_PA5 & 0xffff));
+	HAL_UART_Transmit(&huart1, text, 9, 500);
+	snprintf(text, 10, "PC3=%4d\n", (int)(adc_PC3 & 0xffff));
+	HAL_UART_Transmit(&huart1, text, 9, 500);
+
+	//ADC3
+	snprintf(text, 10, "PF8=%4d\n", (int)(adc_PF8 & 0xffff));
+	HAL_UART_Transmit(&huart1, text, 9, 500);
+	snprintf(text, 10, "PF6=%4d\n", (int)(adc_PF6 & 0xffff));
+	HAL_UART_Transmit(&huart1, text, 9, 500);
+*/
+	return result;
+}
+
+
+
+
+
+
+
+// ------------------------------------- delete ---------------------------------------------//
+//
+// 	  	/*
+//	    GPIO_InitStruct.Pin = GPIO_PIN_1|GPIO_PIN_3;
+//	    GPIO_InitStruct.Mode = GPIO_MODE_ANALOG;
+//	    GPIO_InitStruct.Pull = GPIO_NOPULL;
+//	    HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
+//
+//
+//	    GPIO_InitStruct.Pin = GPIO_PIN_5;
+//	    GPIO_InitStruct.Mode = GPIO_MODE_ANALOG;
+//	    GPIO_InitStruct.Pull = GPIO_NOPULL;
+//	    HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+//		*/
+//
+//	    //Delay_us(10);
+//
+//	    //ADC1
+//	  	HAL_ADC_Start(&hadc1);
+//	  	HAL_ADC_PollForConversion(&hadc1, 50);
+//	  	adc_PC1 = HAL_ADC_GetValue(&hadc1);
+//	  	adc_PA5 = HAL_ADC_GetValue(&hadc1);
+//	  	adc_PC3 = HAL_ADC_GetValue(&hadc1);
+//
+//	  	HAL_ADC_Stop(&hadc1);
+//
+//	    gyro_disable();
+//
+//	    sConfig.Channel = ADC_CHANNEL_6;
+//	    sConfig.Rank = 1;
+//	    sConfig.SamplingTime = ADC_SAMPLETIME_3CYCLES;
+//	    if (HAL_ADC_ConfigChannel(&hadc3, &sConfig) != HAL_OK)
+//	    {
+//	      Error_Handler();
+//	    }
+//
+//	    HAL_ADC_Start(&hadc3);
+//	    HAL_ADC_PollForConversion(&hadc3, 10);
+//	    adc_PF8 = HAL_ADC_GetValue(&hadc3);
+//	    HAL_ADC_Stop(&hadc3);
+//
+//
+//	    sConfig.Channel = ADC_CHANNEL_4;
+//	    sConfig.Rank = 1;
+//	    sConfig.SamplingTime = ADC_SAMPLETIME_3CYCLES;
+//	    if (HAL_ADC_ConfigChannel(&hadc3, &sConfig) != HAL_OK)
+//	    {
+//	       Error_Handler();
+//	    }
+//
+//	    HAL_ADC_Start(&hadc3);
+//	    HAL_ADC_PollForConversion(&hadc3, 10);
+//	    adc_PF6 = HAL_ADC_GetValue(&hadc3);
+//	    HAL_ADC_Stop(&hadc3);
+//
+//	    HAL_GPIO_WritePin(LD4_GPIO_Port, LD4_Pin,0);
+//	    //while(1){}
+//
+//	    //testasldkfjasdlkfj
+//
+//	    /** Configure for the selected ADC regular channel its corresponding rank in the sequencer and its sample time.
+//	    */
+//
+//
+//	    //ADC1
+//
+//	    snprintf(text, 10, "PC1=%4d\n", (int)(adc_PC1 & 0xffff));
+//	    HAL_UART_Transmit(&huart1, text, 9, 500);
+//	    snprintf(text, 10, "PA5=%4d\n", (int)(adc_PA5 & 0xffff));
+//	    HAL_UART_Transmit(&huart1, text, 9, 500);
+//	    snprintf(text, 10, "PC3=%4d\n", (int)(adc_PC3 & 0xffff));
+//	    HAL_UART_Transmit(&huart1, text, 9, 500);
+//
+//	    //ADC3
+//	    snprintf(text, 10, "PF8=%4d\n", (int)(adc_PF8 & 0xffff));
+//	   	HAL_UART_Transmit(&huart1, text, 9, 500);
+//	   	snprintf(text, 10, "PF6=%4d\n", (int)(adc_PF6 & 0xffff));
+//	   	HAL_UART_Transmit(&huart1, text, 9, 500);
+//
+//
+
+
+

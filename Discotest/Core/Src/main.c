@@ -149,6 +149,11 @@ int main(void)
 
   char text[10];
 
+  //uint16_t adc_test[] = {0,0,0};
+  uint16_t *array_PAD;
+  uint16_t *array_Coil;
+  uint16_t outputbuffer = 0;
+
   while (1)
   {
     /* USER CODE END WHILE */
@@ -160,14 +165,73 @@ int main(void)
 
 	  	HAL_GPIO_WritePin(LD4_GPIO_Port, LD4_Pin,1);
 
+	  	while(1){
+	  	HAL_Delay(250);
+
+	  	HAL_GPIO_WritePin(LD4_GPIO_Port, LD4_Pin,1);
+	  	array_PAD = Get_ADC_Values_Pads();
+	  	array_Coil = Get_ADC_Values_Coils();
+	  	HAL_GPIO_WritePin(LD4_GPIO_Port, LD4_Pin,0);
+
+
+	  	snprintf(text, 10, "PF8=%4d\n", (uint16_t)(array_Coil[0] & 0xffff));
+	  	HAL_UART_Transmit(&huart1, text, 9, 500);
+	  	snprintf(text, 10, "PF6=%4d\n", (int)(array_Coil[1] & 0xffff));
+	  	HAL_UART_Transmit(&huart1, text, 9, 500);
+
+		snprintf(text, 10, "PC1=%4d\n", (uint16_t)(array_PAD[0] & 0xffff));
+		HAL_UART_Transmit(&huart1, text, 9, 500);
+		snprintf(text, 10, "PA5=%4d\n", (int)(array_PAD[1] & 0xffff));
+		HAL_UART_Transmit(&huart1, text, 9, 500);
+		snprintf(text, 10, "PC3=%4d\n", (int)(array_PAD[2] & 0xffff));
+		HAL_UART_Transmit(&huart1, text, 9, 500);
+
+
+
+ // Testen ob Reihenfolge egal
+	  	array_Coil = Get_ADC_Values_Coils();
+	  	snprintf(text, 10, "PF8=%4d\n", (uint16_t)(array_Coil[0] & 0xffff));
+	  	HAL_UART_Transmit(&huart1, text, 9, 500);
+	  	snprintf(text, 10, "PF6=%4d\n", (int)(array_Coil[1] & 0xffff));
+	  	HAL_UART_Transmit(&huart1, text, 9, 500);
+
+	  	array_PAD = Get_ADC_Values_Pads();
+	  	snprintf(text, 10, "PC1=%4d\n", (uint16_t)(array_PAD[0] & 0xffff));
+	  	HAL_UART_Transmit(&huart1, text, 9, 500);
+	  	snprintf(text, 10, "PA5=%4d\n", (int)(array_PAD[1] & 0xffff));
+	  	HAL_UART_Transmit(&huart1, text, 9, 500);
+	  	snprintf(text, 10, "PC3=%4d\n", (int)(array_PAD[2] & 0xffff));
+	  	HAL_UART_Transmit(&huart1, text, 9, 500);
+
+	  	}
+
+
+/*
+	  	snprintf(text, 10, "PC1=%4d\n", (uint16_t)(buffer[0] & 0xffff));
+		HAL_UART_Transmit(&huart1, text, 9, 500);
+		snprintf(text, 10, "PA5=%4d\n", (int)(buffer[1] & 0xffff));
+		HAL_UART_Transmit(&huart1, text, 9, 500);
+		snprintf(text, 10, "PC3=%4d\n", (int)(buffer[2] & 0xffff));
+		HAL_UART_Transmit(&huart1, text, 9, 500);*/
+
+	  	/*
 	    GPIO_InitStruct.Pin = GPIO_PIN_1|GPIO_PIN_3;
 	    GPIO_InitStruct.Mode = GPIO_MODE_ANALOG;
 	    GPIO_InitStruct.Pull = GPIO_NOPULL;
 	    HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
 
-	  //ADC1
+
+	    GPIO_InitStruct.Pin = GPIO_PIN_5;
+	    GPIO_InitStruct.Mode = GPIO_MODE_ANALOG;
+	    GPIO_InitStruct.Pull = GPIO_NOPULL;
+	    HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+		*/
+
+	    //Delay_us(10);
+
+	    //ADC1
 	  	HAL_ADC_Start(&hadc1);
-	  	HAL_ADC_PollForConversion(&hadc1, 5);
+	  	HAL_ADC_PollForConversion(&hadc1, 50);
 	  	adc_PC1 = HAL_ADC_GetValue(&hadc1);
 	  	adc_PA5 = HAL_ADC_GetValue(&hadc1);
 	  	adc_PC3 = HAL_ADC_GetValue(&hadc1);
@@ -204,7 +268,7 @@ int main(void)
 	    HAL_ADC_Stop(&hadc3);
 
 	    HAL_GPIO_WritePin(LD4_GPIO_Port, LD4_Pin,0);
-	    while(1){}
+	    //while(1){}
 
 	    //testasldkfjasdlkfj
 
@@ -372,7 +436,7 @@ void Error_Handler(void)
 {
   /* USER CODE BEGIN Error_Handler_Debug */
   /* User can add his own implementation to report the HAL error return state */
-
+	//while(1){}
   /* USER CODE END Error_Handler_Debug */
 }
 
