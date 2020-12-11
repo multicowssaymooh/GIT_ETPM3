@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.20"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>demo_code: Globals</title>
+<title>Cable Monitor: Globals</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectlogo"><img alt="Logo" src="zhaw.jpg"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">demo_code
+   <div id="projectname">Cable Monitor
    </div>
    <div id="projectbrief">ZHAW ET.PM3</div>
   </td>
@@ -128,7 +128,8 @@ $(function() {
 
 <h3><a id="index_b"></a>- b -</h3><ul>
 <li>blink_direction()
-: <a class="el" href="menu_8c.html#a90f5784cf7908e1b4f9d1dd9a4f0a1c5">menu.c</a>
+: <a class="el" href="menu_8h.html#a90f5784cf7908e1b4f9d1dd9a4f0a1c5">menu.h</a>
+, <a class="el" href="menu_8c.html#a90f5784cf7908e1b4f9d1dd9a4f0a1c5">menu.c</a>
 </li>
 </ul>
 
@@ -137,6 +138,10 @@ $(function() {
 <li>Delay_us()
 : <a class="el" href="measure_8h.html#a19cbc2c54977f6422dc53734e11748fe">measure.h</a>
 , <a class="el" href="measure_8c.html#a19cbc2c54977f6422dc53734e11748fe">measure.c</a>
+</li>
+<li>Display_peak_peak()
+: <a class="el" href="menu_8h.html#ad3766cfb76249af1b7ff3d70b532f00c">menu.h</a>
+, <a class="el" href="menu_8c.html#ad3766cfb76249af1b7ff3d70b532f00c">menu.c</a>
 </li>
 </ul>
 
@@ -152,18 +157,30 @@ $(function() {
 </ul>
 
 
+<h3><a id="index_f"></a>- f -</h3><ul>
+<li>Find_Peakpeak()
+: <a class="el" href="calculations_8h.html#a4fb47fc0d7f70084c6a70ee3182df9d2">calculations.h</a>
+, <a class="el" href="calculations_8c.html#a4fb47fc0d7f70084c6a70ee3182df9d2">calculations.c</a>
+</li>
+</ul>
+
+
 <h3><a id="index_g"></a>- g -</h3><ul>
 <li>Get_ADC1_Values()
 : <a class="el" href="measure_8h.html#ac5e4d3ca3005c4f2a3103576271d357d">measure.h</a>
 , <a class="el" href="measure_8c.html#ac5e4d3ca3005c4f2a3103576271d357d">measure.c</a>
 </li>
 <li>Get_ADC3_Values()
-: <a class="el" href="measure_8h.html#a512f60472a91474ff08abcf7389cd275">measure.h</a>
-, <a class="el" href="measure_8c.html#a512f60472a91474ff08abcf7389cd275">measure.c</a>
+: <a class="el" href="measure_8c.html#a512f60472a91474ff08abcf7389cd275">measure.c</a>
+, <a class="el" href="measure_8h.html#a512f60472a91474ff08abcf7389cd275">measure.h</a>
+</li>
+<li>Get_Direction()
+: <a class="el" href="calculations_8h.html#a5a34c4f5a0b081b44d7fe52ea5735364">calculations.h</a>
+, <a class="el" href="calculations_8c.html#a5a34c4f5a0b081b44d7fe52ea5735364">calculations.c</a>
 </li>
 <li>gyro_disable()
-: <a class="el" href="main_8h.html#a2ac9c311ff05671105348142908ecda3">main.h</a>
-, <a class="el" href="main_8c.html#a2ac9c311ff05671105348142908ecda3">main.c</a>
+: <a class="el" href="main_8c.html#a2ac9c311ff05671105348142908ecda3">main.c</a>
+, <a class="el" href="main_8h.html#a2ac9c311ff05671105348142908ecda3">main.h</a>
 </li>
 </ul>
 
@@ -210,8 +227,8 @@ $(function() {
 , <a class="el" href="fmc_8c.html#a6a8323429d43c392011579aef9bb795f">fmc.c</a>
 </li>
 <li>HAL_SDRAM_MspInit()
-: <a class="el" href="fmc_8h.html#a8dc600b9ef6e5b3b1455840b86c25792">fmc.h</a>
-, <a class="el" href="fmc_8c.html#a6942dfa28d0fba63e5c010df1fa7d676">fmc.c</a>
+: <a class="el" href="fmc_8c.html#a6942dfa28d0fba63e5c010df1fa7d676">fmc.c</a>
+, <a class="el" href="fmc_8h.html#a8dc600b9ef6e5b3b1455840b86c25792">fmc.h</a>
 </li>
 <li>HAL_SPI_MspDeInit()
 : <a class="el" href="spi_8c.html#af9af6cae4cb9386b709196d3a3ab4f78">spi.c</a>
@@ -293,24 +310,24 @@ $(function() {
 , <a class="el" href="fmc_8c.html#a936ce86e5942959eae5a834612ecffaa">fmc.c</a>
 </li>
 <li>MX_GPIO_Init()
-: <a class="el" href="gpio_8h.html#ac724e431d2af879252de35615be2bdea">gpio.h</a>
-, <a class="el" href="gpio_8c.html#ac724e431d2af879252de35615be2bdea">gpio.c</a>
+: <a class="el" href="gpio_8c.html#ac724e431d2af879252de35615be2bdea">gpio.c</a>
+, <a class="el" href="gpio_8h.html#ac724e431d2af879252de35615be2bdea">gpio.h</a>
 </li>
 <li>MX_I2C3_Init()
-: <a class="el" href="i2c_8h.html#ad154e0c7086cb7e507cc717184567ff5">i2c.h</a>
-, <a class="el" href="i2c_8c.html#ad154e0c7086cb7e507cc717184567ff5">i2c.c</a>
+: <a class="el" href="i2c_8c.html#ad154e0c7086cb7e507cc717184567ff5">i2c.c</a>
+, <a class="el" href="i2c_8h.html#ad154e0c7086cb7e507cc717184567ff5">i2c.h</a>
 </li>
 <li>MX_LTDC_Init()
-: <a class="el" href="ltdc_8h.html#ab0560fa50fd4d75d51386ed50d4410fb">ltdc.h</a>
-, <a class="el" href="ltdc_8c.html#ab0560fa50fd4d75d51386ed50d4410fb">ltdc.c</a>
+: <a class="el" href="ltdc_8c.html#ab0560fa50fd4d75d51386ed50d4410fb">ltdc.c</a>
+, <a class="el" href="ltdc_8h.html#ab0560fa50fd4d75d51386ed50d4410fb">ltdc.h</a>
 </li>
 <li>MX_SPI3_Init()
 : <a class="el" href="spi_8h.html#a03aff927b2793cac09e443299c6d6e7e">spi.h</a>
 , <a class="el" href="spi_8c.html#a03aff927b2793cac09e443299c6d6e7e">spi.c</a>
 </li>
 <li>MX_TIM1_Init()
-: <a class="el" href="tim_8h.html#ad1f9d42690163f73f73e5b820c81ca14">tim.h</a>
-, <a class="el" href="tim_8c.html#ad1f9d42690163f73f73e5b820c81ca14">tim.c</a>
+: <a class="el" href="tim_8c.html#ad1f9d42690163f73f73e5b820c81ca14">tim.c</a>
+, <a class="el" href="tim_8h.html#ad1f9d42690163f73f73e5b820c81ca14">tim.h</a>
 </li>
 <li>MX_USART1_UART_Init()
 : <a class="el" href="usart_8h.html#a57d1167735baafab8e3288526c424929">usart.h</a>
@@ -331,9 +348,9 @@ $(function() {
 
 
 <h3><a id="index_u"></a>- u -</h3><ul>
-<li>UART_Transmit()
-: <a class="el" href="calculations_8h.html#a9e1617ffc4eaacd8117bddb6e71de559">calculations.h</a>
-, <a class="el" href="calculations_8c.html#a9e1617ffc4eaacd8117bddb6e71de559">calculations.c</a>
+<li>UART_Transmit_Pad()
+: <a class="el" href="calculations_8h.html#a6069994576c2662a26ebda910ef5a1a0">calculations.h</a>
+, <a class="el" href="calculations_8c.html#a6069994576c2662a26ebda910ef5a1a0">calculations.c</a>
 </li>
 </ul>
 </div><!-- contents -->

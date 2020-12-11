@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.20"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>demo_code: Testing Firmware</title>
+<title>Cable Monitor: Testing Firmware</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectlogo"><img alt="Logo" src="zhaw.jpg"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">demo_code
+   <div id="projectname">Cable Monitor
    </div>
    <div id="projectbrief">ZHAW ET.PM3</div>
   </td>
@@ -67,30 +67,90 @@ $(function() {
 <div class="title">Testing Firmware </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p>Testing is a vast field and there are lots of different approaches. In the context of the Cable-Monitor, however, testing the different modules is straightforward. A final combined test shows if the modules work together as expected.</p>
-<p>Even if only simple and quite obvious tests have been done, it is nonetheless important to document them.</p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000007">Todo:</a></b></dt><dd>Define, run, document and evaluate all the important tests.</dd></dl>
+<div class="textblock"><p>This testing was done with the final version of the software. Older versions of the software and their testprotocols are not provided.</p>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000005">Todo:</a></b></dt><dd>Define, run, document and evaluate all the important tests.</dd></dl>
 <h1>Test</h1>
 <table class="doxtable">
 <tr>
 <th>Module</th><th>Test Conditions</th><th>Expected</th><th>Observed</th><th>Pass/Fail</th><th>Remarks  </th></tr>
 <tr>
-<td>Menu system</td><td>Touch menu item "Single"</td><td>Switch to state "Single"</td><td>Switches to "Single"</td><td>Pass</td><td>Sluggish reaction =&gt; improve response speed  </td></tr>
+<td><em>Module</em></td><td><em>condition</em></td><td><em>expected</em></td><td><em>observed</em></td><td><em>Pass</em></td><td><em>Remarks</em>  </td></tr>
 <tr>
-<td>ADC with DMA</td><td>fs = 300Hz, N = 24<br  />
-f = 50Hz, V = 1Vdc+1Vpp</td><td>Array filled with 24 samples = 3 signal periods<br  />
-Minimum = 620, Maximum = 1,861</td><td>3 signal periods<br  />
-Minimum = 610, Maximum = 1.835</td><td>Pass</td><td>Reference voltage of ADC is 3.35V, not 3.30V  </td></tr>
+<td>Menu system</td><td>Touch menu item "Single"</td><td>Switch to state "Single"</td><td><em>observed</em></td><td><em>Pass</em></td><td><em>remarks</em>  </td></tr>
 <tr>
-<td>Display data</td><td>Array with random values in the range 0 to 4095</td><td>Line plot</td><td>Plot works, but uC crashes when data &gt; 127</td><td>Fail</td><td>Wrong datatype or typecast?<br  />
-Display limits?  </td></tr>
+<td>Single measurement</td><td>Board 25cm away from single phase cable</td><td>No cable detected</td><td><em>observed</em></td><td><em>Pass</em></td><td><em>Remarks</em>  </td></tr>
+<tr>
+<td>Single measurement</td><td>Board 20cm away from single phase cable</td><td>Cable detected<br  />
+ Middle led on</td><td><em>observed</em></td><td><em>Pass</em></td><td><em>Remarks</em>  </td></tr>
+<tr>
+<td>Single measurement</td><td>Board 10cm away from single phase cable</td><td>Display distance 10cm ±30% <br  />
+ Middle led on</td><td><em>observed</em></td><td><em>Pass</em></td><td><em>Remarks</em>  </td></tr>
+<tr>
+<td>Single measurement</td><td>Board 5cm away from single phase cable</td><td>Display distance 5cm ±30% <br  />
+ Middle led on</td><td><em>observed</em></td><td><em>Pass</em></td><td><em>Remarks</em>  </td></tr>
+<tr>
+<td>Single measurement</td><td>Board 0.5cm away from single phase cable</td><td>Display distance 0.5cm ±30%<br  />
+ Middle led on</td><td><em>observed</em></td><td><em>Pass</em></td><td><em>Remarks</em>  </td></tr>
+<tr>
+<td>Single measurement</td><td>Board 5cm away from single phase cable <br  />
+ 45° angle to cable (left)</td><td>Display distance 5cm ±30%<br  />
+ Middle-left led on</td><td><em>observed</em></td><td><em>Pass</em></td><td><em>Remarks</em>  </td></tr>
+<tr>
+<td>Single measurement</td><td>Board 5cm away from single phase cable <br  />
+ 90° angle to cable (left)</td><td>Display distance 0.5cm ±30%<br  />
+ Left led on</td><td><em>observed</em></td><td><em>Pass</em></td><td><em>Remarks</em>  </td></tr>
+<tr>
+<td>Menu system</td><td>Touch menu item "Continuous"</td><td>Switch to state "Continuous"</td><td><em>observed</em></td><td><em>Pass</em></td><td><em>remarks</em>  </td></tr>
+<tr>
+<td>Continuous measurement</td><td>Board 25cm away from single phase cable</td><td>No cable detected</td><td><em>observed</em></td><td><em>Pass</em></td><td><em>Remarks</em>  </td></tr>
+<tr>
+<td>Continuous measurement</td><td>Board 20cm away from single phase cable</td><td>Cable detected<br  />
+ Middle led on</td><td><em>observed</em></td><td><em>Pass</em></td><td><em>Remarks</em>  </td></tr>
+<tr>
+<td>Continuous measurement</td><td>Board 10cm away from single phase cable</td><td>Display distance 10cm ±30% <br  />
+ Middle led on</td><td><em>observed</em></td><td><em>Pass</em></td><td><em>Remarks</em>  </td></tr>
+<tr>
+<td>Continuous measurement</td><td>Board 5cm away from single phase cable</td><td>Display distance 5cm ±30% <br  />
+ Middle led on</td><td><em>observed</em></td><td><em>Pass</em></td><td><em>Remarks</em>  </td></tr>
+<tr>
+<td>Continuous measurement</td><td>Board 0.5cm away from single phase cable</td><td>Display distance 0.5cm ±30%<br  />
+ Middle led on</td><td><em>observed</em></td><td><em>Pass</em></td><td><em>Remarks</em>  </td></tr>
+<tr>
+<td>Continuous measurement</td><td>Board 5cm away from single phase cable <br  />
+ 45° angle to cable (left)</td><td>Display distance 5cm ±30%<br  />
+ Middle-left led on</td><td><em>observed</em></td><td><em>Pass</em></td><td><em>Remarks</em>  </td></tr>
+<tr>
+<td>Continuous measurement</td><td>Board 5cm away from single phase cable <br  />
+ 90° angle to cable (left)</td><td>Display distance 0.5cm ±30%<br  />
+ Left led on</td><td><em>observed</em></td><td><em>Pass</em></td><td><em>Remarks</em>  </td></tr>
+<tr>
+<td>Menu system</td><td>Touch menu item "Current mains"</td><td>Switch to state "Current mains"</td><td><em>observed</em></td><td><em>Pass</em></td><td><em>remarks</em>  </td></tr>
+<tr>
+<td>Current mains measurement</td><td>Board 1cm away from single phase cable <br  />
+Let 5A flow through cable</td><td>Display current 5A ±50%</td><td><em>observed</em></td><td><em>Pass</em></td><td><em>Remarks</em>  </td></tr>
+<tr>
+<td>Current mains measurement</td><td>Board 1cm away from single phase cable <br  />
+Let 1.2A flow through cable</td><td>Display current 1.2A ±50%</td><td><em>observed</em></td><td><em>Pass</em></td><td><em>Remarks</em>  </td></tr>
+<tr>
+<td>Menu system</td><td>Touch menu item "Current mains, PE, N"</td><td>Switch to state "Current mains, PE, N"</td><td><em>observed</em></td><td><em>Pass</em></td><td><em>remarks</em>  </td></tr>
+<tr>
+<td>Current mains, PE, N measurement</td><td>Board 0.5cm away from single phase cable <br  />
+Let 5A flow through cable</td><td>Display current 5A ±50%</td><td><em>observed</em></td><td><em>Pass</em></td><td><em>Remarks</em>  </td></tr>
+<tr>
+<td>Current mains, PE, N measurement</td><td>Board 0.5cm away from a cable with neutral and protection earth<br  />
+Let 1.2A flow through cable</td><td>Display current 1.2A ±50%</td><td><em>observed</em></td><td><em>Pass</em></td><td><em>Remarks</em>  </td></tr>
+<tr>
+<td>Menu system</td><td>Touch menu item "LED"</td><td>LEDs blink and turn off <br  />
+Moving around the cable does not turn on the LEDs </td><td><em>observed</em></td><td><em>Pass</em></td><td><em>remarks</em>  </td></tr>
+<tr>
+<td>Menu system</td><td>Touch menu item "PWR"</td><td>Turn off the device</td><td><em>observed</em></td><td><em>Pass</em></td><td><em>remarks</em>  </td></tr>
 </table>
 <p><br  />
  Test date: 07.05.2020 <br  />
  Tester: Hanspeter Hochreutener (<a href="#" onclick="location.href='mai'+'lto:'+'hhr'+'t@'+'zha'+'w.'+'ch'; return false;">hhrt@<span style="display: none;">.nosp@m.</span>zhaw<span style="display: none;">.nosp@m.</span>.ch</a>)</p>
 <hr  />
- <dl class="section author"><dt>Author</dt><dd>Hanspeter Hochreutener (<a href="#" onclick="location.href='mai'+'lto:'+'hhr'+'t@'+'zha'+'w.'+'ch'; return false;">hhrt@<span style="display: none;">.nosp@m.</span>zhaw<span style="display: none;">.nosp@m.</span>.ch</a>) </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>07.05.2020 </dd></dl>
+ <dl class="section author"><dt>Author</dt><dd>Jonathan Landolt (<a href="#" onclick="location.href='mai'+'lto:'+'lan'+'do'+'jon'+'@s'+'tud'+'en'+'ts.'+'zh'+'aw.'+'ch'; return false;">lando<span style="display: none;">.nosp@m.</span>jon@<span style="display: none;">.nosp@m.</span>stude<span style="display: none;">.nosp@m.</span>nts.<span style="display: none;">.nosp@m.</span>zhaw.<span style="display: none;">.nosp@m.</span>ch</a>) </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>11.12.2020 </dd></dl>
 </div></div><!-- contents -->
 </div><!-- PageDoc -->
 <!-- start footer part -->

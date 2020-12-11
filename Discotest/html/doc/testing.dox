@@ -1,13 +1,7 @@
 /**
 @page testing Testing Firmware
 
-Testing is a vast field and there are lots of different approaches.
-In the context of the Cable-Monitor, however,
-testing the different modules is straightforward.
-A final combined test shows if the modules work together as expected.
-
-Even if only simple and quite obvious tests have been done,
-it is nonetheless important to document them.
+This testing was done with the final version of the software. Older versions of the software and their testprotocols are not provided.
 
 @todo Define, run, document and evaluate all the important tests.
 
@@ -17,19 +11,85 @@ it is nonetheless important to document them.
 	<th>Module</th><th>Test Conditions</th><th>Expected</th><th>Observed</th><th>Pass/Fail</th><th>Remarks</th>
 </tr>
 <tr>
-	<td>Menu system</td><td>Touch menu item "Single"</td><td>Switch to state "Single"</td><td>Switches to "Single"</td><td>Pass</th><td>Sluggish reaction => improve response speed</td>
+	<td>*Module*</td><td>*condition*</td><td>*expected*</td><td>*observed*</td><td>*Pass*</th><td>*Remarks*</td>
 </tr>
 <tr>
-	<td>ADC with DMA</td><td>fs = 300Hz, N = 24<br>f = 50Hz, V = 1Vdc+1Vpp</td><td>Array filled with 24 samples = 3 signal periods<br>Minimum = 620, Maximum = 1,861</td><td>3 signal periods<br>Minimum = 610, Maximum = 1.835</td><td>Pass</th><td>Reference voltage of ADC is 3.35V, not 3.30V</td>
+	<td>Menu system</td><td>Touch menu item "Single"</td><td>Switch to state "Single"</td><td>*observed*</td><td>*Pass*</th><td>*remarks*</td>
 </tr>
 <tr>
-	<td>Display data</td><td>Array with random values in the range 0 to 4095</td><td>Line plot</td><td>Plot works, but uC crashes when data > 127</td><td>Fail</th><td>Wrong datatype or typecast?<br>Display limits?</td>
+	<td>Single measurement</td><td>Board 25cm away from single phase cable</td><td> No cable detected</td><td>*observed*</td><td>*Pass*</th><td>*Remarks*</td>
+</tr>
+<tr>
+	<td>Single measurement</td><td>Board 20cm away from single phase cable</td><td> Cable detected<br> Middle led on</br></td><td>*observed*</td><td>*Pass*</th><td>*Remarks*</td>
+</tr>
+<tr>
+	<td>Single measurement</td><td>Board 10cm away from single phase cable</td><td> Display distance 10cm ±30% <br> Middle led on</br></td><td>*observed*</td><td>*Pass*</th><td>*Remarks*</td>
+</tr>
+<tr>
+	<td>Single measurement</td><td>Board 5cm away from single phase cable</td><td> Display distance 5cm ±30% <br> Middle led on</br></td><td>*observed*</td><td>*Pass*</th><td>*Remarks*</td>
+</tr>
+<tr>
+	<td>Single measurement</td><td>Board 0.5cm away from single phase cable</td><td> Display distance 0.5cm ±30%<br> Middle led on</br></td><td>*observed*</td><td>*Pass*</th><td>*Remarks*</td>
+</tr>
+<tr>
+	<td>Single measurement</td><td>Board 5cm away from single phase cable <br> 45° angle to cable (left)</br></td><td> Display distance 5cm ±30%<br> Middle-left led on</br></td><td>*observed*</td><td>*Pass*</th><td>*Remarks*</td>
+</tr>
+<tr>
+	<td>Single measurement</td><td>Board 5cm away from single phase cable <br> 90° angle to cable (left)</br></td><td> Display distance 0.5cm ±30%<br> Left led on</br></td><td>*observed*</td><td>*Pass*</th><td>*Remarks*</td>
+</tr>
+<tr>
+	<td>Menu system</td><td>Touch menu item "Continuous"</td><td>Switch to state "Continuous"</td><td>*observed*</td><td>*Pass*</th><td>*remarks*</td>
+</tr>
+<tr>
+	<td>Continuous measurement</td><td>Board 25cm away from single phase cable</td><td> No cable detected</td><td>*observed*</td><td>*Pass*</th><td>*Remarks*</td>
+</tr>
+<tr>
+	<td>Continuous measurement</td><td>Board 20cm away from single phase cable</td><td> Cable detected<br> Middle led on</br></td><td>*observed*</td><td>*Pass*</th><td>*Remarks*</td>
+</tr>
+<tr>
+	<td>Continuous measurement</td><td>Board 10cm away from single phase cable</td><td> Display distance 10cm ±30% <br> Middle led on</br></td><td>*observed*</td><td>*Pass*</th><td>*Remarks*</td>
+</tr>
+<tr>
+	<td>Continuous measurement</td><td>Board 5cm away from single phase cable</td><td> Display distance 5cm ±30% <br> Middle led on</br></td><td>*observed*</td><td>*Pass*</th><td>*Remarks*</td>
+</tr>
+<tr>
+	<td>Continuous measurement</td><td>Board 0.5cm away from single phase cable</td><td> Display distance 0.5cm ±30%<br> Middle led on</br></td><td>*observed*</td><td>*Pass*</th><td>*Remarks*</td>
+</tr>
+<tr>
+	<td>Continuous measurement</td><td>Board 5cm away from single phase cable <br> 45° angle to cable (left)</br></td><td> Display distance 5cm ±30%<br> Middle-left led on</br></td><td>*observed*</td><td>*Pass*</th><td>*Remarks*</td>
+</tr>
+<tr>
+	<td>Continuous measurement</td><td>Board 5cm away from single phase cable <br> 90° angle to cable (left)</br></td><td> Display distance 0.5cm ±30%<br> Left led on</br></td><td>*observed*</td><td>*Pass*</th><td>*Remarks*</td>
+</tr>
+<tr>
+	<td>Menu system</td><td>Touch menu item "Current mains"</td><td>Switch to state "Current mains"</td><td>*observed*</td><td>*Pass*</th><td>*remarks*</td>
+</tr>
+<tr>
+	<td>Current mains measurement</td><td>Board 1cm away from single phase cable <br>Let 5A flow through cable</br></td><td> Display current 5A ±50%</td><td>*observed*</td><td>*Pass*</th><td>*Remarks*</td>
+</tr>
+<tr>
+	<td>Current mains measurement</td><td>Board 1cm away from single phase cable <br>Let 1.2A flow through cable</br></td><td> Display current 1.2A ±50%</td><td>*observed*</td><td>*Pass*</th><td>*Remarks*</td>
+</tr>
+<tr>
+	<td>Menu system</td><td>Touch menu item "Current mains, PE, N"</td><td>Switch to state "Current mains, PE, N"</td><td>*observed*</td><td>*Pass*</th><td>*remarks*</td>
+</tr>
+<tr>
+	<td>Current mains, PE, N measurement</td><td>Board 0.5cm away from single phase cable <br>Let 5A flow through cable</br></td><td> Display current 5A ±50%</td><td>*observed*</td><td>*Pass*</th><td>*Remarks*</td>
+</tr>
+<tr>
+	<td>Current mains, PE, N measurement</td><td>Board 0.5cm away from a cable with neutral and protection earth<br>Let 1.2A flow through cable</br></td><td> Display current 1.2A ±50%</td><td>*observed*</td><td>*Pass*</th><td>*Remarks*</td>
+</tr>
+<tr>
+	<td>Menu system</td><td>Touch menu item "LED"</td><td>LEDs blink and turn off <br>Moving around the cable does not turn on the LEDs </br></td><td>*observed*</td><td>*Pass*</th><td>*remarks*</td>
+</tr>
+<tr>
+	<td>Menu system</td><td>Touch menu item "PWR"</td><td>Turn off the device</td><td>*observed*</td><td>*Pass*</th><td>*remarks*</td>
 </tr>
 </table>
 @n Test date: 07.05.2020
 @n Tester: Hanspeter Hochreutener (hhrt@zhaw.ch)
 
 ---
-@author	Hanspeter Hochreutener (hhrt@zhaw.ch)
-@date 07.05.2020
+@author	Jonathan Landolt (landojon@students.zhaw.ch)
+@date 11.12.2020
 */

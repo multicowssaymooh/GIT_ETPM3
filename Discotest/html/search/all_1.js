@@ -27,5 +27,6 @@ var searchData=
   ['acp_5frst_5fgpio_5fport_44',['ACP_RST_GPIO_Port',['../main_8h.html#aa38aea080ac430550f16baa5e0ea836b',1,'main.h']]],
   ['acp_5frst_5fpin_45',['ACP_RST_Pin',['../main_8h.html#ae20b0532bcf577192510614d6779fe91',1,'main.h']]],
   ['adc_2ec_46',['adc.c',['../adc_8c.html',1,'']]],
-  ['adc_2eh_47',['adc.h',['../adc_8h.html',1,'']]]
+  ['adc_2eh_47',['adc.h',['../adc_8h.html',1,'']]],
+  ['adc_5fdac_5fres_48',['ADC_DAC_RES',['../menu_8c.html#a1a99cc3586f8ed1522076e58e22ca0f7',1,'menu.c']]]
 ];

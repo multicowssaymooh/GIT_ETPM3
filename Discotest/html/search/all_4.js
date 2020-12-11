@@ -33,11 +33,11 @@ var searchData=
   ['d9_5fgpio_5fport_109',['D9_GPIO_Port',['../main_8h.html#a7ce12798a7b175c0034d5c5a2265fa13',1,'main.h']]],
   ['d9_5fpin_110',['D9_Pin',['../main_8h.html#abcad8dcb42b7cab5a805aadeec1c9ca8',1,'main.h']]],
   ['delay_5fus_111',['Delay_us',['../measure_8h.html#a19cbc2c54977f6422dc53734e11748fe',1,'Delay_us(uint32_t delay):&#160;measure.c'],['../measure_8c.html#a19cbc2c54977f6422dc53734e11748fe',1,'Delay_us(uint32_t delay):&#160;measure.c']]],
-  ['dma2d_2ec_112',['dma2d.c',['../dma2d_8c.html',1,'']]],
-  ['dma2d_2eh_113',['dma2d.h',['../dma2d_8h.html',1,'']]],
-  ['documenting_20firmware_114',['Documenting Firmware',['../documenting.html',1,'']]],
-  ['documenting_2edox_115',['documenting.dox',['../documenting_8dox.html',1,'']]],
-  ['dotclk_5fgpio_5fport_116',['DOTCLK_GPIO_Port',['../main_8h.html#a781cad7d47124b0e589c23e739d94e80',1,'main.h']]],
-  ['dotclk_5fpin_117',['DOTCLK_Pin',['../main_8h.html#a324fccef14976db2b67056bab16f68cf',1,'main.h']]],
-  ['demo_2dcode_118',['Demo-Code',['../index.html',1,'']]]
+  ['display_5fpeak_5fpeak_112',['Display_peak_peak',['../menu_8h.html#ad3766cfb76249af1b7ff3d70b532f00c',1,'Display_peak_peak(uint16_t PP1, uint16_t PP2, uint16_t PP3):&#160;menu.c'],['../menu_8c.html#ad3766cfb76249af1b7ff3d70b532f00c',1,'Display_peak_peak(uint16_t PP1, uint16_t PP2, uint16_t PP3):&#160;menu.c']]],
+  ['dma2d_2ec_113',['dma2d.c',['../dma2d_8c.html',1,'']]],
+  ['dma2d_2eh_114',['dma2d.h',['../dma2d_8h.html',1,'']]],
+  ['documentation_115',['Documentation',['../documentation.html',1,'']]],
+  ['documentation_2edox_116',['documentation.dox',['../documentation_8dox.html',1,'']]],
+  ['dotclk_5fgpio_5fport_117',['DOTCLK_GPIO_Port',['../main_8h.html#a781cad7d47124b0e589c23e739d94e80',1,'main.h']]],
+  ['dotclk_5fpin_118',['DOTCLK_Pin',['../main_8h.html#a324fccef14976db2b67056bab16f68cf',1,'main.h']]]
 ];
