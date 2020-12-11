@@ -44,7 +44,7 @@
  *****************************************************************************/
 static MENU_item_t MENU_transition = MENU_NONE;	///< Transition to this menu
 static MENU_entry_t MENU_entry[MENU_ENTRY_COUNT] = {
-		{"Sin-",	"gle",		LCD_COLOR_BLACK,	LCD_COLOR_LIGHTBLUE},
+		{"Single",	"",		LCD_COLOR_BLACK,	LCD_COLOR_LIGHTBLUE},
 		{"Conti-",	"nuous",	LCD_COLOR_BLACK,	LCD_COLOR_LIGHTGREEN},
 		{"LED",	    "",			LCD_COLOR_BLACK,	LCD_COLOR_LIGHTRED},
 		{"PWR",	    "",			LCD_COLOR_BLACK,	LCD_COLOR_LIGHTCYAN},
