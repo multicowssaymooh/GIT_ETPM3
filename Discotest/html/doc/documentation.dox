@@ -1,0 +1,20 @@
+/**
+@page documentation Documentation
+
+===
+
+
+<b> Hardware </b>
+@n
+For the Sensor Board, a hardware report was done. This file can be found here:
+ <a href="Hardware_Report_bergedo1_landojon.pdf" target="_blank"><b>Hardware Report</b></a>
+@n
+@n
+<b> Software</b>
+@n
+The software is documented in this file using doxygen.
+
+---
+@author	Jonathan Landolt (landojon@students.zhaw.ch)
+@date 11.12.2020
+*/
