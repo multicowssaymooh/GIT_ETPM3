@@ -66,7 +66,8 @@ void Single_Measurement_Pads(void)
 		  Delay_us(1600);
 	  }
 
-	  UART_Transmit_Pad(Result_PAD1, Result_PAD2, Result_PAD3);
+	  //UART_Transmit_Pad(Result_PAD1, Result_PAD2, Result_PAD3);
+
 	  //blink_direction();
 	  //HAL_Delay(1000);
 	  //blink_direction();

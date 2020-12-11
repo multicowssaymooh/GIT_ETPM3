@@ -44,7 +44,7 @@
  *****************************************************************************/
 static MENU_item_t MENU_transition = MENU_NONE;	///< Transition to this menu
 static MENU_entry_t MENU_entry[MENU_ENTRY_COUNT] = {
-		{"Single",	"",		LCD_COLOR_BLACK,	LCD_COLOR_LIGHTBLUE},
+		{"Single",	"",			LCD_COLOR_BLACK,	LCD_COLOR_LIGHTBLUE},
 		{"Conti-",	"nuous",	LCD_COLOR_BLACK,	LCD_COLOR_LIGHTGREEN},
 		{"LED",	    "",			LCD_COLOR_BLACK,	LCD_COLOR_LIGHTRED},
 		{"PWR",	    "",			LCD_COLOR_BLACK,	LCD_COLOR_LIGHTCYAN},
@@ -113,16 +113,17 @@ void blink_direction(void)
  *****************************************************************************/
 void Display_peak_peak(uint16_t PP1, uint16_t PP2, uint16_t PP3)
 {
+
 	const uint32_t Y_OFFSET = 260;
 	const uint32_t X_SIZE = 240;
 	const uint32_t f = (1 << ADC_DAC_RES) / Y_OFFSET + 1;	// Scaling factor
 	//char text[14]={""};
 	uint32_t data;
 	uint32_t data_last;
-	/* Clear the display */
+	// Clear the display
 	BSP_LCD_SetTextColor(LCD_COLOR_WHITE);
 	BSP_LCD_FillRect(0, 0, X_SIZE, Y_OFFSET+1);
-	/* Write first 2 samples as numbers */
+
 	//BSP_LCD_SetFont(&Font24);
 	BSP_LCD_SetFont(&Font20);
 	BSP_LCD_SetBackColor(LCD_COLOR_WHITE);
