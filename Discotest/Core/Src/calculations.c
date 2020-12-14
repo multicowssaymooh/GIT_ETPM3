@@ -187,9 +187,9 @@ void Get_Direction(uint16_t PP1, uint16_t PP2, uint16_t PP3)
 	snprintf(text, 10, "mid=%4d\n", (uint16_t)(middle & 0xffff));
 	HAL_UART_Transmit(&huart1, text, 9, 500);
 
-	if (left >= right && left >= middle) snprintf(text, 10, "left     ", (uint16_t)(left & 0xffff));
-	if (right >= left && right >= middle) snprintf(text, 10, "right    ", (uint16_t)(right & 0xffff));
-	if (middle >= left && middle >= right) snprintf(text, 10, "middle   ", (uint16_t)(middle & 0xffff));
+	if (left >= right && left >= middle) snprintf(text, 10, "left    \n", (uint16_t)(left & 0xffff));
+	if (right >= left && right >= middle) snprintf(text, 10, "right   \n", (uint16_t)(right & 0xffff));
+	if (middle >= left && middle >= right) snprintf(text, 10, "middle  \n", (uint16_t)(middle & 0xffff));
 	HAL_UART_Transmit(&huart1, text, 9, 500);
 
 
