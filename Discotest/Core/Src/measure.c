@@ -72,7 +72,7 @@ uint16_t *Get_ADC1_Values(void)
 
 	gyro_disable();
 
-
+	/*
 	char text[11];
 	snprintf(text, 10, "PC1=%4d\n", (uint16_t)(result[0] & 0xffff));
 	  HAL_UART_Transmit(&huart1, text, 9, 500);
@@ -80,7 +80,7 @@ uint16_t *Get_ADC1_Values(void)
 	  HAL_UART_Transmit(&huart1, text, 9, 500);
 	  snprintf(text, 10, "PC3=%4d\n", (uint16_t)(result[2] & 0xffff));
 	  HAL_UART_Transmit(&huart1, text, 9, 500);
-
+*/
 	return result;
 }
 
@@ -126,18 +126,18 @@ uint16_t *Get_ADC3_Values(void)
 
 	HAL_ADC_Start(&hadc3);
 	HAL_ADC_PollForConversion(&hadc3, 10);
-	result[0] = HAL_ADC_GetValue(&hadc3);
 	result[1] = HAL_ADC_GetValue(&hadc3);
+	result[0] = HAL_ADC_GetValue(&hadc3);
 	HAL_ADC_Stop(&hadc3);
 
-
+	/*
 	char text[10];
 
 	snprintf(text, 10, "PF8=%4d\n", (uint16_t)(result[0] & 0xffff));
 	HAL_UART_Transmit(&huart1, text, 9, 500);
 	snprintf(text, 10, "PF6=%4d\n", (uint16_t)(result[1] & 0xffff));
 	HAL_UART_Transmit(&huart1, text, 9, 500);
-
+	*/
 
 
 

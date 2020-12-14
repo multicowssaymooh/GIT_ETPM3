@@ -28,5 +28,7 @@ var searchData=
   ['acp_5frst_5fpin_45',['ACP_RST_Pin',['../main_8h.html#ae20b0532bcf577192510614d6779fe91',1,'main.h']]],
   ['adc_2ec_46',['adc.c',['../adc_8c.html',1,'']]],
   ['adc_2eh_47',['adc.h',['../adc_8h.html',1,'']]],
-  ['adc_5fdac_5fres_48',['ADC_DAC_RES',['../menu_8c.html#a1a99cc3586f8ed1522076e58e22ca0f7',1,'menu.c']]]
+  ['adc_5fdac_5fres_48',['ADC_DAC_RES',['../menu_8c.html#a1a99cc3586f8ed1522076e58e22ca0f7',1,'ADC_DAC_RES():&#160;menu.c'],['../menu_8c.html#a1a99cc3586f8ed1522076e58e22ca0f7',1,'ADC_DAC_RES():&#160;menu.c']]],
+  ['adc_5ffs_49',['ADC_FS',['../menu_8c.html#aa8ccd2dce306c0d219eeabd92b30fcc0',1,'menu.c']]],
+  ['adc_5fnums_50',['ADC_NUMS',['../menu_8c.html#a0a4c3d17b626e4d7b31b780e85dde7cf',1,'menu.c']]]
 ];

@@ -165,9 +165,9 @@ int main(void)
     /* USER CODE BEGIN 3 */
 
 		//HAL_GPIO_TogglePin(LD3_GPIO_Port, LD3_Pin);
-	  //HAL_UART_Transmit(&huart1, "Hello world\n", 12, 500);
-	  	HAL_Delay(400);
-	  	Single_Measurement_Pads();
+
+	  	HAL_Delay(200);
+	  	//Single_Measurement_Pads();
 
 
 	  MENU_check_transition();

@@ -50,6 +50,7 @@ MENU_item_t MENU_get_transition(void);
 void blink_direction(void);
 
 void Display_peak_peak(uint16_t PP1, uint16_t PP2, uint16_t PP3);
+void Display_Signal_Pads(uint16_t *PAD1,uint16_t *PAD2,uint16_t *PAD3);
 
 #endif
 

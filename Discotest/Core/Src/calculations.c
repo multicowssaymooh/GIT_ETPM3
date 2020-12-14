@@ -15,7 +15,7 @@
  * @author  Berger Dominic bergedo1@zhaw.students.ch
  * @date	30.04.2020
 **/
-
+//#include "calculations.h"
 #include "stm32f4xx.h"
 #include "stm32f429i_discovery.h"
 #include "stm32f429i_discovery_lcd.h"
@@ -29,16 +29,17 @@
 #include "stm32f4xx_it.h"
 
 #define NO_SAMPLES 50
+//#define DEBUG_UART
 
 
 void UART_Transmit_Pad(uint16_t *pointer1,uint16_t *pointer2,uint16_t *pointer3);
 uint16_t Find_Peakpeak(uint16_t *array);
-uint8_t Get_Direction(uint16_t pad1, uint16_t pad2, uint16_t pad3);
+void Get_Direction(uint16_t PP1, uint16_t PP2, uint16_t PP3);
 
 /**
- * @brief Reads one period of samples, calculates the
+ * @brief Reads one period of samples from PAD1..3
  * @param none
- * @retval result 12bit value from ADC
+ * @retval none
  **/
 void Single_Measurement_Pads(void)
 {
@@ -52,8 +53,6 @@ void Single_Measurement_Pads(void)
 	  uint16_t pp_Pad1=0,pp_Pad2=0,pp_Pad3=0;
 
 	  uint8_t i=0;
-	  char text[10];
-
 
 
 	  while(i<NO_SAMPLES)
@@ -70,35 +69,38 @@ void Single_Measurement_Pads(void)
 			  Result_PAD1[i] = Results_ADC3[0];
 			  Result_PAD2[i] = Results_ADC3[1];
 			  Result_PAD3[i] = Results_ADC1[1];
-
 			  i++;
-
 			  			  //Delay_us(1600);
-
 		  }
-
 	  }
 
 
-	  //UART_Transmit_Pad(Result_PAD1, Result_PAD2, Result_PAD3);
-
+#ifdef DEBUG_UART
+	  UART_Transmit_Pad(Result_PAD1, Result_PAD2, Result_PAD3);
+#endif
 	  //blink_direction();
 	  //HAL_Delay(1000);
 	  //blink_direction();
-	  HAL_UART_Transmit(&huart1, "Single measurement fertig\n", 26, 500);
+	  //HAL_UART_Transmit(&huart1, "Single measurement fertig\n", 26, 500);
 
 	  pp_Pad1 = Find_Peakpeak(Result_PAD1);
 	  pp_Pad2 = Find_Peakpeak(Result_PAD2);
 	  pp_Pad3 = Find_Peakpeak(Result_PAD3);
 
-	  Display_peak_peak(pp_Pad1,pp_Pad2,pp_Pad3);
+	  Display_Signal_Pads(Result_PAD1,Result_PAD2,Result_PAD3);
 
+	  Display_peak_peak(pp_Pad1,pp_Pad2,pp_Pad3);
+	  Get_Direction(pp_Pad1,pp_Pad2,pp_Pad3);
+
+#ifdef DEBUG_UART
+	  char text[10];
 	  snprintf(text, 10, "PP1=%4d\n", (uint16_t)(pp_Pad1 & 0xffff));
 	  HAL_UART_Transmit(&huart1, text, 9, 500);
 	  snprintf(text, 10, "PP2=%4d\n", (uint16_t)(pp_Pad2 & 0xffff));
 	  HAL_UART_Transmit(&huart1, text, 9, 500);
 	  snprintf(text, 10, "PP3=%4d\n", (uint16_t)(pp_Pad3 & 0xffff));
 	  HAL_UART_Transmit(&huart1, text, 9, 500);
+#endif
 
 
 }
@@ -146,12 +148,61 @@ uint16_t Find_Peakpeak(uint16_t *array)
 		 if(max<array[k]) max=array[k];
 		 if(min>array[k]) min=array[k];
 	 }
+
+#ifdef DEBUG_UART
 	 snprintf(text, 10, "MAX=%4d\n", (uint16_t)(max & 0xffff));
 	 HAL_UART_Transmit(&huart1, text, 9, 500);
 	 snprintf(text, 10, "MIN=%4d\n", (uint16_t)(min & 0xffff));
 	 HAL_UART_Transmit(&huart1, text, 9, 500);
+#endif
 
 	 return (max-min);
+
+}
+
+
+/**
+ * @brief Finds direction of mains cabley
+ * @param PP1,PP2,PP3 Peak peak value from eacht PAD
+ * @retval none
+ **/
+
+void Get_Direction(uint16_t PP1, uint16_t PP2, uint16_t PP3)
+{
+	int16_t delta12 = PP1-PP2;
+	int16_t delta23 = PP2-PP3;
+	int16_t delta13 = PP1-PP3;
+
+	uint16_t left=0, middle=0, right=0;
+
+	left = (uint16_t)(0.8*PP1+0.2*PP2);						//A
+	right = (uint16_t)(0.8*PP3+0.2*PP2);					//B
+	middle = (uint16_t)(0.75*PP2+0.125*PP1+0.125*PP3);		//C
+
+	char text[10];
+	snprintf(text, 10, "l  =%4d\n", (uint16_t)(left & 0xffff));
+	HAL_UART_Transmit(&huart1, text, 9, 500);
+	snprintf(text, 10, "r  =%4d\n", (uint16_t)(right & 0xffff));
+	HAL_UART_Transmit(&huart1, text, 9, 500);
+	snprintf(text, 10, "mid=%4d\n", (uint16_t)(middle & 0xffff));
+	HAL_UART_Transmit(&huart1, text, 9, 500);
+
+	if (left >= right && left >= middle) snprintf(text, 10, "left     ", (uint16_t)(left & 0xffff));
+	if (right >= left && right >= middle) snprintf(text, 10, "right    ", (uint16_t)(right & 0xffff));
+	if (middle >= left && middle >= right) snprintf(text, 10, "middle   ", (uint16_t)(middle & 0xffff));
+	HAL_UART_Transmit(&huart1, text, 9, 500);
+
+
+
+
+
+
+
+	// left (12 max,
+
+
+
+
 
 }
 

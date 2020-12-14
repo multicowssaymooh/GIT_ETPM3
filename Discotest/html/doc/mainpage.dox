@@ -2,7 +2,7 @@
 @mainpage Cable Monitor
 
 
-This document is part of the documentation of the Cable Monitor, which is part of the <b>Electronics-Project Modules</b> in the <b>second year of the electronics engineering curriculum</b>
+This document is part of the documentation of the Cable Monitor, which is part of the <b>Electronics-Project Modules</b> in the <b>second year of the electronics engineering curriculum</b> 
 at the School of Engineering of the Zurich University of Applied Sciences.
 @n It gives an overview over the code running on the STM32 discovery board.
 @n The discovery board contains the microcontroller that measures the analog values sent from the sensor board and the discplay for the visual user output. 
