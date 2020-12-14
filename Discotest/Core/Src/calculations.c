@@ -26,6 +26,7 @@
 #include "usart.h"
 #include "measure.h"
 #include "menu.h"
+#include "stm32f4xx_it.h"
 
 #define NO_SAMPLES 50
 
@@ -44,27 +45,40 @@ void Single_Measurement_Pads(void)
 	  uint16_t *Results_ADC1;
 	  uint16_t *Results_ADC3;
 
-	  uint16_t Result_PAD1[50];
-	  uint16_t Result_PAD2[50];
-	  uint16_t Result_PAD3[50];
+	  uint16_t Result_PAD1[NO_SAMPLES];
+	  uint16_t Result_PAD2[NO_SAMPLES];
+	  uint16_t Result_PAD3[NO_SAMPLES];
 
 	  uint16_t pp_Pad1=0,pp_Pad2=0,pp_Pad3=0;
 
 	  uint8_t i=0;
 	  char text[10];
 
-	  for(i=0;i<NO_SAMPLES;i++)
-	  {
-		  HAL_GPIO_TogglePin(LD4_GPIO_Port, LD4_Pin);
-		  Results_ADC1 = Get_ADC1_Values();
-		  Results_ADC3 = Get_ADC3_Values();
-		  // PAD1 = PF8, PAD2=PF6, PAD3=PA5
-		  Result_PAD1[i] = Results_ADC3[0];
-		  Result_PAD2[i] = Results_ADC3[1];
-		  Result_PAD3[i] = Results_ADC1[1];
 
-		  Delay_us(1600);
+
+	  while(i<NO_SAMPLES)
+	  {
+		  if(TIM2_ellapsed)
+		  {
+			  TIM2_ellapsed = 0;
+			  HAL_GPIO_TogglePin(LD3_GPIO_Port, LD3_Pin);
+
+			  //HAL_GPIO_TogglePin(LD3_GPIO_Port, LD3_Pin);
+			  Results_ADC1 = Get_ADC1_Values();
+			  Results_ADC3 = Get_ADC3_Values();
+			  // PAD1 = PF8, PAD2=PF6, PAD3=PA5
+			  Result_PAD1[i] = Results_ADC3[0];
+			  Result_PAD2[i] = Results_ADC3[1];
+			  Result_PAD3[i] = Results_ADC1[1];
+
+			  i++;
+
+			  			  //Delay_us(1600);
+
+		  }
+
 	  }
+
 
 	  //UART_Transmit_Pad(Result_PAD1, Result_PAD2, Result_PAD3);
 

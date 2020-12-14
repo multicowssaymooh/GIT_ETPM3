@@ -119,8 +119,10 @@ int main(void)
   MX_ADC1_Init();
   MX_ADC3_Init();
   MX_SPI3_Init();
+  MX_TIM2_Init();
   /* USER CODE BEGIN 2 */
 
+  HAL_TIM_Base_Start_IT(&htim2);
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -162,9 +164,9 @@ int main(void)
 
     /* USER CODE BEGIN 3 */
 
-		HAL_GPIO_TogglePin(LD3_GPIO_Port, LD3_Pin);
+		//HAL_GPIO_TogglePin(LD3_GPIO_Port, LD3_Pin);
 	  //HAL_UART_Transmit(&huart1, "Hello world\n", 12, 500);
-	  	HAL_Delay(1);
+	  	HAL_Delay(400);
 	  	Single_Measurement_Pads();
 
 
