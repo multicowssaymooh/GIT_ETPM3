@@ -15,7 +15,7 @@
  * @author  Berger Dominic bergedo1@zhaw.students.ch
  * @date	30.04.2020
 **/
-//#include "calculations.h"
+
 #include "stm32f4xx.h"
 #include "stm32f429i_discovery.h"
 #include "stm32f429i_discovery_lcd.h"
@@ -27,21 +27,24 @@
 #include "measure.h"
 #include "menu.h"
 #include "stm32f4xx_it.h"
+#include "calculations.h"
 
 #define NO_SAMPLES 50
 //#define DEBUG_UART
 
 
+
+/*
 void UART_Transmit_Pad(uint16_t *pointer1,uint16_t *pointer2,uint16_t *pointer3);
 uint16_t Find_Peakpeak(uint16_t *array);
 void Get_Direction(uint16_t PP1, uint16_t PP2, uint16_t PP3);
-
+*/
 /**
  * @brief Reads one period of samples from PAD1..3
  * @param none
  * @retval none
  **/
-void Single_Measurement_Pads(void)
+Struct_ADC_Values Single_Measurement_Pads(void)
 {
 	  uint16_t *Results_ADC1;
 	  uint16_t *Results_ADC3;
@@ -51,9 +54,9 @@ void Single_Measurement_Pads(void)
 	  uint16_t Result_PAD3[NO_SAMPLES];
 
 	  uint16_t pp_Pad1=0,pp_Pad2=0,pp_Pad3=0;
-
 	  uint8_t i=0;
 
+	  static Struct_ADC_Values Str_ADC_Values;
 
 	  while(i<NO_SAMPLES)
 	  {
@@ -87,6 +90,11 @@ void Single_Measurement_Pads(void)
 	  pp_Pad2 = Find_Peakpeak(Result_PAD2);
 	  pp_Pad3 = Find_Peakpeak(Result_PAD3);
 
+	  //------------ struct ------------- //
+	  Str_ADC_Values.PP_Pad1 = pp_Pad1;
+	  Str_ADC_Values.PP_Pad2 = pp_Pad2;
+	  Str_ADC_Values.PP_Pad3 = pp_Pad3;
+
 	  Display_Signal_Pads(Result_PAD1,Result_PAD2,Result_PAD3);
 
 	  Display_peak_peak(pp_Pad1,pp_Pad2,pp_Pad3);
@@ -102,7 +110,7 @@ void Single_Measurement_Pads(void)
 	  HAL_UART_Transmit(&huart1, text, 9, 500);
 #endif
 
-
+	  return Str_ADC_Values;
 }
 
 
@@ -143,12 +151,14 @@ uint16_t Find_Peakpeak(uint16_t *array)
 	uint16_t max=0, min=4000;
 	char text[10];
 
-	 for(k=0;k<NO_SAMPLES;k++)
+	 for(k=0;k<NO_SAMPLES-1;k++)
 	 {
-		 if(max<array[k]) max=array[k];
-		 if(min>array[k]) min=array[k];
+		 if(abs(array[k]-array[k+1])<200)
+		 {
+		 	 if(max<array[k]) max=array[k];
+		 	 if(min>array[k]) min=array[k];
+		 }
 	 }
-
 #ifdef DEBUG_UART
 	 snprintf(text, 10, "MAX=%4d\n", (uint16_t)(max & 0xffff));
 	 HAL_UART_Transmit(&huart1, text, 9, 500);

@@ -157,6 +157,7 @@ int main(void)
   uint16_t *array_PAD;
   uint16_t *array_Coil;
   uint16_t outputbuffer = 0;
+  Struct_ADC_Values Str_ADC_Values;
 
   while (1)
   {
@@ -177,7 +178,9 @@ int main(void)
 	  			break;
 	  		case MENU_ZERO:
 	  			HAL_GPIO_TogglePin(LD4_GPIO_Port, LD4_Pin);
-	  			Single_Measurement_Pads();
+	  			Str_ADC_Values = Single_Measurement_Pads();
+	  			outputbuffer = Str_ADC_Values.PP_Pad1;
+
 	  			//ADC_single_demo();
 	  			break;
 	  		case MENU_ONE:
@@ -187,6 +190,7 @@ int main(void)
 	  			break;
 	  		case MENU_TWO:
 	  			HAL_GPIO_TogglePin(LD4_GPIO_Port, LD4_Pin);
+	  			blink_direction();
 	  			//ADC_DMA_demo();
 	  			break;
 	  		case MENU_THREE:

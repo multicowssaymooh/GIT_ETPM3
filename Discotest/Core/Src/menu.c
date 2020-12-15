@@ -132,10 +132,13 @@ void Display_peak_peak(uint16_t PP1, uint16_t PP2, uint16_t PP3)
 	//snprintf(text, 15, "              ", (int)(PP1 & 0xffff));
 	//BSP_LCD_DisplayStringAt(0, 50, (uint8_t *)text, LEFT_MODE);
 	snprintf(text, 15, "PP Pad1 = %4d", (int)(PP1 & 0xffff));
+	BSP_LCD_SetTextColor(LCD_COLOR_DARKGREEN);
 	BSP_LCD_DisplayStringAt(0, 0, (uint8_t *)text, LEFT_MODE);
 	snprintf(text, 15, "PP Pad2 = %4d", (int)(PP2 & 0xffff));
+	BSP_LCD_SetTextColor(LCD_COLOR_BLUE);
 	BSP_LCD_DisplayStringAt(0, 12, (uint8_t *)text, LEFT_MODE);
 	snprintf(text, 15, "PP Pad3 = %4d", (int)(PP3 & 0xffff));
+	BSP_LCD_SetTextColor(LCD_COLOR_LIGHTRED);
 	BSP_LCD_DisplayStringAt(0, 24, (uint8_t *)text, LEFT_MODE);
 
 
