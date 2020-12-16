@@ -183,7 +183,7 @@ int main(void)
 
 	  			//ADC_single_demo();
 	  			break;
-	  		case MENU_ONE:
+	  		case MENU_ONE://continuous
 	  			HAL_GPIO_TogglePin(LD4_GPIO_Port, LD4_Pin);
 
 	  			//ADC_timer_demo();
@@ -199,7 +199,8 @@ int main(void)
 	  		case MENU_FOUR:
 	  			//ADC_DMA_scan_demo();
 	  			break;
-	  		case MENU_FIVE:
+	  		case MENU_FIVE://zero
+
 	  			//DAC_demo();
 	  			//ADC_DMA_scan_demo();
 	  			break;

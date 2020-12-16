@@ -172,19 +172,20 @@ uint16_t Find_Peakpeak(uint16_t *array)
 
 
 /**
- * @brief Finds direction of mains cabley
- * @param PP1,PP2,PP3 Peak peak value from eacht PAD
+ * @brief Finds direction of mains cable
+ * @param PP1,PP2,PP3 Peak peak value from each PAD
  * @retval none
  **/
 
 void Get_Direction(uint16_t PP1, uint16_t PP2, uint16_t PP3)
 {
+	/*
 	int16_t delta12 = PP1-PP2;
 	int16_t delta23 = PP2-PP3;
-	int16_t delta13 = PP1-PP3;
+	int16_t delta13 = PP1-PP3;*/
 
 	uint16_t left=0, middle=0, right=0;
-
+/*
 	left = (uint16_t)(0.8*PP1+0.2*PP2);						//A
 	right = (uint16_t)(0.8*PP3+0.2*PP2);					//B
 	middle = (uint16_t)(0.75*PP2+0.125*PP1+0.125*PP3);		//C
@@ -202,16 +203,75 @@ void Get_Direction(uint16_t PP1, uint16_t PP2, uint16_t PP3)
 	if (middle >= left && middle >= right) snprintf(text, 10, "middle  \n", (uint16_t)(middle & 0xffff));
 	HAL_UART_Transmit(&huart1, text, 9, 500);
 
+*/
+	/*
+	 * difference smaller than 30% of middle pad->mitte
+	 * PP1 grösser als 80% von PP3-> ganz links
+	 */
+/*
+	if((PP2>PP1)&&(PP2>PP3)){
+		HAL_GPIO_WritePin(led1_GPIO_Port, led1_Pin, GPIO_PIN_SET);
+		HAL_GPIO_WritePin(led2_GPIO_Port, led2_Pin, GPIO_PIN_SET);
+		HAL_GPIO_WritePin(led3_GPIO_Port, led3_Pin, GPIO_PIN_RESET);
+		HAL_GPIO_WritePin(led4_GPIO_Port, led4_Pin, GPIO_PIN_SET);
+		HAL_GPIO_WritePin(led5_GPIO_Port, led5_Pin, GPIO_PIN_SET);
 
+	}
+	else{
+		HAL_GPIO_WritePin(led1_GPIO_Port, led1_Pin, GPIO_PIN_SET);
+		HAL_GPIO_WritePin(led2_GPIO_Port, led2_Pin, GPIO_PIN_SET);
+		HAL_GPIO_WritePin(led3_GPIO_Port, led3_Pin, GPIO_PIN_SET);
+		HAL_GPIO_WritePin(led4_GPIO_Port, led4_Pin, GPIO_PIN_SET);
+		HAL_GPIO_WritePin(led5_GPIO_Port, led5_Pin, GPIO_PIN_SET);
+	}*/
 
+	if((abs(PP1-PP3))<(0.2*PP2)) {//middle
 
+		HAL_GPIO_WritePin(led1_GPIO_Port, led1_Pin, GPIO_PIN_SET);
+		HAL_GPIO_WritePin(led2_GPIO_Port, led2_Pin, GPIO_PIN_SET);
+		HAL_GPIO_WritePin(led3_GPIO_Port, led3_Pin, GPIO_PIN_RESET);
+		HAL_GPIO_WritePin(led4_GPIO_Port, led4_Pin, GPIO_PIN_SET);
+		HAL_GPIO_WritePin(led5_GPIO_Port, led5_Pin, GPIO_PIN_SET);
+	}
+	else if(PP1>(0.8*PP3)){//left
+		HAL_GPIO_WritePin(led1_GPIO_Port, led1_Pin, GPIO_PIN_RESET);
+		HAL_GPIO_WritePin(led3_GPIO_Port, led3_Pin, GPIO_PIN_SET);
+		HAL_GPIO_WritePin(led2_GPIO_Port, led2_Pin, GPIO_PIN_SET);
+		HAL_GPIO_WritePin(led4_GPIO_Port, led4_Pin, GPIO_PIN_SET);
+		HAL_GPIO_WritePin(led5_GPIO_Port, led5_Pin, GPIO_PIN_SET);
 
+	}
+	else if(PP3>(0.8*PP1)){//right
+			HAL_GPIO_WritePin(led1_GPIO_Port, led1_Pin, GPIO_PIN_SET);
+			HAL_GPIO_WritePin(led3_GPIO_Port, led3_Pin, GPIO_PIN_SET);
+			HAL_GPIO_WritePin(led2_GPIO_Port, led2_Pin, GPIO_PIN_SET);
+			HAL_GPIO_WritePin(led4_GPIO_Port, led4_Pin, GPIO_PIN_SET);
+			HAL_GPIO_WritePin(led5_GPIO_Port, led5_Pin, GPIO_PIN_RESET);
 
+		}/*
+	else if(PP1>(0.8*PP3)){//left-middle
+			HAL_GPIO_WritePin(led1_GPIO_Port, led1_Pin, GPIO_PIN_SET);
+			HAL_GPIO_WritePin(led3_GPIO_Port, led3_Pin, GPIO_PIN_RESET);
+			HAL_GPIO_WritePin(led2_GPIO_Port, led2_Pin, GPIO_PIN_SET);
+			HAL_GPIO_WritePin(led4_GPIO_Port, led4_Pin, GPIO_PIN_SET);
+			HAL_GPIO_WritePin(led5_GPIO_Port, led5_Pin, GPIO_PIN_SET);
 
-	// left (12 max,
+		}
+		else if(PP3>(0.8*PP1)){//middle-right
+				HAL_GPIO_WritePin(led1_GPIO_Port, led1_Pin, GPIO_PIN_SET);
+				HAL_GPIO_WritePin(led3_GPIO_Port, led3_Pin, GPIO_PIN_SET);
+				HAL_GPIO_WritePin(led2_GPIO_Port, led2_Pin, GPIO_PIN_SET);
+				HAL_GPIO_WritePin(led4_GPIO_Port, led4_Pin, GPIO_PIN_RESET);
+				HAL_GPIO_WritePin(led5_GPIO_Port, led5_Pin, GPIO_PIN_SET);
 
-
-
+			}
+	else {
+				HAL_GPIO_WritePin(led3_GPIO_Port, led3_Pin, GPIO_PIN_SET);
+				HAL_GPIO_WritePin(led1_GPIO_Port, led1_Pin, GPIO_PIN_SET);
+				HAL_GPIO_WritePin(led2_GPIO_Port, led2_Pin, GPIO_PIN_SET);
+				HAL_GPIO_WritePin(led4_GPIO_Port, led4_Pin, GPIO_PIN_SET);
+				HAL_GPIO_WritePin(led5_GPIO_Port, led5_Pin, GPIO_PIN_SET);
+	}*/
 
 
 }
