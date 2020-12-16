@@ -179,7 +179,7 @@ void Display_Signal_Pads(uint16_t *PAD1,uint16_t *PAD2,uint16_t *PAD3)
 	uint32_t data_last;
 
 	//Clear LCD
-	BSP_LCD_SetTextColor(LCD_COLOR_WHITE);
+	BSP_LCD_SetTextColor(LCD_COLOR_DARKGRAY);
 	BSP_LCD_FillRect(0, 0, X_SIZE, Y_OFFSET+1);
 
 
@@ -241,6 +241,28 @@ void Display_Signal_Pads(uint16_t *PAD1,uint16_t *PAD2,uint16_t *PAD3)
 	}
 	ADC_sample_count = 0;
 	//MEAS_data_ready = false;
+}
+
+
+
+
+/** ***************************************************************************
+ * @brief Displays type of measurement (PADS/COILS)
+ * @param type
+ * @retval none
+ *
+ *****************************************************************************/
+void Display_Type_of_Measurement(type_of_measurement type)
+{
+
+	BSP_LCD_SetBackColor(LCD_COLOR_BLACK);
+	BSP_LCD_SetTextColor(LCD_COLOR_WHITE);
+	BSP_LCD_SetFont(&Font20);
+
+	if(type == PADS) BSP_LCD_DisplayStringAt(180,10, (uint8_t *)"PADS", LEFT_MODE);
+
+	if(type == COILS) BSP_LCD_DisplayStringAt(180,10, (uint8_t *)"COIL", LEFT_MODE);
+
 }
 
 /** ***************************************************************************

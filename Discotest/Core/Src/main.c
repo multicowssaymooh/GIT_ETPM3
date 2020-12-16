@@ -50,6 +50,9 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
+//#define PADS 0
+//#define COILS 1
+
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -86,6 +89,10 @@ int main(void)
 	uint32_t	adc_PF8=0, adc_PF6=0;
 	ADC_ChannelConfTypeDef sConfig = {0};
 	GPIO_InitTypeDef GPIO_InitStruct = {0};
+
+	uint8_t coninuous=0;
+
+	type_of_measurement zustand = PADS;
 
 
 
@@ -153,9 +160,13 @@ int main(void)
 
   char text[10];
 
+
   //uint16_t adc_test[] = {0,0,0};
   uint16_t *array_PAD;
   uint16_t *array_Coil;
+  uint16_t *a;
+  uint16_t *b;
+  uint16_t *c;
   uint16_t outputbuffer = 0;
   Struct_ADC_Values Str_ADC_Values;
 
@@ -167,7 +178,13 @@ int main(void)
 
 		//HAL_GPIO_TogglePin(LD3_GPIO_Port, LD3_Pin);
 
-	  	HAL_Delay(200);
+
+	  HAL_Delay(200);
+
+	  if(coninuous)
+	  {
+		  Continuous_Measurement();
+	  }
 	  	//Single_Measurement_Pads();
 
 
@@ -178,22 +195,35 @@ int main(void)
 	  			break;
 	  		case MENU_ZERO:
 	  			HAL_GPIO_TogglePin(LD4_GPIO_Port, LD4_Pin);
-	  			Str_ADC_Values = Single_Measurement_Pads();
-	  			outputbuffer = Str_ADC_Values.PP_Pad1;
 
+	  			Single_Measurement(zustand);
+	  			/*
+	  			Str_ADC_Values = Get_Measurement_Data();
+	  			a = Str_ADC_Values.array_pad1;
+	  			b = Str_ADC_Values.array_pad2;
+	  			c = Str_ADC_Values.array_pad3;
+	  			Display_Signal_Pads(a,b,c);
+
+	  			outputbuffer = Str_ADC_Values.PP_Pad1;
+	  			outputbuffer = Str_ADC_Values.PP_Pad2;
+*/
 	  			//ADC_single_demo();
 	  			break;
 	  		case MENU_ONE://continuous
 	  			HAL_GPIO_TogglePin(LD4_GPIO_Port, LD4_Pin);
+	  			coninuous = !coninuous;
+
 
 	  			//ADC_timer_demo();
 	  			break;
 	  		case MENU_TWO:
-	  			HAL_GPIO_TogglePin(LD4_GPIO_Port, LD4_Pin);
-	  			blink_direction();
+	  			zustand = !zustand;
+	  			Display_Type_of_Measurement(zustand);
 	  			//ADC_DMA_demo();
 	  			break;
 	  		case MENU_THREE:
+	  			HAL_GPIO_TogglePin(LD4_GPIO_Port, LD4_Pin);
+				blink_direction();
 	  			//ADC_DMA_dual_demo();
 	  			break;
 	  		case MENU_FOUR:

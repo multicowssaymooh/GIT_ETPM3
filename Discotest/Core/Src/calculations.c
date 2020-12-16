@@ -40,11 +40,11 @@ uint16_t Find_Peakpeak(uint16_t *array);
 void Get_Direction(uint16_t PP1, uint16_t PP2, uint16_t PP3);
 */
 /**
- * @brief Reads one period of samples from PAD1..3
+ * @brief Reads one period of samples from PAD1..3 and calculates peak peak values
  * @param none
- * @retval none
+ * @retval Str_ADC_Values Struct with PP values from pad1..3 and coil1..2. see struct
  **/
-Struct_ADC_Values Single_Measurement_Pads(void)
+Struct_ADC_Values Get_Measurement_Data(void)
 {
 	  uint16_t *Results_ADC1;
 	  uint16_t *Results_ADC3;
@@ -65,40 +65,38 @@ Struct_ADC_Values Single_Measurement_Pads(void)
 			  TIM2_ellapsed = 0;
 			  HAL_GPIO_TogglePin(LD3_GPIO_Port, LD3_Pin);
 
-			  //HAL_GPIO_TogglePin(LD3_GPIO_Port, LD3_Pin);
 			  Results_ADC1 = Get_ADC1_Values();
 			  Results_ADC3 = Get_ADC3_Values();
 			  // PAD1 = PF8, PAD2=PF6, PAD3=PA5
 			  Result_PAD1[i] = Results_ADC3[0];
 			  Result_PAD2[i] = Results_ADC3[1];
 			  Result_PAD3[i] = Results_ADC1[1];
+			  // Fill struct
+			  Str_ADC_Values.array_pad1[i]=Results_ADC3[0];
+			  Str_ADC_Values.array_pad2[i]=Results_ADC3[1];
+			  Str_ADC_Values.array_pad3[i]=Results_ADC1[1];
 			  i++;
-			  			  //Delay_us(1600);
+
 		  }
 	  }
-
 
 #ifdef DEBUG_UART
 	  UART_Transmit_Pad(Result_PAD1, Result_PAD2, Result_PAD3);
 #endif
-	  //blink_direction();
-	  //HAL_Delay(1000);
-	  //blink_direction();
-	  //HAL_UART_Transmit(&huart1, "Single measurement fertig\n", 26, 500);
 
 	  pp_Pad1 = Find_Peakpeak(Result_PAD1);
 	  pp_Pad2 = Find_Peakpeak(Result_PAD2);
 	  pp_Pad3 = Find_Peakpeak(Result_PAD3);
 
-	  //------------ struct ------------- //
+	  //------------ Fill struct ------------- //
 	  Str_ADC_Values.PP_Pad1 = pp_Pad1;
 	  Str_ADC_Values.PP_Pad2 = pp_Pad2;
 	  Str_ADC_Values.PP_Pad3 = pp_Pad3;
 
-	  Display_Signal_Pads(Result_PAD1,Result_PAD2,Result_PAD3);
 
-	  Display_peak_peak(pp_Pad1,pp_Pad2,pp_Pad3);
-	  Get_Direction(pp_Pad1,pp_Pad2,pp_Pad3);
+	  //Display_Signal_Pads(Result_PAD1,Result_PAD2,Result_PAD3)
+	  //Display_peak_peak(pp_Pad1,pp_Pad2,pp_Pad3);
+	  //Get_Direction(pp_Pad1,pp_Pad2,pp_Pad3);
 
 #ifdef DEBUG_UART
 	  char text[10];
@@ -113,6 +111,64 @@ Struct_ADC_Values Single_Measurement_Pads(void)
 	  return Str_ADC_Values;
 }
 
+
+
+
+/**
+ * @brief Measures one period of Data
+ * @param none
+ * @retval none
+ * @todo Pad/Spulen umschaltung
+ **/
+void Single_Measurement(type_of_measurement type)
+{
+	static Struct_ADC_Values Res;
+
+	if(type == PADS)
+	{
+
+		 Res = Get_Measurement_Data();
+
+		 Display_Signal_Pads(Res.array_pad1,Res.array_pad2,Res.array_pad3);
+		 Display_peak_peak(Res.PP_Pad1,Res.PP_Pad2,Res.PP_Pad3);
+		 Get_Direction(Res.PP_Pad1,Res.PP_Pad2,Res.PP_Pad3);
+	}
+}
+
+/**
+ * @brief Measures three periods of Data and averages them.
+ * @param none
+ * @retval none
+ * @todo Pad/Spulen umschaltung, anzahl messungen übergeben
+ **/
+void Continuous_Measurement(void)
+{
+	static Struct_ADC_Values Res;
+	uint16_t i=0;
+	uint16_t PP1=0, PP2=0, PP3=0;
+
+	for(i=0;i<5;i++)
+	{
+		Res = Get_Measurement_Data();
+		PP1 = PP1 + Res.PP_Pad1;
+		PP2= PP2 + Res.PP_Pad2;
+		PP3 = PP3 + Res.PP_Pad3;
+	}
+	PP1 = (uint16_t)(PP1/i);
+	PP2 = (uint16_t)(PP2/i);
+	PP3 = (uint16_t)(PP3/i);
+
+	//Res2 = Get_Measurement_Data();
+	//Res3 = Get_Measurement_Data();
+
+	//PP1 = (uint16_t)((Res1.PP_Pad1 + Res2.PP_Pad1 + Res3.PP_Pad1)/3);
+	Display_Signal_Pads(Res.array_pad1,Res.array_pad2,Res.array_pad3);
+	Display_peak_peak(PP1, PP2, PP3);
+	Get_Direction(PP1, PP2, PP3);
+
+
+
+}
 
 
 /**

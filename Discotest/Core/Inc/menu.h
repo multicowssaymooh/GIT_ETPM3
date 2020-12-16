@@ -14,7 +14,7 @@
  * Includes
  *****************************************************************************/
 #include "stdint.h"
-
+#include "calculations.h"
 
 /******************************************************************************
  * Defines
@@ -51,6 +51,7 @@ void blink_direction(void);
 
 void Display_peak_peak(uint16_t PP1, uint16_t PP2, uint16_t PP3);
 void Display_Signal_Pads(uint16_t *PAD1,uint16_t *PAD2,uint16_t *PAD3);
+void Display_Type_of_Measurement(type_of_measurement type);
 
 #endif
 
