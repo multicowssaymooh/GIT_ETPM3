@@ -43,8 +43,9 @@ void Get_Direction(uint16_t PP1, uint16_t PP2, uint16_t PP3);
  * @brief Reads one period of samples from PAD1..3 and calculates peak peak values
  * @param none
  * @retval Str_ADC_Values Struct with PP values from pad1..3 and coil1..2. see struct
+ * @todo Result_PADxy beinhaltelt auch Werte von SPulen --> Unschön Name neu vergeben
  **/
-Struct_ADC_Values Get_Measurement_Data(void)
+Struct_ADC_Values Get_Measurement_Data(type_of_measurement type)
 {
 	  uint16_t *Results_ADC1;
 	  uint16_t *Results_ADC3;
@@ -54,6 +55,7 @@ Struct_ADC_Values Get_Measurement_Data(void)
 	  uint16_t Result_PAD3[NO_SAMPLES];
 
 	  uint16_t pp_Pad1=0,pp_Pad2=0,pp_Pad3=0;
+	  uint16_t pp_Coil1=0, pp_Coil2=0;
 	  uint8_t i=0;
 
 	  static Struct_ADC_Values Str_ADC_Values;
@@ -68,13 +70,47 @@ Struct_ADC_Values Get_Measurement_Data(void)
 			  Results_ADC1 = Get_ADC1_Values();
 			  Results_ADC3 = Get_ADC3_Values();
 			  // PAD1 = PF8, PAD2=PF6, PAD3=PA5
-			  Result_PAD1[i] = Results_ADC3[0];
-			  Result_PAD2[i] = Results_ADC3[1];
-			  Result_PAD3[i] = Results_ADC1[1];
+
 			  // Fill struct
-			  Str_ADC_Values.array_pad1[i]=Results_ADC3[0];
-			  Str_ADC_Values.array_pad2[i]=Results_ADC3[1];
-			  Str_ADC_Values.array_pad3[i]=Results_ADC1[1];
+			  if(type == PADS)
+			  {
+				  Result_PAD1[i] = Results_ADC3[0];
+				  Result_PAD2[i] = Results_ADC3[1];
+				  Result_PAD3[i] = Results_ADC1[1];
+				  Str_ADC_Values.array_pad1[i]=Results_ADC3[0];
+				  Str_ADC_Values.array_pad2[i]=Results_ADC3[1];
+				  Str_ADC_Values.array_pad3[i]=Results_ADC1[1];
+
+				  pp_Pad1 = Find_Peakpeak(Result_PAD1);
+				  pp_Pad2 = Find_Peakpeak(Result_PAD2);
+				  pp_Pad3 = Find_Peakpeak(Result_PAD3);
+
+				  //------------ Fill struct ------------- //
+				  Str_ADC_Values.PP_Pad1 = pp_Pad1;
+				  Str_ADC_Values.PP_Pad2 = pp_Pad2;
+				  Str_ADC_Values.PP_Pad3 = pp_Pad3;
+
+
+			  }
+			  if(type == COILS)
+			  {
+				  Result_PAD1[i] = Results_ADC1[0];
+				  Result_PAD2[i] = Results_ADC1[2];
+				  Str_ADC_Values.array_pad1[i]=Results_ADC1[0];
+				  Str_ADC_Values.array_pad2[i]=Results_ADC1[2];
+
+
+				  pp_Coil1 = Find_Peakpeak(Result_PAD1);
+				  pp_Coil2 = Find_Peakpeak(Result_PAD2);
+				  //pp_Pad3 = Find_Peakpeak(Result_PAD3);
+
+				  //------------ Fill struct ------------- //
+				  Str_ADC_Values.PP_Coil1 = pp_Coil1;
+				  Str_ADC_Values.PP_Coil2 = pp_Coil2;
+				  //Str_ADC_Values.PP_Pad3 = pp_Pad3;
+
+			  }
+
 			  i++;
 
 		  }
@@ -84,14 +120,7 @@ Struct_ADC_Values Get_Measurement_Data(void)
 	  UART_Transmit_Pad(Result_PAD1, Result_PAD2, Result_PAD3);
 #endif
 
-	  pp_Pad1 = Find_Peakpeak(Result_PAD1);
-	  pp_Pad2 = Find_Peakpeak(Result_PAD2);
-	  pp_Pad3 = Find_Peakpeak(Result_PAD3);
 
-	  //------------ Fill struct ------------- //
-	  Str_ADC_Values.PP_Pad1 = pp_Pad1;
-	  Str_ADC_Values.PP_Pad2 = pp_Pad2;
-	  Str_ADC_Values.PP_Pad3 = pp_Pad3;
 
 
 	  //Display_Signal_Pads(Result_PAD1,Result_PAD2,Result_PAD3)
@@ -127,47 +156,69 @@ void Single_Measurement(type_of_measurement type)
 	if(type == PADS)
 	{
 
-		 Res = Get_Measurement_Data();
+		 Res = Get_Measurement_Data(PADS);
 
 		 Display_Signal_Pads(Res.array_pad1,Res.array_pad2,Res.array_pad3);
 		 Display_peak_peak(Res.PP_Pad1,Res.PP_Pad2,Res.PP_Pad3);
 		 Get_Direction(Res.PP_Pad1,Res.PP_Pad2,Res.PP_Pad3);
 	}
+	if(type == COILS)
+	{
+
+		 Res = Get_Measurement_Data(COILS);
+
+		 Display_Signal_Pads(Res.array_pad1,Res.array_pad2,0);
+		 Display_peak_peak(Res.PP_Coil1,Res.PP_Coil2,0);
+		 //Get_Direction(Res.PP_Pad1,Res.PP_Pad2,Res.PP_Pad3);
+	}
+	Display_Type_of_Measurement(type);
 }
 
 /**
  * @brief Measures three periods of Data and averages them.
  * @param none
  * @retval none
- * @todo Pad/Spulen umschaltung, anzahl messungen übergeben
+ * @todo Anzahl messungen übergeben
  **/
-void Continuous_Measurement(void)
+void Continuous_Measurement(type_of_measurement type)
 {
 	static Struct_ADC_Values Res;
 	uint16_t i=0;
 	uint16_t PP1=0, PP2=0, PP3=0;
 
-	for(i=0;i<5;i++)
+	if(type == PADS)
 	{
-		Res = Get_Measurement_Data();
-		PP1 = PP1 + Res.PP_Pad1;
-		PP2= PP2 + Res.PP_Pad2;
-		PP3 = PP3 + Res.PP_Pad3;
+		for(i=0;i<5;i++)
+		{
+			Res = Get_Measurement_Data(PADS);
+			PP1 = PP1 + Res.PP_Pad1;
+			PP2= PP2 + Res.PP_Pad2;
+			PP3 = PP3 + Res.PP_Pad3;
+		}
+		PP1 = (uint16_t)(PP1/i);
+		PP2 = (uint16_t)(PP2/i);
+		PP3 = (uint16_t)(PP3/i);
+
+		Display_Signal_Pads(Res.array_pad1,Res.array_pad2,Res.array_pad3);
+		Display_peak_peak(PP1, PP2, PP3);
+		Get_Direction(PP1, PP2, PP3);
+
 	}
-	PP1 = (uint16_t)(PP1/i);
-	PP2 = (uint16_t)(PP2/i);
-	PP3 = (uint16_t)(PP3/i);
 
-	//Res2 = Get_Measurement_Data();
-	//Res3 = Get_Measurement_Data();
-
-	//PP1 = (uint16_t)((Res1.PP_Pad1 + Res2.PP_Pad1 + Res3.PP_Pad1)/3);
-	Display_Signal_Pads(Res.array_pad1,Res.array_pad2,Res.array_pad3);
-	Display_peak_peak(PP1, PP2, PP3);
-	Get_Direction(PP1, PP2, PP3);
-
-
-
+	if(type == COILS)
+	{
+		for(i=0;i<5;i++)
+		{
+			Res = Get_Measurement_Data(COILS);
+			PP1 = PP1 + Res.PP_Coil1;
+			PP2 = PP2 + Res.PP_Coil2;
+		}
+		PP1 = (uint16_t)(PP1/i);
+		PP2 = (uint16_t)(PP2/i);
+		Display_Signal_Pads(Res.array_pad1,Res.array_pad2,0);
+		Display_peak_peak(PP1,PP2,0);
+	}
+	Display_Type_of_Measurement(type);
 }
 
 

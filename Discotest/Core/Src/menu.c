@@ -46,7 +46,7 @@ static MENU_item_t MENU_transition = MENU_NONE;	///< Transition to this menu
 static MENU_entry_t MENU_entry[MENU_ENTRY_COUNT] = {
 		{"Single",	"",			LCD_COLOR_BLACK,	LCD_COLOR_LIGHTBLUE},
 		{"Conti-",	"nuous",	LCD_COLOR_BLACK,	LCD_COLOR_LIGHTGREEN},
-		{"LED",	    "",			LCD_COLOR_BLACK,	LCD_COLOR_LIGHTRED},
+		{"Pads/", 	"Coils",	LCD_COLOR_BLACK,	LCD_COLOR_LIGHTRED},
 		{"PWR",	    "",			LCD_COLOR_BLACK,	LCD_COLOR_LIGHTCYAN},
 		{"DMA",	    "scan",		LCD_COLOR_BLACK,	LCD_COLOR_LIGHTMAGENTA},
 		{"DAC",	    "on",		LCD_COLOR_BLACK,	LCD_COLOR_LIGHTYELLOW}
@@ -179,7 +179,7 @@ void Display_Signal_Pads(uint16_t *PAD1,uint16_t *PAD2,uint16_t *PAD3)
 	uint32_t data_last;
 
 	//Clear LCD
-	BSP_LCD_SetTextColor(LCD_COLOR_DARKGRAY);
+	BSP_LCD_SetTextColor(LCD_COLOR_WHITE);
 	BSP_LCD_FillRect(0, 0, X_SIZE, Y_OFFSET+1);
 
 
@@ -209,17 +209,19 @@ void Display_Signal_Pads(uint16_t *PAD1,uint16_t *PAD2,uint16_t *PAD3)
 	BSP_LCD_DrawPixel(4*(ADC_NUMS-1), 260-data, LCD_COLOR_RED);
 
   // --------------- PAD3 -------------------- //
-	data = (PAD3[0] & 0xffff) / f;
-	BSP_LCD_SetTextColor(LCD_COLOR_LIGHTRED);
-	for (uint32_t i = 1; i < ADC_NUMS; i++){
-		data_last = data;
-		data = (PAD3[i] & 0xffff) / f;
-		if (data > Y_OFFSET) { data = Y_OFFSET; }// Limit value, prevent crash
-		BSP_LCD_DrawLine(4*(i-1), Y_OFFSET-data_last, 4*i, Y_OFFSET-data);
-		BSP_LCD_DrawPixel(4*(i-1), Y_OFFSET-data_last, LCD_COLOR_RED);
+	if(PAD3!=0)
+	{
+		data = (PAD3[0] & 0xffff) / f;
+		BSP_LCD_SetTextColor(LCD_COLOR_LIGHTRED);
+		for (uint32_t i = 1; i < ADC_NUMS; i++){
+			data_last = data;
+			data = (PAD3[i] & 0xffff) / f;
+			if (data > Y_OFFSET) { data = Y_OFFSET; }// Limit value, prevent crash
+			BSP_LCD_DrawLine(4*(i-1), Y_OFFSET-data_last, 4*i, Y_OFFSET-data);
+			BSP_LCD_DrawPixel(4*(i-1), Y_OFFSET-data_last, LCD_COLOR_RED);
+		}
+		BSP_LCD_DrawPixel(4*(ADC_NUMS-1), 260-data, LCD_COLOR_RED);
 	}
-	BSP_LCD_DrawPixel(4*(ADC_NUMS-1), 260-data, LCD_COLOR_RED);
-
 	// Draw the upper values of the buffer content as a curve
 	/*
 	data = (PAD1[0] >> 16) / f;

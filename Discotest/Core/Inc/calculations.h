@@ -22,9 +22,9 @@ typedef struct {
 	uint16_t array_pad3[50];			/// Array of ADC Values for PAD3 1 period
 } Struct_ADC_Values;
 
-Struct_ADC_Values Get_Measurement_Data(void);
+Struct_ADC_Values Get_Measurement_Data(type_of_measurement type);
 void Single_Measurement(type_of_measurement type);
-void Continuous_Measurement(void);
+void Continuous_Measurement(type_of_measurement type);
 
 
 void UART_Transmit_Pad(uint16_t *pointer1,uint16_t *pointer2,uint16_t *pointer3);

@@ -92,7 +92,7 @@ int main(void)
 
 	uint8_t coninuous=0;
 
-	type_of_measurement zustand = PADS;
+	type_of_measurement type = PADS;
 
 
 
@@ -183,7 +183,7 @@ int main(void)
 
 	  if(coninuous)
 	  {
-		  Continuous_Measurement();
+		  Continuous_Measurement(type);
 	  }
 	  	//Single_Measurement_Pads();
 
@@ -196,7 +196,7 @@ int main(void)
 	  		case MENU_ZERO:
 	  			HAL_GPIO_TogglePin(LD4_GPIO_Port, LD4_Pin);
 
-	  			Single_Measurement(zustand);
+	  			Single_Measurement(type);
 	  			/*
 	  			Str_ADC_Values = Get_Measurement_Data();
 	  			a = Str_ADC_Values.array_pad1;
@@ -217,8 +217,8 @@ int main(void)
 	  			//ADC_timer_demo();
 	  			break;
 	  		case MENU_TWO:
-	  			zustand = !zustand;
-	  			Display_Type_of_Measurement(zustand);
+	  			type = !type;
+	  			Display_Type_of_Measurement(type);
 	  			//ADC_DMA_demo();
 	  			break;
 	  		case MENU_THREE:
