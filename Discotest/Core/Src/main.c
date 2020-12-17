@@ -50,8 +50,8 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-//#define PADS 0
-//#define COILS 1
+#define ON 0
+#define OFF 1
 
 /* USER CODE END PD */
 
@@ -91,6 +91,7 @@ int main(void)
 	GPIO_InitTypeDef GPIO_InitStruct = {0};
 
 	uint8_t coninuous=0;
+	uint8_t buff=0;
 
 	type_of_measurement type = PADS;
 
@@ -146,16 +147,25 @@ int main(void)
 
   BSP_TS_Init(BSP_LCD_GetXSize(), BSP_LCD_GetYSize());
 
-
-  Continuous_Measurement(INIT);
-
   MENU_draw();
   MENU_hint();
 
+  //for(uint8_t k = 0; k<4;k++)
+  //{
+	  for(buff = 0;buff<5;buff++)
+	  {
+		  set_LEDs_direction(6,OFF);
+		  set_LEDs_direction(buff,ON);
+		  HAL_Delay(80);
+	  }
+  //}
+  set_LEDs_direction(6,OFF);
 
 
-  //HAL_ADC_Start(&hadc1);
-  //HAL_ADC_Start(&hadc3);
+
+  // Get 0 level
+  Continuous_Measurement(INIT);
+
 
 
 
@@ -177,7 +187,6 @@ int main(void)
 
     /* USER CODE BEGIN 3 */
 
-		//HAL_GPIO_TogglePin(LD3_GPIO_Port, LD3_Pin);
 
 
 	  HAL_Delay(200);
@@ -186,37 +195,28 @@ int main(void)
 	  {
 		  Continuous_Measurement(type);
 	  }
-	  	//Single_Measurement_Pads();
-
 
 	  MENU_check_transition();
 
 	  switch (MENU_get_transition()) {
 	  		case MENU_NONE:					// No transition => do nothing
 	  			break;
+
+	 //single
 	  		case MENU_ZERO:
 	  			HAL_GPIO_TogglePin(LD4_GPIO_Port, LD4_Pin);
-
 	  			Single_Measurement(type);
-	  			/*
-	  			Str_ADC_Values = Get_Measurement_Data();
-	  			a = Str_ADC_Values.array_pad1;
-	  			b = Str_ADC_Values.array_pad2;
-	  			c = Str_ADC_Values.array_pad3;
-	  			Display_Signal_Pads(a,b,c);
 
-	  			outputbuffer = Str_ADC_Values.PP_Pad1;
-	  			outputbuffer = Str_ADC_Values.PP_Pad2;
-*/
-	  			//ADC_single_demo();
 	  			break;
-	  		case MENU_ONE://continuous
+
+	  //continuous
+	  		case MENU_ONE:
 	  			HAL_GPIO_TogglePin(LD4_GPIO_Port, LD4_Pin);
 	  			coninuous = !coninuous;
 
-
-	  			//ADC_timer_demo();
 	  			break;
+
+	  //Coil/Pad change
 	  		case MENU_TWO:
 	  			//type = !type;
 	  			if(type == PADS)
@@ -230,10 +230,14 @@ int main(void)
 	  			Display_Type_of_Measurement(type);
 	  			//ADC_DMA_demo();
 	  			break;
+
+	  // Zero
 	  		case MENU_THREE:
 	  			HAL_GPIO_TogglePin(LD4_GPIO_Port, LD4_Pin);
-				blink_direction();
-				Continuous_Measurement(INIT);
+				//blink_direction();
+				set_LEDs_direction(6,ON);
+	  			Continuous_Measurement(INIT);
+	  			set_LEDs_direction(6,OFF);
 	  			//ADC_DMA_dual_demo();
 	  			break;
 	  		case MENU_FOUR:
@@ -306,7 +310,7 @@ void SystemClock_Config(void)
 /* USER CODE BEGIN 4 */
 
 /**
- * @brief Disables gyro in order to measure on pin PC1
+ * @brief Disables gyro in order to measure ADC on pin PC1
  * @param none
  * @retval none
  */
@@ -326,148 +330,6 @@ void gyro_disable(void)
 	Delay_us(1);						// Wait some time
 	GPIOF->MODER |= GPIO_MODER_MODER8_Msk; // Analog mode for PF6 = ADC3_IN4
 }
-
-
-
-
-/* delete   */
-//	Single_Measurement_Pads();
-//	while(1){
-//		HAL_Delay(100);
-//	}
-//
-//	HAL_GPIO_WritePin(LD4_GPIO_Port, LD4_Pin,1);
-//
-//	while(1){
-//	HAL_Delay(250);
-//
-//
-//	HAL_GPIO_WritePin(LD4_GPIO_Port, LD4_Pin,1);
-//	array_PAD = Get_ADC1_Values();
-//	array_Coil = Get_ADC3_Values();
-//	HAL_GPIO_WritePin(LD4_GPIO_Port, LD4_Pin,0);
-//
-//
-//	snprintf(text, 10, "PF8=%4d\n", (uint16_t)(array_Coil[0] & 0xffff));
-//	HAL_UART_Transmit(&huart1, text, 9, 500);
-//	snprintf(text, 10, "PF6=%4d\n", (int)(array_Coil[1] & 0xffff));
-//	HAL_UART_Transmit(&huart1, text, 9, 500);
-//
-//snprintf(text, 10, "PC1=%4d\n", (uint16_t)(array_PAD[0] & 0xffff));
-//HAL_UART_Transmit(&huart1, text, 9, 500);
-//snprintf(text, 10, "PA5=%4d\n", (int)(array_PAD[1] & 0xffff));
-//HAL_UART_Transmit(&huart1, text, 9, 500);
-//snprintf(text, 10, "PC3=%4d\n", (int)(array_PAD[2] & 0xffff));
-//HAL_UART_Transmit(&huart1, text, 9, 500);
-//
-//
-//
-//// Testen ob Reihenfolge egal
-//	array_Coil = Get_ADC3_Values();
-//	snprintf(text, 10, "PF8=%4d\n", (uint16_t)(array_Coil[0] & 0xffff));
-//	HAL_UART_Transmit(&huart1, text, 9, 500);
-//	snprintf(text, 10, "PF6=%4d\n", (int)(array_Coil[1] & 0xffff));
-//	HAL_UART_Transmit(&huart1, text, 9, 500);
-//
-//	array_PAD = Get_ADC1_Values();
-//	snprintf(text, 10, "PC1=%4d\n", (uint16_t)(array_PAD[0] & 0xffff));
-//	HAL_UART_Transmit(&huart1, text, 9, 500);
-//	snprintf(text, 10, "PA5=%4d\n", (int)(array_PAD[1] & 0xffff));
-//	HAL_UART_Transmit(&huart1, text, 9, 500);
-//	snprintf(text, 10, "PC3=%4d\n", (int)(array_PAD[2] & 0xffff));
-//	HAL_UART_Transmit(&huart1, text, 9, 500);
-//
-//	}
-//
-//
-///*
-//	snprintf(text, 10, "PC1=%4d\n", (uint16_t)(buffer[0] & 0xffff));
-//HAL_UART_Transmit(&huart1, text, 9, 500);
-//snprintf(text, 10, "PA5=%4d\n", (int)(buffer[1] & 0xffff));
-//HAL_UART_Transmit(&huart1, text, 9, 500);
-//snprintf(text, 10, "PC3=%4d\n", (int)(buffer[2] & 0xffff));
-//HAL_UART_Transmit(&huart1, text, 9, 500);*/
-//
-//	/*
-//GPIO_InitStruct.Pin = GPIO_PIN_1|GPIO_PIN_3;
-//GPIO_InitStruct.Mode = GPIO_MODE_ANALOG;
-//GPIO_InitStruct.Pull = GPIO_NOPULL;
-//HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
-//
-//
-//GPIO_InitStruct.Pin = GPIO_PIN_5;
-//GPIO_InitStruct.Mode = GPIO_MODE_ANALOG;
-//GPIO_InitStruct.Pull = GPIO_NOPULL;
-//HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
-//*/
-//
-////Delay_us(10);
-//
-////ADC1
-//	HAL_ADC_Start(&hadc1);
-//	HAL_ADC_PollForConversion(&hadc1, 50);
-//	adc_PC1 = HAL_ADC_GetValue(&hadc1);
-//	adc_PA5 = HAL_ADC_GetValue(&hadc1);
-//	adc_PC3 = HAL_ADC_GetValue(&hadc1);
-//
-//	HAL_ADC_Stop(&hadc1);
-//
-//gyro_disable();
-//
-//sConfig.Channel = ADC_CHANNEL_6;
-//sConfig.Rank = 1;
-//sConfig.SamplingTime = ADC_SAMPLETIME_3CYCLES;
-//if (HAL_ADC_ConfigChannel(&hadc3, &sConfig) != HAL_OK)
-//{
-//  Error_Handler();
-//}
-//
-//HAL_ADC_Start(&hadc3);
-//HAL_ADC_PollForConversion(&hadc3, 10);
-//adc_PF8 = HAL_ADC_GetValue(&hadc3);
-//HAL_ADC_Stop(&hadc3);
-//
-//
-//sConfig.Channel = ADC_CHANNEL_4;
-//sConfig.Rank = 1;
-//sConfig.SamplingTime = ADC_SAMPLETIME_3CYCLES;
-//if (HAL_ADC_ConfigChannel(&hadc3, &sConfig) != HAL_OK)
-//{
-//   Error_Handler();
-//}
-//
-//HAL_ADC_Start(&hadc3);
-//HAL_ADC_PollForConversion(&hadc3, 10);
-//adc_PF6 = HAL_ADC_GetValue(&hadc3);
-//HAL_ADC_Stop(&hadc3);
-//
-//HAL_GPIO_WritePin(LD4_GPIO_Port, LD4_Pin,0);
-////while(1){}
-//
-////testasldkfjasdlkfj
-//
-///** Configure for the selected ADC regular channel its corresponding rank in the sequencer and its sample time.
-//*/
-//
-//
-////ADC1
-//
-//snprintf(text, 10, "PC1=%4d\n", (int)(adc_PC1 & 0xffff));
-//HAL_UART_Transmit(&huart1, text, 9, 500);
-//snprintf(text, 10, "PA5=%4d\n", (int)(adc_PA5 & 0xffff));
-//HAL_UART_Transmit(&huart1, text, 9, 500);
-//snprintf(text, 10, "PC3=%4d\n", (int)(adc_PC3 & 0xffff));
-//HAL_UART_Transmit(&huart1, text, 9, 500);
-//
-////ADC3
-//snprintf(text, 10, "PF8=%4d\n", (int)(adc_PF8 & 0xffff));
-//	HAL_UART_Transmit(&huart1, text, 9, 500);
-//	snprintf(text, 10, "PF6=%4d\n", (int)(adc_PF6 & 0xffff));
-//	HAL_UART_Transmit(&huart1, text, 9, 500);
-//
-
-
-
 
 
 

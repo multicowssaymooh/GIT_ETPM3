@@ -68,7 +68,10 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#func-members">Functions</a>  </div>
+<a href="#nested-classes">Data Structures</a> &#124;
+<a href="#enum-members">Enumerations</a> &#124;
+<a href="#func-members">Functions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
 <div class="title">calculations.h File Reference</div>  </div>
 </div><!--header-->
@@ -81,27 +84,62 @@ This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="calculations_8h__dep__incl.png" border="0" usemap="#a_inc_2calculations_8hdep" alt=""/></div>
 <map name="_inc_2calculations_8hdep" id="_inc_2calculations_8hdep">
-<area shape="rect" title="See calculations.c." alt="" coords="5,5,128,32"/>
-<area shape="rect" href="main_8c.html" title=": Main program body" alt="" coords="24,80,109,107"/>
+<area shape="rect" title="See calculations.c." alt="" coords="139,5,262,32"/>
+<area shape="rect" href="menu_8h.html" title="See menu.c." alt="" coords="157,80,244,107"/>
+<area shape="rect" href="calculations_8c.html" title="Calculations for the cable monitor." alt="" coords="5,155,132,181"/>
+<area shape="rect" href="main_8c.html" title=": Main program body" alt="" coords="270,155,355,181"/>
+<area shape="rect" href="menu_8c.html" title="The menu." alt="" coords="156,155,245,181"/>
 </map>
 </div>
 </div>
 <p><a href="calculations_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Data Structures</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_struct___a_d_c___values.html">Struct_ADC_Values</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:a85b4944b97167a524ab5b43172f8a30d"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="calculations_8h.html#a85b4944b97167a524ab5b43172f8a30d">type_of_measurement</a> { <a class="el" href="calculations_8h.html#a85b4944b97167a524ab5b43172f8a30da9991e36cf31cfda4bceee8e0f6f2512b">PADS</a> =0, 
+<a class="el" href="calculations_8h.html#a85b4944b97167a524ab5b43172f8a30da9bcfa7337a4582147b14fb8885f8f3fd">COILS</a>, 
+<a class="el" href="calculations_8h.html#a85b4944b97167a524ab5b43172f8a30da0cb1b2c6a7db1f1084886c98909a3f36">INIT</a>
+ }</td></tr>
+<tr class="separator:a85b4944b97167a524ab5b43172f8a30d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a91e6a19a001aad3ebbbdb9d01e24c9c9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="calculations_8h.html#a91e6a19a001aad3ebbbdb9d01e24c9c9">Single_Measurement_Pads</a> (void)</td></tr>
-<tr class="memdesc:a91e6a19a001aad3ebbbdb9d01e24c9c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads one period of samples from PAD1..3.  <a href="calculations_8h.html#a91e6a19a001aad3ebbbdb9d01e24c9c9">More...</a><br /></td></tr>
-<tr class="separator:a91e6a19a001aad3ebbbdb9d01e24c9c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae7ef43b64742b37fb4325492e1985278"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_struct___a_d_c___values.html">Struct_ADC_Values</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="calculations_8h.html#ae7ef43b64742b37fb4325492e1985278">Get_Measurement_Data</a> (<a class="el" href="calculations_8h.html#a85b4944b97167a524ab5b43172f8a30d">type_of_measurement</a> type)</td></tr>
+<tr class="memdesc:ae7ef43b64742b37fb4325492e1985278"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads one period of samples from PAD1..3 and calculates peak peak values.  <a href="calculations_8h.html#ae7ef43b64742b37fb4325492e1985278">More...</a><br /></td></tr>
+<tr class="separator:ae7ef43b64742b37fb4325492e1985278"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab5198f335d99998e989af5e09ed52d34"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="calculations_8h.html#ab5198f335d99998e989af5e09ed52d34">Single_Measurement</a> (<a class="el" href="calculations_8h.html#a85b4944b97167a524ab5b43172f8a30d">type_of_measurement</a> type)</td></tr>
+<tr class="memdesc:ab5198f335d99998e989af5e09ed52d34"><td class="mdescLeft">&#160;</td><td class="mdescRight">Measures one period of Data.  <a href="calculations_8h.html#ab5198f335d99998e989af5e09ed52d34">More...</a><br /></td></tr>
+<tr class="separator:ab5198f335d99998e989af5e09ed52d34"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa2d5daaead8e69186ad9e4bd751ea696"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="calculations_8h.html#aa2d5daaead8e69186ad9e4bd751ea696">Continuous_Measurement</a> (<a class="el" href="calculations_8h.html#a85b4944b97167a524ab5b43172f8a30d">type_of_measurement</a> type)</td></tr>
+<tr class="memdesc:aa2d5daaead8e69186ad9e4bd751ea696"><td class="mdescLeft">&#160;</td><td class="mdescRight">Measures 5 periods of Data and averages them.  <a href="calculations_8h.html#aa2d5daaead8e69186ad9e4bd751ea696">More...</a><br /></td></tr>
+<tr class="separator:aa2d5daaead8e69186ad9e4bd751ea696"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6069994576c2662a26ebda910ef5a1a0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="calculations_8h.html#a6069994576c2662a26ebda910ef5a1a0">UART_Transmit_Pad</a> (uint16_t *pointer1, uint16_t *pointer2, uint16_t *pointer3)</td></tr>
-<tr class="memdesc:a6069994576c2662a26ebda910ef5a1a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints Array via UART.  <a href="calculations_8h.html#a6069994576c2662a26ebda910ef5a1a0">More...</a><br /></td></tr>
+<tr class="memdesc:a6069994576c2662a26ebda910ef5a1a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints all measurements from PADs via UART for debugging.  <a href="calculations_8h.html#a6069994576c2662a26ebda910ef5a1a0">More...</a><br /></td></tr>
 <tr class="separator:a6069994576c2662a26ebda910ef5a1a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4fb47fc0d7f70084c6a70ee3182df9d2"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="calculations_8h.html#a4fb47fc0d7f70084c6a70ee3182df9d2">Find_Peakpeak</a> (uint16_t *array)</td></tr>
 <tr class="memdesc:a4fb47fc0d7f70084c6a70ee3182df9d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds peakpeak value from given array.  <a href="calculations_8h.html#a4fb47fc0d7f70084c6a70ee3182df9d2">More...</a><br /></td></tr>
 <tr class="separator:a4fb47fc0d7f70084c6a70ee3182df9d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0b9e354dddd65372bb98445d2b050293"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="calculations_8h.html#a0b9e354dddd65372bb98445d2b050293">Get_Direction</a> (uint16_t PP1, uint16_t PP2, uint16_t PP3)</td></tr>
-<tr class="memdesc:a0b9e354dddd65372bb98445d2b050293"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds direction of mains cabley.  <a href="calculations_8h.html#a0b9e354dddd65372bb98445d2b050293">More...</a><br /></td></tr>
+<tr class="memdesc:a0b9e354dddd65372bb98445d2b050293"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds direction of mains cable.  <a href="calculations_8h.html#a0b9e354dddd65372bb98445d2b050293">More...</a><br /></td></tr>
 <tr class="separator:a0b9e354dddd65372bb98445d2b050293"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:ac45c38098b6f5c8e94c7f798ae5f1f2c"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="calculations_8h.html#ac45c38098b6f5c8e94c7f798ae5f1f2c">Offset_PAD1</a></td></tr>
+<tr class="separator:ac45c38098b6f5c8e94c7f798ae5f1f2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa79f46ebad01efba7cae19f4b10ebde9"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="calculations_8h.html#aa79f46ebad01efba7cae19f4b10ebde9">Offset_PAD2</a></td></tr>
+<tr class="separator:aa79f46ebad01efba7cae19f4b10ebde9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a330b10e26eee14b87cd061dbe260641f"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="calculations_8h.html#a330b10e26eee14b87cd061dbe260641f">Offset_PAD3</a></td></tr>
+<tr class="separator:a330b10e26eee14b87cd061dbe260641f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad40f0ed0f30343c5395de5daa9db31a2"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="calculations_8h.html#ad40f0ed0f30343c5395de5daa9db31a2">Offset_Coil1</a></td></tr>
+<tr class="separator:ad40f0ed0f30343c5395de5daa9db31a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afd4104efe1849cdb9e99a2e129e59b6b"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="calculations_8h.html#afd4104efe1849cdb9e99a2e129e59b6b">Offset_Coil2</a></td></tr>
+<tr class="separator:afd4104efe1849cdb9e99a2e129e59b6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>See <a class="el" href="calculations_8c.html" title="Calculations for the cable monitor.">calculations.c</a>. </p>
@@ -109,7 +147,92 @@ Functions</h2></td></tr>
 <p>Prefix MENU </p>
 
 <p class="definition">Definition in file <a class="el" href="calculations_8h_source.html">calculations.h</a>.</p>
-</div><h2 class="groupheader">Function Documentation</h2>
+</div><h2 class="groupheader">Enumeration Type Documentation</h2>
+<a id="a85b4944b97167a524ab5b43172f8a30d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a85b4944b97167a524ab5b43172f8a30d">&#9670;&nbsp;</a></span>type_of_measurement</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="calculations_8h.html#a85b4944b97167a524ab5b43172f8a30d">type_of_measurement</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a85b4944b97167a524ab5b43172f8a30da9991e36cf31cfda4bceee8e0f6f2512b"></a>PADS&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a85b4944b97167a524ab5b43172f8a30da9bcfa7337a4582147b14fb8885f8f3fd"></a>COILS&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a85b4944b97167a524ab5b43172f8a30da0cb1b2c6a7db1f1084886c98909a3f36"></a>INIT&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+<p class="definition">Definition at line <a class="el" href="calculations_8h_source.html#l00012">12</a> of file <a class="el" href="calculations_8h_source.html">calculations.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="aa2d5daaead8e69186ad9e4bd751ea696"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa2d5daaead8e69186ad9e4bd751ea696">&#9670;&nbsp;</a></span>Continuous_Measurement()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Continuous_Measurement </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="calculations_8h.html#a85b4944b97167a524ab5b43172f8a30d">type_of_measurement</a>&#160;</td>
+          <td class="paramname"><em>type</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Measures 5 periods of Data and averages them. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">type</td><td>to distinguish what to measure; see <a class="el" href="calculations_8h.html#a85b4944b97167a524ab5b43172f8a30d">type_of_measurement</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">none</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000003">Todo:</a></b></dt><dd>Anzahl messungen übergeben </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="calculations_8c_source.html#l00210">210</a> of file <a class="el" href="calculations_8c_source.html">calculations.c</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="calculations_8h_aa2d5daaead8e69186ad9e4bd751ea696_cgraph.png" border="0" usemap="#acalculations_8h_aa2d5daaead8e69186ad9e4bd751ea696_cgraph" alt=""/></div>
+<map name="calculations_8h_aa2d5daaead8e69186ad9e4bd751ea696_cgraph" id="acalculations_8h_aa2d5daaead8e69186ad9e4bd751ea696_cgraph">
+<area shape="rect" title="Measures 5 periods of Data and averages them." alt="" coords="5,107,179,133"/>
+<area shape="rect" href="menu_8h.html#ad3766cfb76249af1b7ff3d70b532f00c" title="Displays peak peak value from PAD1&#45;PAD3 for debbuging purposes." alt="" coords="261,5,395,32"/>
+<area shape="rect" href="menu_8h.html#a57af956ec3440d227325d50e8d07b167" title="Displays signals from PADs as curve." alt="" coords="255,56,401,83"/>
+<area shape="rect" href="menu_8h.html#a38a8d3c59f7ac4b87d748cef48a71569" title="Displays type of measurement (PADS/COILS)" alt="" coords="227,107,429,133"/>
+<area shape="rect" href="calculations_8c.html#a0b9e354dddd65372bb98445d2b050293" title="Finds direction of mains cable." alt="" coords="277,157,379,184"/>
+<area shape="rect" href="calculations_8c.html#ae7ef43b64742b37fb4325492e1985278" title="Reads one period of samples from PAD1..3 and calculates peak peak values." alt="" coords="247,208,409,235"/>
+<area shape="rect" href="calculations_8c.html#a4fb47fc0d7f70084c6a70ee3182df9d2" title="Finds peakpeak value from given array." alt="" coords="493,132,605,159"/>
+<area shape="rect" href="measure_8h.html#ac5e4d3ca3005c4f2a3103576271d357d" title="Reads value from ADC of PAD1." alt="" coords="483,183,614,209"/>
+<area shape="rect" href="measure_8h.html#a512f60472a91474ff08abcf7389cd275" title="Reads value from ADC of PAD2." alt="" coords="483,233,614,260"/>
+<area shape="rect" href="calculations_8c.html#a6069994576c2662a26ebda910ef5a1a0" title="Prints all measurements from PADs via UART for debugging." alt="" coords="477,284,620,311"/>
+<area shape="rect" href="main_8h.html#a2ac9c311ff05671105348142908ecda3" title="Disables gyro in order to measure ADC on pin PC1." alt="" coords="668,208,763,235"/>
+<area shape="rect" href="measure_8h.html#a19cbc2c54977f6422dc53734e11748fe" title="This functions is used for delays in us. Example wait for ADC to stabilize." alt="" coords="811,208,887,235"/>
+</map>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="calculations_8h_aa2d5daaead8e69186ad9e4bd751ea696_icgraph.png" border="0" usemap="#acalculations_8h_aa2d5daaead8e69186ad9e4bd751ea696_icgraph" alt=""/></div>
+<map name="calculations_8h_aa2d5daaead8e69186ad9e4bd751ea696_icgraph" id="acalculations_8h_aa2d5daaead8e69186ad9e4bd751ea696_icgraph">
+<area shape="rect" title="Measures 5 periods of Data and averages them." alt="" coords="104,5,277,32"/>
+<area shape="rect" href="main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="The application entry point." alt="" coords="5,5,56,32"/>
+</map>
+</div>
+
+</div>
+</div>
 <a id="a4fb47fc0d7f70084c6a70ee3182df9d2"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4fb47fc0d7f70084c6a70ee3182df9d2">&#9670;&nbsp;</a></span>Find_Peakpeak()</h2>
 
@@ -139,17 +262,19 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000002">Todo:</a></b></dt><dd>find size of array </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000005">Todo:</a></b></dt><dd>find size of array </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="calculations_8c_source.html#l00139">139</a> of file <a class="el" href="calculations_8c_source.html">calculations.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="calculations_8c_source.html#l00314">314</a> of file <a class="el" href="calculations_8c_source.html">calculations.c</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="calculations_8h_a4fb47fc0d7f70084c6a70ee3182df9d2_icgraph.png" border="0" usemap="#acalculations_8h_a4fb47fc0d7f70084c6a70ee3182df9d2_icgraph" alt=""/></div>
-<map name="calculations_8h_a4fb47fc0d7f70084c6a70ee3182df9d2_icgraph" id="calculations_8h_a4fb47fc0d7f70084c6a70ee3182df9d2_icgraph">
-<area shape="rect" title="Finds peakpeak value from given array." alt="" coords="333,5,445,32"/>
-<area shape="rect" href="calculations_8c.html#a91e6a19a001aad3ebbbdb9d01e24c9c9" title="Reads one period of samples from PAD1..3." alt="" coords="104,5,285,32"/>
-<area shape="rect" href="main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="The application entry point." alt="" coords="5,5,56,32"/>
+<map name="calculations_8h_a4fb47fc0d7f70084c6a70ee3182df9d2_icgraph" id="acalculations_8h_a4fb47fc0d7f70084c6a70ee3182df9d2_icgraph">
+<area shape="rect" title="Finds peakpeak value from given array." alt="" coords="536,31,648,57"/>
+<area shape="rect" href="calculations_8c.html#ae7ef43b64742b37fb4325492e1985278" title="Reads one period of samples from PAD1..3 and calculates peak peak values." alt="" coords="325,31,488,57"/>
+<area shape="rect" href="calculations_8c.html#aa2d5daaead8e69186ad9e4bd751ea696" title="Measures 5 periods of Data and averages them." alt="" coords="104,5,277,32"/>
+<area shape="rect" href="calculations_8c.html#ab5198f335d99998e989af5e09ed52d34" title="Measures one period of Data." alt="" coords="119,56,263,83"/>
+<area shape="rect" href="main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="The application entry point." alt="" coords="5,31,56,57"/>
 </map>
 </div>
 
@@ -187,10 +312,10 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Finds direction of mains cabley. </p>
+<p>Finds direction of mains cable. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">PP1,PP2,PP3</td><td>Peak peak value from eacht PAD </td></tr>
+    <tr><td class="paramname">PP1,PP2,PP3</td><td>Peak peak value from each PAD </td></tr>
   </table>
   </dd>
 </dl>
@@ -201,37 +326,98 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="calculations_8c_source.html#l00170">170</a> of file <a class="el" href="calculations_8c_source.html">calculations.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="calculations_8c_source.html#l00347">347</a> of file <a class="el" href="calculations_8c_source.html">calculations.c</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="calculations_8h_a0b9e354dddd65372bb98445d2b050293_icgraph.png" border="0" usemap="#acalculations_8h_a0b9e354dddd65372bb98445d2b050293_icgraph" alt=""/></div>
-<map name="calculations_8h_a0b9e354dddd65372bb98445d2b050293_icgraph" id="calculations_8h_a0b9e354dddd65372bb98445d2b050293_icgraph">
-<area shape="rect" title="Finds direction of mains cabley." alt="" coords="333,5,435,32"/>
-<area shape="rect" href="calculations_8c.html#a91e6a19a001aad3ebbbdb9d01e24c9c9" title="Reads one period of samples from PAD1..3." alt="" coords="104,5,285,32"/>
-<area shape="rect" href="main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="The application entry point." alt="" coords="5,5,56,32"/>
+<map name="calculations_8h_a0b9e354dddd65372bb98445d2b050293_icgraph" id="acalculations_8h_a0b9e354dddd65372bb98445d2b050293_icgraph">
+<area shape="rect" title="Finds direction of mains cable." alt="" coords="325,31,427,57"/>
+<area shape="rect" href="calculations_8c.html#aa2d5daaead8e69186ad9e4bd751ea696" title="Measures 5 periods of Data and averages them." alt="" coords="104,5,277,32"/>
+<area shape="rect" href="calculations_8c.html#ab5198f335d99998e989af5e09ed52d34" title="Measures one period of Data." alt="" coords="119,56,263,83"/>
+<area shape="rect" href="main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="The application entry point." alt="" coords="5,31,56,57"/>
 </map>
 </div>
 
 </div>
 </div>
-<a id="a91e6a19a001aad3ebbbdb9d01e24c9c9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a91e6a19a001aad3ebbbdb9d01e24c9c9">&#9670;&nbsp;</a></span>Single_Measurement_Pads()</h2>
+<a id="ae7ef43b64742b37fb4325492e1985278"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae7ef43b64742b37fb4325492e1985278">&#9670;&nbsp;</a></span>Get_Measurement_Data()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void Single_Measurement_Pads </td>
+          <td class="memname"><a class="el" href="struct_struct___a_d_c___values.html">Struct_ADC_Values</a> Get_Measurement_Data </td>
           <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype"><a class="el" href="calculations_8h.html#a85b4944b97167a524ab5b43172f8a30d">type_of_measurement</a>&#160;</td>
+          <td class="paramname"><em>type</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Reads one period of samples from PAD1..3. </p>
+<p>Reads one period of samples from PAD1..3 and calculates peak peak values. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">none</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">Str_ADC_Values</td><td>Struct with PP values from pad1..3 and coil1..2. see struct </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000001">Todo:</a></b></dt><dd>Result_PADxy beinhaltelt auch Werte von SPulen --&gt; Unschön Name neu vergeben </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="calculations_8c_source.html#l00048">48</a> of file <a class="el" href="calculations_8c_source.html">calculations.c</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="calculations_8h_ae7ef43b64742b37fb4325492e1985278_cgraph.png" border="0" usemap="#acalculations_8h_ae7ef43b64742b37fb4325492e1985278_cgraph" alt=""/></div>
+<map name="calculations_8h_ae7ef43b64742b37fb4325492e1985278_cgraph" id="acalculations_8h_ae7ef43b64742b37fb4325492e1985278_cgraph">
+<area shape="rect" title="Reads one period of samples from PAD1..3 and calculates peak peak values." alt="" coords="5,81,168,108"/>
+<area shape="rect" href="calculations_8c.html#a4fb47fc0d7f70084c6a70ee3182df9d2" title="Finds peakpeak value from given array." alt="" coords="231,5,343,32"/>
+<area shape="rect" href="measure_8h.html#ac5e4d3ca3005c4f2a3103576271d357d" title="Reads value from ADC of PAD1." alt="" coords="222,56,353,83"/>
+<area shape="rect" href="measure_8h.html#a512f60472a91474ff08abcf7389cd275" title="Reads value from ADC of PAD2." alt="" coords="222,107,353,133"/>
+<area shape="rect" href="calculations_8c.html#a6069994576c2662a26ebda910ef5a1a0" title="Prints all measurements from PADs via UART for debugging." alt="" coords="216,157,359,184"/>
+<area shape="rect" href="main_8h.html#a2ac9c311ff05671105348142908ecda3" title="Disables gyro in order to measure ADC on pin PC1." alt="" coords="407,81,501,108"/>
+<area shape="rect" href="measure_8h.html#a19cbc2c54977f6422dc53734e11748fe" title="This functions is used for delays in us. Example wait for ADC to stabilize." alt="" coords="549,81,625,108"/>
+</map>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="calculations_8h_ae7ef43b64742b37fb4325492e1985278_icgraph.png" border="0" usemap="#acalculations_8h_ae7ef43b64742b37fb4325492e1985278_icgraph" alt=""/></div>
+<map name="calculations_8h_ae7ef43b64742b37fb4325492e1985278_icgraph" id="acalculations_8h_ae7ef43b64742b37fb4325492e1985278_icgraph">
+<area shape="rect" title="Reads one period of samples from PAD1..3 and calculates peak peak values." alt="" coords="325,31,488,57"/>
+<area shape="rect" href="calculations_8c.html#aa2d5daaead8e69186ad9e4bd751ea696" title="Measures 5 periods of Data and averages them." alt="" coords="104,5,277,32"/>
+<area shape="rect" href="calculations_8c.html#ab5198f335d99998e989af5e09ed52d34" title="Measures one period of Data." alt="" coords="119,56,263,83"/>
+<area shape="rect" href="main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="The application entry point." alt="" coords="5,31,56,57"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ab5198f335d99998e989af5e09ed52d34"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab5198f335d99998e989af5e09ed52d34">&#9670;&nbsp;</a></span>Single_Measurement()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Single_Measurement </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="calculations_8h.html#a85b4944b97167a524ab5b43172f8a30d">type_of_measurement</a>&#160;</td>
+          <td class="paramname"><em>type</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Measures one period of Data. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">none</td><td></td></tr>
@@ -244,31 +430,34 @@ Here is the caller graph for this function:</div>
   </table>
   </dd>
 </dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000002">Todo:</a></b></dt><dd>Pad/Spulen umschaltung </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="calculations_8c_source.html#l00044">44</a> of file <a class="el" href="calculations_8c_source.html">calculations.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="calculations_8c_source.html#l00179">179</a> of file <a class="el" href="calculations_8c_source.html">calculations.c</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="calculations_8h_a91e6a19a001aad3ebbbdb9d01e24c9c9_cgraph.png" border="0" usemap="#acalculations_8h_a91e6a19a001aad3ebbbdb9d01e24c9c9_cgraph" alt=""/></div>
-<map name="calculations_8h_a91e6a19a001aad3ebbbdb9d01e24c9c9_cgraph" id="calculations_8h_a91e6a19a001aad3ebbbdb9d01e24c9c9_cgraph">
-<area shape="rect" title="Reads one period of samples from PAD1..3." alt="" coords="5,157,187,184"/>
-<area shape="rect" href="menu_8h.html#ad3766cfb76249af1b7ff3d70b532f00c" title="Displays peak peak value from PAD1&#45;PAD3 for debbuging purposes." alt="" coords="240,5,375,32"/>
-<area shape="rect" href="menu_8h.html#a57af956ec3440d227325d50e8d07b167" title="Displays signals from PADs as curve." alt="" coords="235,56,380,83"/>
-<area shape="rect" href="calculations_8c.html#a4fb47fc0d7f70084c6a70ee3182df9d2" title="Finds peakpeak value from given array." alt="" coords="251,107,363,133"/>
-<area shape="rect" href="measure_8h.html#ac5e4d3ca3005c4f2a3103576271d357d" title="Reads value from ADC of PAD1." alt="" coords="242,157,373,184"/>
-<area shape="rect" href="measure_8h.html#a512f60472a91474ff08abcf7389cd275" title="Reads value from ADC of PAD2." alt="" coords="242,208,373,235"/>
-<area shape="rect" href="calculations_8c.html#a0b9e354dddd65372bb98445d2b050293" title="Finds direction of mains cabley." alt="" coords="257,259,358,285"/>
-<area shape="rect" href="calculations_8c.html#a6069994576c2662a26ebda910ef5a1a0" title="Prints Array via UART." alt="" coords="236,309,379,336"/>
-<area shape="rect" href="main_8h.html#a2ac9c311ff05671105348142908ecda3" title="Disables gyro in order to measure on pin PC1." alt="" coords="428,183,523,209"/>
-<area shape="rect" href="measure_8h.html#a19cbc2c54977f6422dc53734e11748fe" title="This functions is used for delays in us. Example wait for ADC to stabilize." alt="" coords="571,183,647,209"/>
+<div class="center"><img src="calculations_8h_ab5198f335d99998e989af5e09ed52d34_cgraph.png" border="0" usemap="#acalculations_8h_ab5198f335d99998e989af5e09ed52d34_cgraph" alt=""/></div>
+<map name="calculations_8h_ab5198f335d99998e989af5e09ed52d34_cgraph" id="acalculations_8h_ab5198f335d99998e989af5e09ed52d34_cgraph">
+<area shape="rect" title="Measures one period of Data." alt="" coords="5,107,149,133"/>
+<area shape="rect" href="menu_8h.html#ad3766cfb76249af1b7ff3d70b532f00c" title="Displays peak peak value from PAD1&#45;PAD3 for debbuging purposes." alt="" coords="231,5,366,32"/>
+<area shape="rect" href="menu_8h.html#a57af956ec3440d227325d50e8d07b167" title="Displays signals from PADs as curve." alt="" coords="226,56,371,83"/>
+<area shape="rect" href="menu_8h.html#a38a8d3c59f7ac4b87d748cef48a71569" title="Displays type of measurement (PADS/COILS)" alt="" coords="197,107,400,133"/>
+<area shape="rect" href="calculations_8c.html#a0b9e354dddd65372bb98445d2b050293" title="Finds direction of mains cable." alt="" coords="248,157,349,184"/>
+<area shape="rect" href="calculations_8c.html#ae7ef43b64742b37fb4325492e1985278" title="Reads one period of samples from PAD1..3 and calculates peak peak values." alt="" coords="217,208,380,235"/>
+<area shape="rect" href="calculations_8c.html#a4fb47fc0d7f70084c6a70ee3182df9d2" title="Finds peakpeak value from given array." alt="" coords="463,132,575,159"/>
+<area shape="rect" href="measure_8h.html#ac5e4d3ca3005c4f2a3103576271d357d" title="Reads value from ADC of PAD1." alt="" coords="454,183,585,209"/>
+<area shape="rect" href="measure_8h.html#a512f60472a91474ff08abcf7389cd275" title="Reads value from ADC of PAD2." alt="" coords="454,233,585,260"/>
+<area shape="rect" href="calculations_8c.html#a6069994576c2662a26ebda910ef5a1a0" title="Prints all measurements from PADs via UART for debugging." alt="" coords="448,284,591,311"/>
+<area shape="rect" href="main_8h.html#a2ac9c311ff05671105348142908ecda3" title="Disables gyro in order to measure ADC on pin PC1." alt="" coords="639,208,733,235"/>
+<area shape="rect" href="measure_8h.html#a19cbc2c54977f6422dc53734e11748fe" title="This functions is used for delays in us. Example wait for ADC to stabilize." alt="" coords="781,208,857,235"/>
 </map>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="calculations_8h_a91e6a19a001aad3ebbbdb9d01e24c9c9_icgraph.png" border="0" usemap="#acalculations_8h_a91e6a19a001aad3ebbbdb9d01e24c9c9_icgraph" alt=""/></div>
-<map name="calculations_8h_a91e6a19a001aad3ebbbdb9d01e24c9c9_icgraph" id="calculations_8h_a91e6a19a001aad3ebbbdb9d01e24c9c9_icgraph">
-<area shape="rect" title="Reads one period of samples from PAD1..3." alt="" coords="104,5,285,32"/>
+<div class="center"><img src="calculations_8h_ab5198f335d99998e989af5e09ed52d34_icgraph.png" border="0" usemap="#acalculations_8h_ab5198f335d99998e989af5e09ed52d34_icgraph" alt=""/></div>
+<map name="calculations_8h_ab5198f335d99998e989af5e09ed52d34_icgraph" id="calculations_8h_ab5198f335d99998e989af5e09ed52d34_icgraph">
+<area shape="rect" title="Measures one period of Data." alt="" coords="104,5,248,32"/>
 <area shape="rect" href="main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="The application entry point." alt="" coords="5,5,56,32"/>
 </map>
 </div>
@@ -307,10 +496,10 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Prints Array via UART. </p>
+<p>Prints all measurements from PADs via UART for debugging. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">*pointer</td><td>pointer to uint_16t array </td></tr>
+    <tr><td class="paramname">*pointer1,*pointer2,*pointer3</td><td>pointer to uint_16t array </td></tr>
   </table>
   </dd>
 </dl>
@@ -320,19 +509,102 @@ Here is the caller graph for this function:</div>
   </table>
   </dd>
 </dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000001">Todo:</a></b></dt><dd>calculate size of array </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000004">Todo:</a></b></dt><dd>calculate size of array </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="calculations_8c_source.html#l00116">116</a> of file <a class="el" href="calculations_8c_source.html">calculations.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="calculations_8c_source.html#l00291">291</a> of file <a class="el" href="calculations_8c_source.html">calculations.c</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="calculations_8h_a6069994576c2662a26ebda910ef5a1a0_icgraph.png" border="0" usemap="#acalculations_8h_a6069994576c2662a26ebda910ef5a1a0_icgraph" alt=""/></div>
-<map name="calculations_8h_a6069994576c2662a26ebda910ef5a1a0_icgraph" id="calculations_8h_a6069994576c2662a26ebda910ef5a1a0_icgraph">
-<area shape="rect" title="Prints Array via UART." alt="" coords="333,5,476,32"/>
-<area shape="rect" href="calculations_8c.html#a91e6a19a001aad3ebbbdb9d01e24c9c9" title="Reads one period of samples from PAD1..3." alt="" coords="104,5,285,32"/>
-<area shape="rect" href="main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="The application entry point." alt="" coords="5,5,56,32"/>
+<map name="calculations_8h_a6069994576c2662a26ebda910ef5a1a0_icgraph" id="acalculations_8h_a6069994576c2662a26ebda910ef5a1a0_icgraph">
+<area shape="rect" title="Prints all measurements from PADs via UART for debugging." alt="" coords="536,31,679,57"/>
+<area shape="rect" href="calculations_8c.html#ae7ef43b64742b37fb4325492e1985278" title="Reads one period of samples from PAD1..3 and calculates peak peak values." alt="" coords="325,31,488,57"/>
+<area shape="rect" href="calculations_8c.html#aa2d5daaead8e69186ad9e4bd751ea696" title="Measures 5 periods of Data and averages them." alt="" coords="104,5,277,32"/>
+<area shape="rect" href="calculations_8c.html#ab5198f335d99998e989af5e09ed52d34" title="Measures one period of Data." alt="" coords="119,56,263,83"/>
+<area shape="rect" href="main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="The application entry point." alt="" coords="5,31,56,57"/>
 </map>
 </div>
+
+</div>
+</div>
+<h2 class="groupheader">Variable Documentation</h2>
+<a id="ad40f0ed0f30343c5395de5daa9db31a2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad40f0ed0f30343c5395de5daa9db31a2">&#9670;&nbsp;</a></span>Offset_Coil1</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t Offset_Coil1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="calculations_8h_source.html#l00027">27</a> of file <a class="el" href="calculations_8h_source.html">calculations.h</a>.</p>
+
+</div>
+</div>
+<a id="afd4104efe1849cdb9e99a2e129e59b6b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afd4104efe1849cdb9e99a2e129e59b6b">&#9670;&nbsp;</a></span>Offset_Coil2</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t Offset_Coil2</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="calculations_8h_source.html#l00027">27</a> of file <a class="el" href="calculations_8h_source.html">calculations.h</a>.</p>
+
+</div>
+</div>
+<a id="ac45c38098b6f5c8e94c7f798ae5f1f2c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac45c38098b6f5c8e94c7f798ae5f1f2c">&#9670;&nbsp;</a></span>Offset_PAD1</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t Offset_PAD1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="calculations_8h_source.html#l00026">26</a> of file <a class="el" href="calculations_8h_source.html">calculations.h</a>.</p>
+
+</div>
+</div>
+<a id="aa79f46ebad01efba7cae19f4b10ebde9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa79f46ebad01efba7cae19f4b10ebde9">&#9670;&nbsp;</a></span>Offset_PAD2</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t Offset_PAD2</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="calculations_8h_source.html#l00026">26</a> of file <a class="el" href="calculations_8h_source.html">calculations.h</a>.</p>
+
+</div>
+</div>
+<a id="a330b10e26eee14b87cd061dbe260641f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a330b10e26eee14b87cd061dbe260641f">&#9670;&nbsp;</a></span>Offset_PAD3</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t Offset_PAD3</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="calculations_8h_source.html#l00026">26</a> of file <a class="el" href="calculations_8h_source.html">calculations.h</a>.</p>
 
 </div>
 </div>

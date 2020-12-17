@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['find_5fpeakpeak_399',['Find_Peakpeak',['../calculations_8h.html#a4fb47fc0d7f70084c6a70ee3182df9d2',1,'Find_Peakpeak(uint16_t *array):&#160;calculations.c'],['../calculations_8c.html#a4fb47fc0d7f70084c6a70ee3182df9d2',1,'Find_Peakpeak(uint16_t *array):&#160;calculations.c']]]
+  ['error_5fhandler_424',['Error_Handler',['../main_8h.html#a1730ffe1e560465665eb47d9264826f9',1,'Error_Handler(void):&#160;main.c'],['../main_8c.html#a1730ffe1e560465665eb47d9264826f9',1,'Error_Handler(void):&#160;main.c']]],
+  ['exti15_5f10_5firqhandler_425',['EXTI15_10_IRQHandler',['../menu_8c.html#a738473a5b43f6c92b80ce1d3d6f77ed9',1,'menu.c']]]
 ];

@@ -48,6 +48,7 @@ MENU_entry_t MENU_get_entry(const MENU_item_t item);
 void MENU_check_transition(void);
 MENU_item_t MENU_get_transition(void);
 void blink_direction(void);
+void set_LEDs_direction(uint8_t number, uint8_t state);
 
 void Display_peak_peak(uint16_t PP1, uint16_t PP2, uint16_t PP3);
 void Display_Signal_Pads(uint16_t *PAD1,uint16_t *PAD2,uint16_t *PAD3);

@@ -30,9 +30,13 @@
 #include "calculations.h"
 
 #define NO_SAMPLES 50
+#define ON 0
+#define OFF 1
 //#define DEBUG_UART
 
+// global variables
 
+uint8_t blink=0;
 
 /*
 void UART_Transmit_Pad(uint16_t *pointer1,uint16_t *pointer2,uint16_t *pointer3);
@@ -202,8 +206,8 @@ void Single_Measurement(type_of_measurement type)
 }
 
 /**
- * @brief Measures three periods of Data and averages them.
- * @param type
+ * @brief Measures 5 periods of Data and averages them.
+ * @param type to distinguish what to measure; see ::type_of_measurement
  * @retval none
  * @todo Anzahl messungen übergeben
  **/
@@ -283,9 +287,9 @@ void Continuous_Measurement(type_of_measurement type)
 
 
 /**
- * @brief Prints Array via UART
- * @param *pointer pointer to uint_16t array
- * @retval result 12bit value from ADC
+ * @brief Prints all measurements from PADs via UART for debugging
+ * @param *pointer1,*pointer2,*pointer3 pointer to uint_16t array
+ * @retval none
  * @todo calculate size of array
  **/
 void UART_Transmit_Pad(uint16_t *pointer1,uint16_t *pointer2,uint16_t *pointer3)
@@ -316,7 +320,7 @@ uint16_t Find_Peakpeak(uint16_t *array)
 	//static uint16_t result=0;
 	uint8_t k=0;
 	uint16_t max=0, min=4000;
-	char text[10];
+
 
 	 for(k=0;k<NO_SAMPLES-1;k++)
 	 {
@@ -327,6 +331,7 @@ uint16_t Find_Peakpeak(uint16_t *array)
 		 }
 	 }
 #ifdef DEBUG_UART
+	 char text[10];
 	 snprintf(text, 10, "MAX=%4d\n", (uint16_t)(max & 0xffff));
 	 HAL_UART_Transmit(&huart1, text, 9, 500);
 	 snprintf(text, 10, "MIN=%4d\n", (uint16_t)(min & 0xffff));
@@ -342,105 +347,72 @@ uint16_t Find_Peakpeak(uint16_t *array)
  * @brief Finds direction of mains cable
  * @param PP1,PP2,PP3 Peak peak value from each PAD
  * @retval none
+ * @todo
  **/
-
 void Get_Direction(uint16_t PP1, uint16_t PP2, uint16_t PP3)
 {
-	/*
-	int16_t delta12 = PP1-PP2;
-	int16_t delta23 = PP2-PP3;
-	int16_t delta13 = PP1-PP3;*/
 
-	uint16_t left=0, middle=0, right=0;
-/*
-	left = (uint16_t)(0.8*PP1+0.2*PP2);						//A
-	right = (uint16_t)(0.8*PP3+0.2*PP2);					//B
-	middle = (uint16_t)(0.75*PP2+0.125*PP1+0.125*PP3);		//C
+	uint16_t sum=0,mean=0;
 
-	char text[10];
-	snprintf(text, 10, "l  =%4d\n", (uint16_t)(left & 0xffff));
-	HAL_UART_Transmit(&huart1, text, 9, 500);
-	snprintf(text, 10, "r  =%4d\n", (uint16_t)(right & 0xffff));
-	HAL_UART_Transmit(&huart1, text, 9, 500);
-	snprintf(text, 10, "mid=%4d\n", (uint16_t)(middle & 0xffff));
-	HAL_UART_Transmit(&huart1, text, 9, 500);
+	PP1 = (uint16_t) (1*PP1);
+	PP2 = (uint16_t) (1.5*PP2);
+	PP3 = (uint16_t) (0.8*PP3);
 
-	if (left >= right && left >= middle) snprintf(text, 10, "left    \n", (uint16_t)(left & 0xffff));
-	if (right >= left && right >= middle) snprintf(text, 10, "right   \n", (uint16_t)(right & 0xffff));
-	if (middle >= left && middle >= right) snprintf(text, 10, "middle  \n", (uint16_t)(middle & 0xffff));
-	HAL_UART_Transmit(&huart1, text, 9, 500);
+	sum = PP1+PP2+PP3;
+	mean = (uint16_t)(sum/3);
 
-*/
-	/*
-	 * difference smaller than 30% of middle pad->mitte
-	 * PP1 grösser als 80% von PP3-> ganz links
-	 */
-/*
-	if((PP2>PP1)&&(PP2>PP3)){
-		HAL_GPIO_WritePin(led1_GPIO_Port, led1_Pin, GPIO_PIN_SET);
-		HAL_GPIO_WritePin(led2_GPIO_Port, led2_Pin, GPIO_PIN_SET);
-		HAL_GPIO_WritePin(led3_GPIO_Port, led3_Pin, GPIO_PIN_RESET);
-		HAL_GPIO_WritePin(led4_GPIO_Port, led4_Pin, GPIO_PIN_SET);
-		HAL_GPIO_WritePin(led5_GPIO_Port, led5_Pin, GPIO_PIN_SET);
-
-	}
-	else{
-		HAL_GPIO_WritePin(led1_GPIO_Port, led1_Pin, GPIO_PIN_SET);
-		HAL_GPIO_WritePin(led2_GPIO_Port, led2_Pin, GPIO_PIN_SET);
-		HAL_GPIO_WritePin(led3_GPIO_Port, led3_Pin, GPIO_PIN_SET);
-		HAL_GPIO_WritePin(led4_GPIO_Port, led4_Pin, GPIO_PIN_SET);
-		HAL_GPIO_WritePin(led5_GPIO_Port, led5_Pin, GPIO_PIN_SET);
-	}*/
-
-	if((abs(PP1-PP3))<(0.2*PP2)) {//middle
-
-		HAL_GPIO_WritePin(led1_GPIO_Port, led1_Pin, GPIO_PIN_SET);
-		HAL_GPIO_WritePin(led2_GPIO_Port, led2_Pin, GPIO_PIN_SET);
-		HAL_GPIO_WritePin(led3_GPIO_Port, led3_Pin, GPIO_PIN_RESET);
-		HAL_GPIO_WritePin(led4_GPIO_Port, led4_Pin, GPIO_PIN_SET);
-		HAL_GPIO_WritePin(led5_GPIO_Port, led5_Pin, GPIO_PIN_SET);
-	}
-	else if(PP1>(0.8*PP3)){//left
-		HAL_GPIO_WritePin(led1_GPIO_Port, led1_Pin, GPIO_PIN_RESET);
-		HAL_GPIO_WritePin(led3_GPIO_Port, led3_Pin, GPIO_PIN_SET);
-		HAL_GPIO_WritePin(led2_GPIO_Port, led2_Pin, GPIO_PIN_SET);
-		HAL_GPIO_WritePin(led4_GPIO_Port, led4_Pin, GPIO_PIN_SET);
-		HAL_GPIO_WritePin(led5_GPIO_Port, led5_Pin, GPIO_PIN_SET);
-
-	}
-	else if(PP3>(0.8*PP1)){//right
-			HAL_GPIO_WritePin(led1_GPIO_Port, led1_Pin, GPIO_PIN_SET);
-			HAL_GPIO_WritePin(led3_GPIO_Port, led3_Pin, GPIO_PIN_SET);
-			HAL_GPIO_WritePin(led2_GPIO_Port, led2_Pin, GPIO_PIN_SET);
-			HAL_GPIO_WritePin(led4_GPIO_Port, led4_Pin, GPIO_PIN_SET);
-			HAL_GPIO_WritePin(led5_GPIO_Port, led5_Pin, GPIO_PIN_RESET);
-
-		}/*
-	else if(PP1>(0.8*PP3)){//left-middle
-			HAL_GPIO_WritePin(led1_GPIO_Port, led1_Pin, GPIO_PIN_SET);
-			HAL_GPIO_WritePin(led3_GPIO_Port, led3_Pin, GPIO_PIN_RESET);
-			HAL_GPIO_WritePin(led2_GPIO_Port, led2_Pin, GPIO_PIN_SET);
-			HAL_GPIO_WritePin(led4_GPIO_Port, led4_Pin, GPIO_PIN_SET);
-			HAL_GPIO_WritePin(led5_GPIO_Port, led5_Pin, GPIO_PIN_SET);
-
+	//if cable between 0cm to 10cm
+	if(sum>950)
+	{
+		//left
+		if(((PP1-mean>30) && (PP2-mean<0) && (PP3-mean<0)) || ((PP1>PP2) && (PP1>PP3)))
+		{
+			set_LEDs_direction(6, OFF);
+			set_LEDs_direction(0, ON);
 		}
-		else if(PP3>(0.8*PP1)){//middle-right
-				HAL_GPIO_WritePin(led1_GPIO_Port, led1_Pin, GPIO_PIN_SET);
-				HAL_GPIO_WritePin(led3_GPIO_Port, led3_Pin, GPIO_PIN_SET);
-				HAL_GPIO_WritePin(led2_GPIO_Port, led2_Pin, GPIO_PIN_SET);
-				HAL_GPIO_WritePin(led4_GPIO_Port, led4_Pin, GPIO_PIN_RESET);
-				HAL_GPIO_WritePin(led5_GPIO_Port, led5_Pin, GPIO_PIN_SET);
 
-			}
-	else {
-				HAL_GPIO_WritePin(led3_GPIO_Port, led3_Pin, GPIO_PIN_SET);
-				HAL_GPIO_WritePin(led1_GPIO_Port, led1_Pin, GPIO_PIN_SET);
-				HAL_GPIO_WritePin(led2_GPIO_Port, led2_Pin, GPIO_PIN_SET);
-				HAL_GPIO_WritePin(led4_GPIO_Port, led4_Pin, GPIO_PIN_SET);
-				HAL_GPIO_WritePin(led5_GPIO_Port, led5_Pin, GPIO_PIN_SET);
-	}*/
+		//right
+		if(((PP3-mean>30)&&(PP2-mean<0)&&(PP1-mean<0)) || ((PP3>PP1) && (PP3>PP2)))
+		{
+			set_LEDs_direction(6, OFF);
+			set_LEDs_direction(4, ON);
+		}
+		//middle
+		if(((abs(PP3-mean)<30) && (abs(PP2-mean)<30) && (abs(PP1-mean)<30)) || ((PP2>PP1) && (PP2>PP3)))
+		{
+			set_LEDs_direction(6, OFF);
+			set_LEDs_direction(2, ON);
+		}
+	}
+	else
+	{
+
+		// if cable present(between 10cm and 20cm)
+		if(sum>250)
+		{
+			blink = !blink;
+			set_LEDs_direction(6, blink);
+		}
+		else
+		{
+			set_LEDs_direction(6, OFF);
+		}
+	}
 
 
+#ifdef DEBUG_UART
+	char text[10];
+	snprintf(text, 10, "SUM=%4d\n", (uint16_t)(sum & 0xffff));
+	HAL_UART_Transmit(&huart1, text, 9, 500);
+	snprintf(text, 10, "mea=%4d\n", (uint16_t)(mean & 0xffff));
+	HAL_UART_Transmit(&huart1, text, 9, 500);
+	snprintf(text, 10, "PP1=%4d\n", (uint16_t)(PP1 & 0xffff));
+	HAL_UART_Transmit(&huart1, text, 9, 500);
+	snprintf(text, 10, "PP2=%4d\n", (uint16_t)(PP2 & 0xffff));
+	HAL_UART_Transmit(&huart1, text, 9, 500);
+	snprintf(text, 10, "PP3=%4d\n", (uint16_t)(PP3 & 0xffff));
+	HAL_UART_Transmit(&huart1, text, 9, 500);
+#endif
 }
 
 

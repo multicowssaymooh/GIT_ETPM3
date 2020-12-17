@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['environ_450',['environ',['../syscalls_8c.html#aa006daaf11f1e2e45a6ababaf463212b',1,'syscalls.c']]],
-  ['errno_451',['errno',['../syscalls_8c.html#ad65a8842cc674e3ddf69355898c0ecbf',1,'syscalls.c']]]
+  ['back_5fcolor_481',['back_color',['../struct_m_e_n_u__entry__t.html#a0fd107c268f85989486fd5e5aa6a538b',1,'MENU_entry_t']]]
 ];

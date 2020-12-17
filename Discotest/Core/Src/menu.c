@@ -91,7 +91,6 @@ void MENU_draw(void)
  * @brief lets direction led blink.
  * @param none
  * @retval none
- *
  *****************************************************************************/
 void blink_direction(void)
 {
@@ -100,7 +99,32 @@ void blink_direction(void)
 	HAL_GPIO_TogglePin(led3_GPIO_Port, led3_Pin);
 	HAL_GPIO_TogglePin(led4_GPIO_Port, led4_Pin);
 	HAL_GPIO_TogglePin(led5_GPIO_Port, led5_Pin);
+}
 
+/** ***************************************************************************
+ * @brief Enables or Disables all direction LEDs
+ * @param number 6=all leds, 1=led1, 2=led2 up to 5=led5
+ * @param state	0=on, 1=off
+ * @retval none
+ *****************************************************************************/
+void set_LEDs_direction(uint8_t number, uint8_t state)
+{
+	uint16_t Pin_LuT[5]={led1_Pin,led2_Pin,led3_Pin,led4_Pin,led5_Pin};
+	uint32_t Port_LuT[5]={led1_GPIO_Port,led2_GPIO_Port,led3_GPIO_Port,led4_GPIO_Port,led5_GPIO_Port};
+
+		// all LEDs
+		if(number==6)
+		{
+			HAL_GPIO_WritePin(led1_GPIO_Port, led1_Pin,state);
+			HAL_GPIO_WritePin(led2_GPIO_Port, led2_Pin,state);
+			HAL_GPIO_WritePin(led3_GPIO_Port, led3_Pin,state);
+			HAL_GPIO_WritePin(led4_GPIO_Port, led4_Pin,state);
+			HAL_GPIO_WritePin(led5_GPIO_Port, led5_Pin,state);
+		}
+		else
+		{
+			HAL_GPIO_WritePin(Port_LuT[number], Pin_LuT[number],state);
+		}
 }
 
 

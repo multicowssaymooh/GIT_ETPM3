@@ -503,7 +503,7 @@ Functions</h2></td></tr>
 <tr class="memdesc:a1730ffe1e560465665eb47d9264826f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function is executed in case of error occurrence.  <a href="main_8h.html#a1730ffe1e560465665eb47d9264826f9">More...</a><br /></td></tr>
 <tr class="separator:a1730ffe1e560465665eb47d9264826f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2ac9c311ff05671105348142908ecda3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8h.html#a2ac9c311ff05671105348142908ecda3">gyro_disable</a> (void)</td></tr>
-<tr class="memdesc:a2ac9c311ff05671105348142908ecda3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disables gyro in order to measure on pin PC1.  <a href="main_8h.html#a2ac9c311ff05671105348142908ecda3">More...</a><br /></td></tr>
+<tr class="memdesc:a2ac9c311ff05671105348142908ecda3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disables gyro in order to measure ADC on pin PC1.  <a href="main_8h.html#a2ac9c311ff05671105348142908ecda3">More...</a><br /></td></tr>
 <tr class="separator:a2ac9c311ff05671105348142908ecda3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -3515,7 +3515,7 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="main_8c_source.html#l00456">456</a> of file <a class="el" href="main_8c_source.html">main.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="main_8c_source.html#l00356">356</a> of file <a class="el" href="main_8c_source.html">main.c</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -3556,7 +3556,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Disables gyro in order to measure on pin PC1. </p>
+<p>Disables gyro in order to measure ADC on pin PC1. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">none</td><td></td></tr>
@@ -3570,13 +3570,13 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="main_8c_source.html#l00268">268</a> of file <a class="el" href="main_8c_source.html">main.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="main_8c_source.html#l00310">310</a> of file <a class="el" href="main_8c_source.html">main.c</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="main_8h_a2ac9c311ff05671105348142908ecda3_cgraph.png" border="0" usemap="#amain_8h_a2ac9c311ff05671105348142908ecda3_cgraph" alt=""/></div>
 <map name="main_8h_a2ac9c311ff05671105348142908ecda3_cgraph" id="main_8h_a2ac9c311ff05671105348142908ecda3_cgraph">
-<area shape="rect" title="Disables gyro in order to measure on pin PC1." alt="" coords="5,5,100,32"/>
+<area shape="rect" title="Disables gyro in order to measure ADC on pin PC1." alt="" coords="5,5,100,32"/>
 <area shape="rect" href="measure_8h.html#a19cbc2c54977f6422dc53734e11748fe" title="This functions is used for delays in us. Example wait for ADC to stabilize." alt="" coords="148,5,224,32"/>
 </map>
 </div>
@@ -3584,11 +3584,13 @@ Here is the call graph for this function:</div>
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="main_8h_a2ac9c311ff05671105348142908ecda3_icgraph.png" border="0" usemap="#amain_8h_a2ac9c311ff05671105348142908ecda3_icgraph" alt=""/></div>
-<map name="main_8h_a2ac9c311ff05671105348142908ecda3_icgraph" id="main_8h_a2ac9c311ff05671105348142908ecda3_icgraph">
-<area shape="rect" title="Disables gyro in order to measure on pin PC1." alt="" coords="512,31,607,57"/>
-<area shape="rect" href="measure_8c.html#ac5e4d3ca3005c4f2a3103576271d357d" title="Reads value from ADC of PAD1." alt="" coords="333,5,464,32"/>
-<area shape="rect" href="measure_8c.html#a512f60472a91474ff08abcf7389cd275" title="Reads value from ADC of PAD2." alt="" coords="333,56,464,83"/>
-<area shape="rect" href="calculations_8c.html#a91e6a19a001aad3ebbbdb9d01e24c9c9" title="Reads one period of samples from PAD1..3." alt="" coords="104,31,285,57"/>
+<map name="main_8h_a2ac9c311ff05671105348142908ecda3_icgraph" id="amain_8h_a2ac9c311ff05671105348142908ecda3_icgraph">
+<area shape="rect" title="Disables gyro in order to measure ADC on pin PC1." alt="" coords="715,31,809,57"/>
+<area shape="rect" href="measure_8c.html#ac5e4d3ca3005c4f2a3103576271d357d" title="Reads value from ADC of PAD1." alt="" coords="536,5,667,32"/>
+<area shape="rect" href="measure_8c.html#a512f60472a91474ff08abcf7389cd275" title="Reads value from ADC of PAD2." alt="" coords="536,56,667,83"/>
+<area shape="rect" href="calculations_8c.html#ae7ef43b64742b37fb4325492e1985278" title="Reads one period of samples from PAD1..3 and calculates peak peak values." alt="" coords="325,31,488,57"/>
+<area shape="rect" href="calculations_8c.html#aa2d5daaead8e69186ad9e4bd751ea696" title="Measures 5 periods of Data and averages them." alt="" coords="104,5,277,32"/>
+<area shape="rect" href="calculations_8c.html#ab5198f335d99998e989af5e09ed52d34" title="Measures one period of Data." alt="" coords="119,56,263,83"/>
 <area shape="rect" href="main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="The application entry point." alt="" coords="5,31,56,57"/>
 </map>
 </div>

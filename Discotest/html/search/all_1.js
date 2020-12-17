@@ -30,5 +30,8 @@ var searchData=
   ['adc_2eh_47',['adc.h',['../adc_8h.html',1,'']]],
   ['adc_5fdac_5fres_48',['ADC_DAC_RES',['../menu_8c.html#a1a99cc3586f8ed1522076e58e22ca0f7',1,'ADC_DAC_RES():&#160;menu.c'],['../menu_8c.html#a1a99cc3586f8ed1522076e58e22ca0f7',1,'ADC_DAC_RES():&#160;menu.c']]],
   ['adc_5ffs_49',['ADC_FS',['../menu_8c.html#aa8ccd2dce306c0d219eeabd92b30fcc0',1,'menu.c']]],
-  ['adc_5fnums_50',['ADC_NUMS',['../menu_8c.html#a0a4c3d17b626e4d7b31b780e85dde7cf',1,'menu.c']]]
+  ['adc_5fnums_50',['ADC_NUMS',['../menu_8c.html#a0a4c3d17b626e4d7b31b780e85dde7cf',1,'menu.c']]],
+  ['array_5fpad1_51',['array_pad1',['../struct_struct___a_d_c___values.html#a9cf53af17b4dadb807a82f9a25782451',1,'Struct_ADC_Values']]],
+  ['array_5fpad2_52',['array_pad2',['../struct_struct___a_d_c___values.html#ad477b2448ca992308078b11433d23cba',1,'Struct_ADC_Values']]],
+  ['array_5fpad3_53',['array_pad3',['../struct_struct___a_d_c___values.html#ad4ff88c5848c89363ffe2931929019de',1,'Struct_ADC_Values']]]
 ];
