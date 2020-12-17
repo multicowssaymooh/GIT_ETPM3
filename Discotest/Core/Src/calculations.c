@@ -2,18 +2,13 @@
  * @file
  * @brief Calculations for the cable monitor
  *
- * Initializes and displays the menu.  ANPASSEN TBD
- * @n Provides the function MENU_check_transition() for polling user actions.
- * The variable MENU_transition is set to the touched menu item.
- * If no touch has occurred the variable MENU_transition is set to MENU_NONE
- * @n If the interrupt handler is enabled by calling BSP_TS_ITConfig();
- * the variable MENU_transition is set to the touched menu entry as above.
- * @n Either call once BSP_TS_ITConfig() to enable the interrupt
- * or MENU_check_transition() in the main while loop for polling.
- * @n The function MENU_get_transition() returns the new menu item.
+ * @n Provides the function Get_Measurement_Data() to gather all values from Pads/Coils which returns a struct (see ::Struct_ADC_Values) with all peak-peak values and array with samples
+ * @n This function is used in Single_Measurement() and Continuous_Measurement(), where it is called either once or 5 times to build the mean values.
+ * @n Find_Peakpeak() calculates the peak-peak value from the given array. Get_Direction() calculates the direction of the mains cable and displays the distance (TBD)
  *
- * @author  Berger Dominic bergedo1@zhaw.students.ch
- * @date	30.04.2020
+ *
+ * @author  bergedo1, landojon
+ * @date	18.12.2020
 **/
 
 #include "stm32f4xx.h"
@@ -36,18 +31,15 @@
 
 // global variables
 
+/// If cable is present LEDs should blink --> toggle every iteration
 uint8_t blink=0;
 
-/*
-void UART_Transmit_Pad(uint16_t *pointer1,uint16_t *pointer2,uint16_t *pointer3);
-uint16_t Find_Peakpeak(uint16_t *array);
-void Get_Direction(uint16_t PP1, uint16_t PP2, uint16_t PP3);
-*/
+
 /**
- * @brief Reads one period of samples from PAD1..3 and calculates peak peak values
- * @param none
- * @retval Str_ADC_Values Struct with PP values from pad1..3 and coil1..2. see struct
- * @todo Result_PADxy beinhaltelt auch Werte von SPulen --> Unschön Name neu vergeben
+ * @brief Reads one period of samples from PAD1..3 and Coil1..2, calculates peak peak values and returns them as struct
+ * @param type Specify which measurements are done; see ::type_of_measurement
+ * @retval Str_ADC_Values Struct with PP values from pad1..3 and coil1..2; see ::Struct_ADC_Values
+ * @todo Result_PADxy beinhaltelt auch Werte von Spulen --> Unschön Name neu vergeben
  **/
 Struct_ADC_Values Get_Measurement_Data(type_of_measurement type)
 {
@@ -175,10 +167,10 @@ Struct_ADC_Values Get_Measurement_Data(type_of_measurement type)
 
 
 /**
- * @brief Measures one period of Data
- * @param none
+ * @brief Measures one period of Data, displays samples, peak-peak values and direction+distance of cable
+ * @param type Specify which measurements are done (Pads or Coils); see ::type_of_measurement
  * @retval none
- * @todo Pad/Spulen umschaltung
+ * @todo Offsets auch hier von PP Werte abziehen (Nicht nur im continuous).
  **/
 void Single_Measurement(type_of_measurement type)
 {
@@ -206,10 +198,10 @@ void Single_Measurement(type_of_measurement type)
 }
 
 /**
- * @brief Measures 5 periods of Data and averages them.
- * @param type to distinguish what to measure; see ::type_of_measurement
+ * @brief Measures 5 periods of Data and averages them. Displays samples, peak-peak values and direction+distance of cable
+ * @param type Specify which measurements are done (Pads or Coils); see ::type_of_measurement
  * @retval none
- * @todo Anzahl messungen übergeben
+ * @todo Anzahl Messungen als Uebergabeparameter
  **/
 void Continuous_Measurement(type_of_measurement type)
 {
@@ -252,43 +244,41 @@ void Continuous_Measurement(type_of_measurement type)
 		PP1 = (uint16_t)(PP1/i);
 		PP2 = (uint16_t)(PP2/i);
 
-		//remove mean
+		//subtract mean
 		PP1 = abs(PP1-Offset_Coil1);
 		PP2 = abs(PP2-Offset_Coil2);
-
 
 		Display_Signal_Pads(Res.array_pad1,Res.array_pad2,0);
 		Display_peak_peak(PP1,PP2,0);
 	}
 
 	if(type == INIT)
+	{
+		for(i=0;i<20;i++)
 		{
-			for(i=0;i<20;i++)
-			{
-				Res = Get_Measurement_Data(INIT);
-				PP1 = PP1 + Res.PP_Pad1;
-				PP2 = PP2 + Res.PP_Pad2;
-				PP3 = PP3 + Res.PP_Pad3;
-				PP4 = PP4 + Res.PP_Coil1;
-				PP5 = PP5 + Res.PP_Coil2;
-			}
-			Offset_PAD1 = (uint16_t)(PP1/i);
-			Offset_PAD2 = (uint16_t)(PP2/i);
-			Offset_PAD3 = (uint16_t)(PP3/i);
-			Offset_Coil1 = (uint16_t)(PP4/i);
-			Offset_Coil2 = (uint16_t)(PP5/i);
-
-			//Display_Signal_Pads(Res.array_pad1,Res.array_pad2,0);
-			//Display_peak_peak(PP1,PP2,0);
+			Res = Get_Measurement_Data(INIT);
+			PP1 = PP1 + Res.PP_Pad1;
+			PP2 = PP2 + Res.PP_Pad2;
+			PP3 = PP3 + Res.PP_Pad3;
+			PP4 = PP4 + Res.PP_Coil1;
+			PP5 = PP5 + Res.PP_Coil2;
 		}
+		Offset_PAD1 = (uint16_t)(PP1/i);
+		Offset_PAD2 = (uint16_t)(PP2/i);
+		Offset_PAD3 = (uint16_t)(PP3/i);
+		Offset_Coil1 = (uint16_t)(PP4/i);
+		Offset_Coil2 = (uint16_t)(PP5/i);
 
+		//Display_Signal_Pads(Res.array_pad1,Res.array_pad2,0);
+		//Display_peak_peak(PP1,PP2,0);
+	}
 	Display_Type_of_Measurement(type);
 }
 
 
 /**
  * @brief Prints all measurements from PADs via UART for debugging
- * @param *pointer1,*pointer2,*pointer3 pointer to uint_16t array
+ * @param *pointer1,*pointer2,*pointer3 pointer to uint_16t array with samples
  * @retval none
  * @todo calculate size of array
  **/
@@ -310,8 +300,8 @@ void UART_Transmit_Pad(uint16_t *pointer1,uint16_t *pointer2,uint16_t *pointer3)
 
 
 /**
- * @brief Finds peakpeak value from given array
- * @param *array pointer to uint_16t array
+ * @brief Find peakpeak value from given array
+ * @param *array pointer to uint_16t array with samples
  * @retval result peakpeak value
  * @todo find size of array
  **/
@@ -345,9 +335,9 @@ uint16_t Find_Peakpeak(uint16_t *array)
 
 /**
  * @brief Finds direction of mains cable
- * @param PP1,PP2,PP3 Peak peak value from each PAD
+ * @param PP1,PP2,PP3 Peak-peak value from each PAD
  * @retval none
- * @todo
+ * @todo Distance
  **/
 void Get_Direction(uint16_t PP1, uint16_t PP2, uint16_t PP3)
 {

@@ -151,9 +151,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a90f5784cf7908e1b4f9d1dd9a4f0a1c5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="menu_8h.html#a90f5784cf7908e1b4f9d1dd9a4f0a1c5">blink_direction</a> (void)</td></tr>
 <tr class="memdesc:a90f5784cf7908e1b4f9d1dd9a4f0a1c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">lets direction led blink.  <a href="menu_8h.html#a90f5784cf7908e1b4f9d1dd9a4f0a1c5">More...</a><br /></td></tr>
 <tr class="separator:a90f5784cf7908e1b4f9d1dd9a4f0a1c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a54da3aa6b4b8780be540f5853156d9ef"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="menu_8h.html#a54da3aa6b4b8780be540f5853156d9ef">set_LEDs_direction</a> (uint8_t state)</td></tr>
-<tr class="memdesc:a54da3aa6b4b8780be540f5853156d9ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enables or Disables all direction LEDs.  <a href="menu_8h.html#a54da3aa6b4b8780be540f5853156d9ef">More...</a><br /></td></tr>
-<tr class="separator:a54da3aa6b4b8780be540f5853156d9ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a05b41340719d6f383e67b962589bbf31"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="menu_8h.html#a05b41340719d6f383e67b962589bbf31">set_LEDs_direction</a> (uint8_t number, uint8_t state)</td></tr>
+<tr class="memdesc:a05b41340719d6f383e67b962589bbf31"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enables or Disables all direction LEDs.  <a href="menu_8h.html#a05b41340719d6f383e67b962589bbf31">More...</a><br /></td></tr>
+<tr class="separator:a05b41340719d6f383e67b962589bbf31"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad3766cfb76249af1b7ff3d70b532f00c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="menu_8h.html#ad3766cfb76249af1b7ff3d70b532f00c">Display_peak_peak</a> (uint16_t PP1, uint16_t PP2, uint16_t PP3)</td></tr>
 <tr class="memdesc:ad3766cfb76249af1b7ff3d70b532f00c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Displays peak peak value from PAD1-PAD3 for debbuging purposes.  <a href="menu_8h.html#ad3766cfb76249af1b7ff3d70b532f00c">More...</a><br /></td></tr>
 <tr class="separator:ad3766cfb76249af1b7ff3d70b532f00c"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -299,15 +299,15 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="menu_8c_source.html#l00125">125</a> of file <a class="el" href="menu_8c_source.html">menu.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="menu_8c_source.html#l00137">137</a> of file <a class="el" href="menu_8c_source.html">menu.c</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="menu_8h_ad3766cfb76249af1b7ff3d70b532f00c_icgraph.png" border="0" usemap="#amenu_8h_ad3766cfb76249af1b7ff3d70b532f00c_icgraph" alt=""/></div>
-<map name="menu_8h_ad3766cfb76249af1b7ff3d70b532f00c_icgraph" id="amenu_8h_ad3766cfb76249af1b7ff3d70b532f00c_icgraph">
+<map name="menu_8h_ad3766cfb76249af1b7ff3d70b532f00c_icgraph" id="menu_8h_ad3766cfb76249af1b7ff3d70b532f00c_icgraph">
 <area shape="rect" title="Displays peak peak value from PAD1&#45;PAD3 for debbuging purposes." alt="" coords="325,31,460,57"/>
-<area shape="rect" href="calculations_8c.html#aa2d5daaead8e69186ad9e4bd751ea696" title="Measures 5 periods of Data and averages them." alt="" coords="104,5,277,32"/>
-<area shape="rect" href="calculations_8c.html#ab5198f335d99998e989af5e09ed52d34" title="Measures one period of Data." alt="" coords="119,56,263,83"/>
+<area shape="rect" href="calculations_8c.html#aa2d5daaead8e69186ad9e4bd751ea696" title="Measures 5 periods of Data and averages them. Displays samples, peak&#45;peak values and direction+distan..." alt="" coords="104,5,277,32"/>
+<area shape="rect" href="calculations_8c.html#ab5198f335d99998e989af5e09ed52d34" title="Measures one period of Data, displays samples, peak&#45;peak values and direction+distance of cable." alt="" coords="119,56,263,83"/>
 <area shape="rect" href="main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="The application entry point." alt="" coords="5,31,56,57"/>
 </map>
 </div>
@@ -360,19 +360,19 @@ Here is the caller graph for this function:</div>
   </table>
   </dd>
 </dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000008">Todo:</a></b></dt><dd>ADC_Nums aus <a class="el" href="calculations_8c.html" title="Calculations for the cable monitor.">calculations.c</a> verwenden</dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000009">Todo:</a></b></dt><dd>ADC_Nums aus <a class="el" href="calculations_8c.html" title="Calculations for the cable monitor.">calculations.c</a> verwenden</dd></dl>
 <p>&lt; Index for buffer</p>
 <p>&lt; Buffer with ADC input values</p>
 
-<p class="definition">Definition at line <a class="el" href="menu_8c_source.html#l00177">177</a> of file <a class="el" href="menu_8c_source.html">menu.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="menu_8c_source.html#l00189">189</a> of file <a class="el" href="menu_8c_source.html">menu.c</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="menu_8h_a57af956ec3440d227325d50e8d07b167_icgraph.png" border="0" usemap="#amenu_8h_a57af956ec3440d227325d50e8d07b167_icgraph" alt=""/></div>
-<map name="menu_8h_a57af956ec3440d227325d50e8d07b167_icgraph" id="amenu_8h_a57af956ec3440d227325d50e8d07b167_icgraph">
+<map name="menu_8h_a57af956ec3440d227325d50e8d07b167_icgraph" id="menu_8h_a57af956ec3440d227325d50e8d07b167_icgraph">
 <area shape="rect" title="Displays signals from PADs as curve." alt="" coords="325,31,471,57"/>
-<area shape="rect" href="calculations_8c.html#aa2d5daaead8e69186ad9e4bd751ea696" title="Measures 5 periods of Data and averages them." alt="" coords="104,5,277,32"/>
-<area shape="rect" href="calculations_8c.html#ab5198f335d99998e989af5e09ed52d34" title="Measures one period of Data." alt="" coords="119,56,263,83"/>
+<area shape="rect" href="calculations_8c.html#aa2d5daaead8e69186ad9e4bd751ea696" title="Measures 5 periods of Data and averages them. Displays samples, peak&#45;peak values and direction+distan..." alt="" coords="104,5,277,32"/>
+<area shape="rect" href="calculations_8c.html#ab5198f335d99998e989af5e09ed52d34" title="Measures one period of Data, displays samples, peak&#45;peak values and direction+distance of cable." alt="" coords="119,56,263,83"/>
 <area shape="rect" href="main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="The application entry point." alt="" coords="5,31,56,57"/>
 </map>
 </div>
@@ -410,16 +410,16 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="menu_8c_source.html#l00270">270</a> of file <a class="el" href="menu_8c_source.html">menu.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="menu_8c_source.html#l00282">282</a> of file <a class="el" href="menu_8c_source.html">menu.c</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="menu_8h_a38a8d3c59f7ac4b87d748cef48a71569_icgraph.png" border="0" usemap="#amenu_8h_a38a8d3c59f7ac4b87d748cef48a71569_icgraph" alt=""/></div>
-<map name="menu_8h_a38a8d3c59f7ac4b87d748cef48a71569_icgraph" id="amenu_8h_a38a8d3c59f7ac4b87d748cef48a71569_icgraph">
+<map name="menu_8h_a38a8d3c59f7ac4b87d748cef48a71569_icgraph" id="menu_8h_a38a8d3c59f7ac4b87d748cef48a71569_icgraph">
 <area shape="rect" title="Displays type of measurement (PADS/COILS)" alt="" coords="325,56,528,83"/>
-<area shape="rect" href="calculations_8c.html#aa2d5daaead8e69186ad9e4bd751ea696" title="Measures 5 periods of Data and averages them." alt="" coords="104,5,277,32"/>
+<area shape="rect" href="calculations_8c.html#aa2d5daaead8e69186ad9e4bd751ea696" title="Measures 5 periods of Data and averages them. Displays samples, peak&#45;peak values and direction+distan..." alt="" coords="104,5,277,32"/>
 <area shape="rect" href="main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="The application entry point." alt="" coords="5,56,56,83"/>
-<area shape="rect" href="calculations_8c.html#ab5198f335d99998e989af5e09ed52d34" title="Measures one period of Data." alt="" coords="119,107,263,133"/>
+<area shape="rect" href="calculations_8c.html#ab5198f335d99998e989af5e09ed52d34" title="Measures one period of Data, displays samples, peak&#45;peak values and direction+distance of cable." alt="" coords="119,107,263,133"/>
 </map>
 </div>
 
@@ -445,7 +445,7 @@ Here is the caller graph for this function:</div>
 <hr  />
 <p>If the last transition has been consumed (MENU_NONE == MENU_transition) and the touchscreen has been touched for a defined period the variable MENU_transition is set to the touched item. </p>
 
-<p class="definition">Definition at line <a class="el" href="menu_8c_source.html#l00360">360</a> of file <a class="el" href="menu_8c_source.html">menu.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="menu_8c_source.html#l00372">372</a> of file <a class="el" href="menu_8c_source.html">menu.c</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -519,7 +519,7 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Menu_entry[item] or Menu_entry[0] if item not in range </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="menu_8c_source.html#l00326">326</a> of file <a class="el" href="menu_8c_source.html">menu.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="menu_8c_source.html#l00338">338</a> of file <a class="el" href="menu_8c_source.html">menu.c</a>.</p>
 
 </div>
 </div>
@@ -544,7 +544,7 @@ Here is the caller graph for this function:</div>
 <dl class="section return"><dt>Returns</dt><dd>the selected MENU_item or MENU_NONE if no MENU_item was selected</dd></dl>
 <p>MENU_transition is used as a flag. When the value is read by calling <a class="el" href="menu_8c.html#a3de77014a7c52cdf6ff1f973eee6f3f6" title="Get menu selection/transition.">MENU_get_transition()</a> this flag is cleared, respectively set to MENU_NONE. </p>
 
-<p class="definition">Definition at line <a class="el" href="menu_8c_source.html#l00345">345</a> of file <a class="el" href="menu_8c_source.html">menu.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="menu_8c_source.html#l00357">357</a> of file <a class="el" href="menu_8c_source.html">menu.c</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -576,7 +576,7 @@ Here is the caller graph for this function:</div>
 <p>Shows a hint at startup. </p>
 <hr  />
  
-<p class="definition">Definition at line <a class="el" href="menu_8c_source.html#l00287">287</a> of file <a class="el" href="menu_8c_source.html">menu.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="menu_8c_source.html#l00299">299</a> of file <a class="el" href="menu_8c_source.html">menu.c</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -626,12 +626,12 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section note"><dt>Note</dt><dd>Call <a class="el" href="menu_8c.html#a2cbb4c209c599e91da57c0d6cf8f710e" title="Draw the menu onto the display.">MENU_draw()</a> to update the display. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="menu_8c_source.html#l00313">313</a> of file <a class="el" href="menu_8c_source.html">menu.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="menu_8c_source.html#l00325">325</a> of file <a class="el" href="menu_8c_source.html">menu.c</a>.</p>
 
 </div>
 </div>
-<a id="a54da3aa6b4b8780be540f5853156d9ef"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a54da3aa6b4b8780be540f5853156d9ef">&#9670;&nbsp;</a></span>set_LEDs_direction()</h2>
+<a id="a05b41340719d6f383e67b962589bbf31"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a05b41340719d6f383e67b962589bbf31">&#9670;&nbsp;</a></span>set_LEDs_direction()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -640,8 +640,18 @@ Here is the caller graph for this function:</div>
           <td class="memname">void set_LEDs_direction </td>
           <td>(</td>
           <td class="paramtype">uint8_t&#160;</td>
-          <td class="paramname"><em>state</em></td><td>)</td>
+          <td class="paramname"><em>number</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>state</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -650,7 +660,8 @@ Here is the caller graph for this function:</div>
 <hr  />
  <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">state</td><td>1 turn on, 0 turn off </td></tr>
+    <tr><td class="paramname">number</td><td>6=all leds, 1=led1, 2=led2 up to 5=led5 </td></tr>
+    <tr><td class="paramname">state</td><td>0=on, 1=off </td></tr>
   </table>
   </dd>
 </dl>
@@ -661,14 +672,17 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="menu_8c_source.html#l00109">109</a> of file <a class="el" href="menu_8c_source.html">menu.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="menu_8c_source.html#l00110">110</a> of file <a class="el" href="menu_8c_source.html">menu.c</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="menu_8h_a54da3aa6b4b8780be540f5853156d9ef_icgraph.png" border="0" usemap="#amenu_8h_a54da3aa6b4b8780be540f5853156d9ef_icgraph" alt=""/></div>
-<map name="menu_8h_a54da3aa6b4b8780be540f5853156d9ef_icgraph" id="menu_8h_a54da3aa6b4b8780be540f5853156d9ef_icgraph">
-<area shape="rect" title="Enables or Disables all direction LEDs." alt="" coords="104,5,239,32"/>
-<area shape="rect" href="main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="The application entry point." alt="" coords="5,5,56,32"/>
+<div class="center"><img src="menu_8h_a05b41340719d6f383e67b962589bbf31_icgraph.png" border="0" usemap="#amenu_8h_a05b41340719d6f383e67b962589bbf31_icgraph" alt=""/></div>
+<map name="menu_8h_a05b41340719d6f383e67b962589bbf31_icgraph" id="menu_8h_a05b41340719d6f383e67b962589bbf31_icgraph">
+<area shape="rect" title="Enables or Disables all direction LEDs." alt="" coords="475,81,609,108"/>
+<area shape="rect" href="calculations_8c.html#a0b9e354dddd65372bb98445d2b050293" title="Finds direction of mains cable." alt="" coords="325,56,427,83"/>
+<area shape="rect" href="main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="The application entry point." alt="" coords="5,56,56,83"/>
+<area shape="rect" href="calculations_8c.html#aa2d5daaead8e69186ad9e4bd751ea696" title="Measures 5 periods of Data and averages them. Displays samples, peak&#45;peak values and direction+distan..." alt="" coords="104,5,277,32"/>
+<area shape="rect" href="calculations_8c.html#ab5198f335d99998e989af5e09ed52d34" title="Measures one period of Data, displays samples, peak&#45;peak values and direction+distance of cable." alt="" coords="119,56,263,83"/>
 </map>
 </div>
 

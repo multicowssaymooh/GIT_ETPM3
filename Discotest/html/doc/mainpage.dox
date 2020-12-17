@@ -13,6 +13,8 @@ Here is an overview over the files included in the project:
 @n pushbutton.c handles external interrupts.
 @n main.c puts everything together.
 
+@attention As time was very critical, the software is only a draft and nowehre near the final software. Many things can be improved or added: Struct as Pointer, moving average filter, direction detection etc.
+
 @image html demo_screenshot.jpg
 
 This code is written for the evaluation board

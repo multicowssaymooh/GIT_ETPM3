@@ -71,6 +71,7 @@ var menudata={children:[
 {text:"u",url:"globals_func.html#index_u"}]},
 {text:"Variables",url:"globals_vars.html",children:[
 {text:"_",url:"globals_vars.html#index__5F"},
+{text:"b",url:"globals_vars.html#index_b"},
 {text:"e",url:"globals_vars.html#index_e"},
 {text:"f",url:"globals_vars.html#index_f"},
 {text:"g",url:"globals_vars.html#index_g"},

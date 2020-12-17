@@ -144,14 +144,14 @@ Functions</h2></td></tr>
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="measure_8h_a19cbc2c54977f6422dc53734e11748fe_icgraph.png" border="0" usemap="#ameasure_8h_a19cbc2c54977f6422dc53734e11748fe_icgraph" alt=""/></div>
-<map name="measure_8h_a19cbc2c54977f6422dc53734e11748fe_icgraph" id="ameasure_8h_a19cbc2c54977f6422dc53734e11748fe_icgraph">
+<map name="measure_8h_a19cbc2c54977f6422dc53734e11748fe_icgraph" id="measure_8h_a19cbc2c54977f6422dc53734e11748fe_icgraph">
 <area shape="rect" title="This functions is used for delays in us. Example wait for ADC to stabilize." alt="" coords="857,31,933,57"/>
 <area shape="rect" href="main_8c.html#a2ac9c311ff05671105348142908ecda3" title="Disables gyro in order to measure ADC on pin PC1." alt="" coords="715,31,809,57"/>
 <area shape="rect" href="measure_8c.html#ac5e4d3ca3005c4f2a3103576271d357d" title="Reads value from ADC of PAD1." alt="" coords="536,5,667,32"/>
 <area shape="rect" href="measure_8c.html#a512f60472a91474ff08abcf7389cd275" title="Reads value from ADC of PAD2." alt="" coords="536,56,667,83"/>
-<area shape="rect" href="calculations_8c.html#ae7ef43b64742b37fb4325492e1985278" title="Reads one period of samples from PAD1..3 and calculates peak peak values." alt="" coords="325,31,488,57"/>
-<area shape="rect" href="calculations_8c.html#aa2d5daaead8e69186ad9e4bd751ea696" title="Measures 5 periods of Data and averages them." alt="" coords="104,5,277,32"/>
-<area shape="rect" href="calculations_8c.html#ab5198f335d99998e989af5e09ed52d34" title="Measures one period of Data." alt="" coords="119,56,263,83"/>
+<area shape="rect" href="calculations_8c.html#ae7ef43b64742b37fb4325492e1985278" title="Reads one period of samples from PAD1..3 and Coil1..2, calculates peak peak values and returns them a..." alt="" coords="325,31,488,57"/>
+<area shape="rect" href="calculations_8c.html#aa2d5daaead8e69186ad9e4bd751ea696" title="Measures 5 periods of Data and averages them. Displays samples, peak&#45;peak values and direction+distan..." alt="" coords="104,5,277,32"/>
+<area shape="rect" href="calculations_8c.html#ab5198f335d99998e989af5e09ed52d34" title="Measures one period of Data, displays samples, peak&#45;peak values and direction+distance of cable." alt="" coords="119,56,263,83"/>
 <area shape="rect" href="main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="The application entry point." alt="" coords="5,31,56,57"/>
 </map>
 </div>
@@ -187,7 +187,7 @@ Here is the caller graph for this function:</div>
   </table>
   </dd>
 </dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000006">Todo:</a></b></dt><dd>Überprüfen reihenfolge der AD Wandlungen. Pad1 in res0 etc.</dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000007">Todo:</a></b></dt><dd>Überprüfen reihenfolge der AD Wandlungen. Pad1 in res0 etc.</dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="measure_8c_source.html#l00056">56</a> of file <a class="el" href="measure_8c_source.html">measure.c</a>.</p>
 <div class="dynheader">
@@ -204,11 +204,11 @@ Here is the call graph for this function:</div>
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="measure_8h_ac5e4d3ca3005c4f2a3103576271d357d_icgraph.png" border="0" usemap="#ameasure_8h_ac5e4d3ca3005c4f2a3103576271d357d_icgraph" alt=""/></div>
-<map name="measure_8h_ac5e4d3ca3005c4f2a3103576271d357d_icgraph" id="ameasure_8h_ac5e4d3ca3005c4f2a3103576271d357d_icgraph">
+<map name="measure_8h_ac5e4d3ca3005c4f2a3103576271d357d_icgraph" id="measure_8h_ac5e4d3ca3005c4f2a3103576271d357d_icgraph">
 <area shape="rect" title="Reads value from ADC of PAD1." alt="" coords="536,31,667,57"/>
-<area shape="rect" href="calculations_8c.html#ae7ef43b64742b37fb4325492e1985278" title="Reads one period of samples from PAD1..3 and calculates peak peak values." alt="" coords="325,31,488,57"/>
-<area shape="rect" href="calculations_8c.html#aa2d5daaead8e69186ad9e4bd751ea696" title="Measures 5 periods of Data and averages them." alt="" coords="104,5,277,32"/>
-<area shape="rect" href="calculations_8c.html#ab5198f335d99998e989af5e09ed52d34" title="Measures one period of Data." alt="" coords="119,56,263,83"/>
+<area shape="rect" href="calculations_8c.html#ae7ef43b64742b37fb4325492e1985278" title="Reads one period of samples from PAD1..3 and Coil1..2, calculates peak peak values and returns them a..." alt="" coords="325,31,488,57"/>
+<area shape="rect" href="calculations_8c.html#aa2d5daaead8e69186ad9e4bd751ea696" title="Measures 5 periods of Data and averages them. Displays samples, peak&#45;peak values and direction+distan..." alt="" coords="104,5,277,32"/>
+<area shape="rect" href="calculations_8c.html#ab5198f335d99998e989af5e09ed52d34" title="Measures one period of Data, displays samples, peak&#45;peak values and direction+distance of cable." alt="" coords="119,56,263,83"/>
 <area shape="rect" href="main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="The application entry point." alt="" coords="5,31,56,57"/>
 </map>
 </div>
@@ -244,7 +244,7 @@ Here is the caller graph for this function:</div>
   </table>
   </dd>
 </dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000007">Todo:</a></b></dt><dd>Überprüfen reihenfolge der AD Wandlungen. Coil1 in res0 etc. </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000008">Todo:</a></b></dt><dd>Überprüfen reihenfolge der AD Wandlungen. Coil1 in res0 etc. </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="measure_8c_source.html#l00095">95</a> of file <a class="el" href="measure_8c_source.html">measure.c</a>.</p>
 <div class="dynheader">
@@ -261,11 +261,11 @@ Here is the call graph for this function:</div>
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="measure_8h_a512f60472a91474ff08abcf7389cd275_icgraph.png" border="0" usemap="#ameasure_8h_a512f60472a91474ff08abcf7389cd275_icgraph" alt=""/></div>
-<map name="measure_8h_a512f60472a91474ff08abcf7389cd275_icgraph" id="ameasure_8h_a512f60472a91474ff08abcf7389cd275_icgraph">
+<map name="measure_8h_a512f60472a91474ff08abcf7389cd275_icgraph" id="measure_8h_a512f60472a91474ff08abcf7389cd275_icgraph">
 <area shape="rect" title="Reads value from ADC of PAD2." alt="" coords="536,31,667,57"/>
-<area shape="rect" href="calculations_8c.html#ae7ef43b64742b37fb4325492e1985278" title="Reads one period of samples from PAD1..3 and calculates peak peak values." alt="" coords="325,31,488,57"/>
-<area shape="rect" href="calculations_8c.html#aa2d5daaead8e69186ad9e4bd751ea696" title="Measures 5 periods of Data and averages them." alt="" coords="104,5,277,32"/>
-<area shape="rect" href="calculations_8c.html#ab5198f335d99998e989af5e09ed52d34" title="Measures one period of Data." alt="" coords="119,56,263,83"/>
+<area shape="rect" href="calculations_8c.html#ae7ef43b64742b37fb4325492e1985278" title="Reads one period of samples from PAD1..3 and Coil1..2, calculates peak peak values and returns them a..." alt="" coords="325,31,488,57"/>
+<area shape="rect" href="calculations_8c.html#aa2d5daaead8e69186ad9e4bd751ea696" title="Measures 5 periods of Data and averages them. Displays samples, peak&#45;peak values and direction+distan..." alt="" coords="104,5,277,32"/>
+<area shape="rect" href="calculations_8c.html#ab5198f335d99998e989af5e09ed52d34" title="Measures one period of Data, displays samples, peak&#45;peak values and direction+distance of cable." alt="" coords="119,56,263,83"/>
 <area shape="rect" href="main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="The application entry point." alt="" coords="5,31,56,57"/>
 </map>
 </div>

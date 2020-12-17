@@ -19,8 +19,9 @@ var searchData=
   ['ba1_5fgpio_5fport_70',['BA1_GPIO_Port',['../main_8h.html#aa4298e8e4f9a150800d79c20aa66e9e6',1,'main.h']]],
   ['ba1_5fpin_71',['BA1_Pin',['../main_8h.html#a24ea1abd9a8e8fe3dc610d3895232197',1,'main.h']]],
   ['back_5fcolor_72',['back_color',['../struct_m_e_n_u__entry__t.html#a0fd107c268f85989486fd5e5aa6a538b',1,'MENU_entry_t']]],
-  ['blink_5fdirection_73',['blink_direction',['../menu_8h.html#a90f5784cf7908e1b4f9d1dd9a4f0a1c5',1,'blink_direction(void):&#160;menu.c'],['../menu_8c.html#a90f5784cf7908e1b4f9d1dd9a4f0a1c5',1,'blink_direction(void):&#160;menu.c']]],
-  ['boot1_5fgpio_5fport_74',['BOOT1_GPIO_Port',['../main_8h.html#a70e2b63cb50fea2a3fae3e13112e3e20',1,'main.h']]],
-  ['boot1_5fpin_75',['BOOT1_Pin',['../main_8h.html#aebae48d3fc48ba1ec453ecd93f5f4b43',1,'main.h']]],
-  ['bug_20list_76',['Bug List',['../bug.html',1,'']]]
+  ['blink_73',['blink',['../calculations_8c.html#ab2fc8e2508158b8232828ad0db0ef3ab',1,'calculations.c']]],
+  ['blink_5fdirection_74',['blink_direction',['../menu_8h.html#a90f5784cf7908e1b4f9d1dd9a4f0a1c5',1,'blink_direction(void):&#160;menu.c'],['../menu_8c.html#a90f5784cf7908e1b4f9d1dd9a4f0a1c5',1,'blink_direction(void):&#160;menu.c']]],
+  ['boot1_5fgpio_5fport_75',['BOOT1_GPIO_Port',['../main_8h.html#a70e2b63cb50fea2a3fae3e13112e3e20',1,'main.h']]],
+  ['boot1_5fpin_76',['BOOT1_Pin',['../main_8h.html#aebae48d3fc48ba1ec453ecd93f5f4b43',1,'main.h']]],
+  ['bug_20list_77',['Bug List',['../bug.html',1,'']]]
 ];
