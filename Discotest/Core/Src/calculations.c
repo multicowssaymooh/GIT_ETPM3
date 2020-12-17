@@ -54,6 +54,9 @@ Struct_ADC_Values Get_Measurement_Data(type_of_measurement type)
 	  uint16_t Result_PAD2[NO_SAMPLES];
 	  uint16_t Result_PAD3[NO_SAMPLES];
 
+	  uint16_t Result_Coil1[NO_SAMPLES];
+	  uint16_t Result_Coil2[NO_SAMPLES];
+
 	  uint16_t pp_Pad1=0,pp_Pad2=0,pp_Pad3=0;
 	  uint16_t pp_Coil1=0, pp_Coil2=0;
 	  uint8_t i=0;
@@ -108,7 +111,31 @@ Struct_ADC_Values Get_Measurement_Data(type_of_measurement type)
 				  Str_ADC_Values.PP_Coil1 = pp_Coil1;
 				  Str_ADC_Values.PP_Coil2 = pp_Coil2;
 				  //Str_ADC_Values.PP_Pad3 = pp_Pad3;
+			  }
 
+			  if(type==INIT)
+			  {
+				  Result_PAD1[i] = Results_ADC3[0];
+				  Result_PAD2[i] = Results_ADC3[1];
+				  Result_PAD3[i] = Results_ADC1[1];
+
+				  Result_Coil1[i] = Results_ADC1[0];
+				  Result_Coil2[i] = Results_ADC1[2];
+
+
+				  pp_Pad1 = Find_Peakpeak(Result_PAD1);
+				  pp_Pad2 = Find_Peakpeak(Result_PAD2);
+				  pp_Pad3 = Find_Peakpeak(Result_PAD3);
+
+				  pp_Coil1 = Find_Peakpeak(Result_Coil1);
+				  pp_Coil2 = Find_Peakpeak(Result_Coil2);
+
+				  //------------ Fill struct ------------- //
+				  Str_ADC_Values.PP_Pad1 = pp_Pad1;
+				  Str_ADC_Values.PP_Pad2 = pp_Pad2;
+				  Str_ADC_Values.PP_Pad3 = pp_Pad3;
+				  Str_ADC_Values.PP_Coil1 = pp_Coil1;
+				  Str_ADC_Values.PP_Coil2 = pp_Coil2;
 			  }
 
 			  i++;
@@ -176,7 +203,7 @@ void Single_Measurement(type_of_measurement type)
 
 /**
  * @brief Measures three periods of Data and averages them.
- * @param none
+ * @param type
  * @retval none
  * @todo Anzahl messungen übergeben
  **/
@@ -184,7 +211,7 @@ void Continuous_Measurement(type_of_measurement type)
 {
 	static Struct_ADC_Values Res;
 	uint16_t i=0;
-	uint16_t PP1=0, PP2=0, PP3=0;
+	uint32_t PP1=0, PP2=0, PP3=0, PP4=0, PP5=0;
 
 	if(type == PADS)
 	{
@@ -192,12 +219,16 @@ void Continuous_Measurement(type_of_measurement type)
 		{
 			Res = Get_Measurement_Data(PADS);
 			PP1 = PP1 + Res.PP_Pad1;
-			PP2= PP2 + Res.PP_Pad2;
+			PP2 = PP2 + Res.PP_Pad2;
 			PP3 = PP3 + Res.PP_Pad3;
 		}
 		PP1 = (uint16_t)(PP1/i);
 		PP2 = (uint16_t)(PP2/i);
 		PP3 = (uint16_t)(PP3/i);
+
+		PP1 = abs(PP1-Offset_PAD1);
+		PP2 = abs(PP2-Offset_PAD2);
+		PP3 = abs(PP3-Offset_PAD3);
 
 		Display_Signal_Pads(Res.array_pad1,Res.array_pad2,Res.array_pad3);
 		Display_peak_peak(PP1, PP2, PP3);
@@ -213,11 +244,40 @@ void Continuous_Measurement(type_of_measurement type)
 			PP1 = PP1 + Res.PP_Coil1;
 			PP2 = PP2 + Res.PP_Coil2;
 		}
+		//calculate mean
 		PP1 = (uint16_t)(PP1/i);
 		PP2 = (uint16_t)(PP2/i);
+
+		//remove mean
+		PP1 = abs(PP1-Offset_Coil1);
+		PP2 = abs(PP2-Offset_Coil2);
+
+
 		Display_Signal_Pads(Res.array_pad1,Res.array_pad2,0);
 		Display_peak_peak(PP1,PP2,0);
 	}
+
+	if(type == INIT)
+		{
+			for(i=0;i<20;i++)
+			{
+				Res = Get_Measurement_Data(INIT);
+				PP1 = PP1 + Res.PP_Pad1;
+				PP2 = PP2 + Res.PP_Pad2;
+				PP3 = PP3 + Res.PP_Pad3;
+				PP4 = PP4 + Res.PP_Coil1;
+				PP5 = PP5 + Res.PP_Coil2;
+			}
+			Offset_PAD1 = (uint16_t)(PP1/i);
+			Offset_PAD2 = (uint16_t)(PP2/i);
+			Offset_PAD3 = (uint16_t)(PP3/i);
+			Offset_Coil1 = (uint16_t)(PP4/i);
+			Offset_Coil2 = (uint16_t)(PP5/i);
+
+			//Display_Signal_Pads(Res.array_pad1,Res.array_pad2,0);
+			//Display_peak_peak(PP1,PP2,0);
+		}
+
 	Display_Type_of_Measurement(type);
 }
 

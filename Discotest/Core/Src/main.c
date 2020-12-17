@@ -147,9 +147,10 @@ int main(void)
   BSP_TS_Init(BSP_LCD_GetXSize(), BSP_LCD_GetYSize());
 
 
-  MENU_draw();
+  Continuous_Measurement(INIT);
 
-  //MENU_hint();
+  MENU_draw();
+  MENU_hint();
 
 
 
@@ -217,13 +218,22 @@ int main(void)
 	  			//ADC_timer_demo();
 	  			break;
 	  		case MENU_TWO:
-	  			type = !type;
+	  			//type = !type;
+	  			if(type == PADS)
+				{
+	  				type = COILS;
+				}
+	  			else
+	  			{
+	  				type = PADS;
+	  			}
 	  			Display_Type_of_Measurement(type);
 	  			//ADC_DMA_demo();
 	  			break;
 	  		case MENU_THREE:
 	  			HAL_GPIO_TogglePin(LD4_GPIO_Port, LD4_Pin);
 				blink_direction();
+				Continuous_Measurement(INIT);
 	  			//ADC_DMA_dual_demo();
 	  			break;
 	  		case MENU_FOUR:

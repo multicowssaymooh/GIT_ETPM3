@@ -9,7 +9,7 @@
 #ifndef CALCULATIONS_H_
 #define CALCULATIONS_H_
 
-typedef enum {PADS=0,COILS}type_of_measurement;
+typedef enum {PADS=0,COILS,INIT}type_of_measurement;
 
 typedef struct {
 	uint16_t PP_Pad1;					/// Peak Peak value Pad 1
@@ -21,6 +21,11 @@ typedef struct {
 	uint16_t array_pad2[50];			/// Array of ADC Values for PAD2 1 period
 	uint16_t array_pad3[50];			/// Array of ADC Values for PAD3 1 period
 } Struct_ADC_Values;
+
+
+uint16_t Offset_PAD1, Offset_PAD2, Offset_PAD3;
+uint16_t Offset_Coil1, Offset_Coil2;
+
 
 Struct_ADC_Values Get_Measurement_Data(type_of_measurement type);
 void Single_Measurement(type_of_measurement type);

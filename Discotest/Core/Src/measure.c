@@ -25,6 +25,7 @@
 #include "gpio.h"
 #include "adc.h"
 #include "usart.h"
+#include "measure.h"
 
 ADC_ChannelConfTypeDef sConfig = {0};
 GPIO_InitTypeDef GPIO_InitStruct = {0};

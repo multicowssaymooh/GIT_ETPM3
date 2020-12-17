@@ -47,7 +47,7 @@ static MENU_entry_t MENU_entry[MENU_ENTRY_COUNT] = {
 		{"Single",	"",			LCD_COLOR_BLACK,	LCD_COLOR_LIGHTBLUE},
 		{"Conti-",	"nuous",	LCD_COLOR_BLACK,	LCD_COLOR_LIGHTGREEN},
 		{"Pads/", 	"Coils",	LCD_COLOR_BLACK,	LCD_COLOR_LIGHTRED},
-		{"PWR",	    "",			LCD_COLOR_BLACK,	LCD_COLOR_LIGHTCYAN},
+		{"Zero",    	 "",	LCD_COLOR_BLACK,	LCD_COLOR_LIGHTCYAN},
 		{"DMA",	    "scan",		LCD_COLOR_BLACK,	LCD_COLOR_LIGHTMAGENTA},
 		{"DAC",	    "on",		LCD_COLOR_BLACK,	LCD_COLOR_LIGHTYELLOW}
 };										///< All the menu entries
@@ -127,6 +127,7 @@ void Display_peak_peak(uint16_t PP1, uint16_t PP2, uint16_t PP3)
 	BSP_LCD_SetFont(&Font12);
 	BSP_LCD_SetBackColor(LCD_COLOR_WHITE);
 	BSP_LCD_SetTextColor(LCD_COLOR_BLACK);
+
 
 	char text[16];
 	//snprintf(text, 15, "              ", (int)(PP1 & 0xffff));
@@ -276,11 +277,15 @@ void MENU_hint(void)
 	BSP_LCD_SetBackColor(LCD_COLOR_WHITE);
 	BSP_LCD_SetTextColor(LCD_COLOR_BLACK);
 	BSP_LCD_SetFont(&Font24);
-	BSP_LCD_DisplayStringAt(5,10, (uint8_t *)"DOMIS-CODE", LEFT_MODE);
+	BSP_LCD_DisplayStringAt(5,10, (uint8_t *)"Cable Monitor", LEFT_MODE);
 	BSP_LCD_SetFont(&Font16);
-	BSP_LCD_DisplayStringAt(5, 60, (uint8_t *)"Touch a menu item", LEFT_MODE);
-	BSP_LCD_DisplayStringAt(5, 80, (uint8_t *)"to start a demo", LEFT_MODE);
+	BSP_LCD_DisplayStringAt(5, 130, (uint8_t *)"Touch a menu item to", LEFT_MODE);
+	BSP_LCD_DisplayStringAt(5, 146, (uint8_t *)"start a measurement", LEFT_MODE);
 
+	//Arrow
+	BSP_LCD_DrawLine(120, 180, 120, 250);
+	BSP_LCD_DrawLine(100, 225, 120, 250);
+	BSP_LCD_DrawLine(140, 225, 120, 250);
 	//BSP_LCD_DisplayStringAt(5, 120, (uint8_t *)"Blamiere bim programmiere", LEFT_MODE);
 	//BSP_LCD_DisplayStringAt(5, 140, (uint8_t *)"programmiere", LEFT_MODE);
 }
