@@ -85,6 +85,7 @@ int main(void)
 {
   /* USER CODE BEGIN 1 */
 
+
 	uint32_t	adc_PC1=0,adc_PA5=0,adc_PC3=0;
 	uint32_t	adc_PF8=0, adc_PF6=0;
 	ADC_ChannelConfTypeDef sConfig = {0};
@@ -137,6 +138,7 @@ int main(void)
 
   // -----------
 
+
   BSP_LCD_Init();						// Initialize the LCD display
   BSP_LCD_LayerDefaultInit(LCD_FOREGROUND_LAYER, LCD_FRAME_BUFFER);
   BSP_LCD_SelectLayer(LCD_FOREGROUND_LAYER);
@@ -158,9 +160,12 @@ int main(void)
 	  }
   //}
   set_LEDs_direction(6,OFF);
-
-
-
+/*
+  HAL_GPIO_WritePin(GPIOC, GPIO_PIN_8, 0);
+  HAL_Delay(1000);
+  HAL_GPIO_WritePin(Suicide_GPIO_Port, Suicide_Pin, 1);
+  HAL_Delay(1000);
+*/
   // Get 0 level
   Continuous_Measurement(INIT);
 
@@ -236,6 +241,8 @@ int main(void)
 				set_LEDs_direction(6,ON);
 	  			Continuous_Measurement(INIT);
 	  			set_LEDs_direction(6,OFF);
+	  			//HAL_GPIO_WritePin(Suicide_GPIO_Port, Suicide_Pin, 0);
+	  			//HAL_GPIO_WritePin(Suicide_GPIO_Port, Suicide_Pin, 0);
 	  			//ADC_DMA_dual_demo();
 	  			break;
 	  		case MENU_FOUR:
