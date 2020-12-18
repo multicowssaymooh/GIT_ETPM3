@@ -4,7 +4,11 @@
   * @file           main.c
   * @brief          Main program body
   *
-  * @n				Overview of software flow see mainpage
+  * @n				Overview of software flow see <a href="index.html">Mainpage</a>
+  *
+  * @author 		bergedo1,landojon
+  * @date			18.12.2020
+
    ******************************************************************************
   */
 /* USER CODE END Header */
@@ -155,7 +159,6 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-
 
 	  //if user button --> turn off device
 	  if(HAL_GPIO_ReadPin(B1_GPIO_Port, B1_Pin)) HAL_GPIO_WritePin(Suicide_GPIO_Port, Suicide_Pin, GPIO_PIN_RESET);

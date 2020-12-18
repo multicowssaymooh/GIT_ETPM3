@@ -96,10 +96,10 @@ Functions</h2></td></tr>
 <tr class="memdesc:a19cbc2c54977f6422dc53734e11748fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">This functions is used for delays in us. Example wait for ADC to stabilize.  <a href="measure_8h.html#a19cbc2c54977f6422dc53734e11748fe">More...</a><br /></td></tr>
 <tr class="separator:a19cbc2c54977f6422dc53734e11748fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac5e4d3ca3005c4f2a3103576271d357d"><td class="memItemLeft" align="right" valign="top">uint16_t *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="measure_8h.html#ac5e4d3ca3005c4f2a3103576271d357d">Get_ADC1_Values</a> (void)</td></tr>
-<tr class="memdesc:ac5e4d3ca3005c4f2a3103576271d357d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads value from ADC of PAD1.  <a href="measure_8h.html#ac5e4d3ca3005c4f2a3103576271d357d">More...</a><br /></td></tr>
+<tr class="memdesc:ac5e4d3ca3005c4f2a3103576271d357d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads value from ADC1 (hall/coil1 ,Pad3 and Coil2)  <a href="measure_8h.html#ac5e4d3ca3005c4f2a3103576271d357d">More...</a><br /></td></tr>
 <tr class="separator:ac5e4d3ca3005c4f2a3103576271d357d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a512f60472a91474ff08abcf7389cd275"><td class="memItemLeft" align="right" valign="top">uint16_t *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="measure_8h.html#a512f60472a91474ff08abcf7389cd275">Get_ADC3_Values</a> (void)</td></tr>
-<tr class="memdesc:a512f60472a91474ff08abcf7389cd275"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads value from ADC of PAD2.  <a href="measure_8h.html#a512f60472a91474ff08abcf7389cd275">More...</a><br /></td></tr>
+<tr class="memdesc:a512f60472a91474ff08abcf7389cd275"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads value from ADC3 (Pad1 and Pad2)  <a href="measure_8h.html#a512f60472a91474ff08abcf7389cd275">More...</a><br /></td></tr>
 <tr class="separator:a512f60472a91474ff08abcf7389cd275"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -147,8 +147,8 @@ Here is the caller graph for this function:</div>
 <map name="measure_8h_a19cbc2c54977f6422dc53734e11748fe_icgraph" id="measure_8h_a19cbc2c54977f6422dc53734e11748fe_icgraph">
 <area shape="rect" title="This functions is used for delays in us. Example wait for ADC to stabilize." alt="" coords="857,31,933,57"/>
 <area shape="rect" href="main_8c.html#a2ac9c311ff05671105348142908ecda3" title="Disables gyro in order to measure ADC on pin PC1." alt="" coords="715,31,809,57"/>
-<area shape="rect" href="measure_8c.html#ac5e4d3ca3005c4f2a3103576271d357d" title="Reads value from ADC of PAD1." alt="" coords="536,5,667,32"/>
-<area shape="rect" href="measure_8c.html#a512f60472a91474ff08abcf7389cd275" title="Reads value from ADC of PAD2." alt="" coords="536,56,667,83"/>
+<area shape="rect" href="measure_8c.html#ac5e4d3ca3005c4f2a3103576271d357d" title="Reads value from ADC1 (hall/coil1 ,Pad3 and Coil2)" alt="" coords="536,5,667,32"/>
+<area shape="rect" href="measure_8c.html#a512f60472a91474ff08abcf7389cd275" title="Reads value from ADC3 (Pad1 and Pad2)" alt="" coords="536,56,667,83"/>
 <area shape="rect" href="calculations_8c.html#ae7ef43b64742b37fb4325492e1985278" title="Reads one period of samples from PAD1..3 and Coil1..2, calculates peak peak values and returns them a..." alt="" coords="325,31,488,57"/>
 <area shape="rect" href="calculations_8c.html#aa2d5daaead8e69186ad9e4bd751ea696" title="Measures 5 periods of Data and averages them. Displays samples, peak&#45;peak values and direction+distan..." alt="" coords="104,5,277,32"/>
 <area shape="rect" href="calculations_8c.html#ab5198f335d99998e989af5e09ed52d34" title="Measures one period of Data, displays samples, peak&#45;peak values and direction+distance of cable." alt="" coords="119,56,263,83"/>
@@ -174,7 +174,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Reads value from ADC of PAD1. </p>
+<p>Reads value from ADC1 (hall/coil1 ,Pad3 and Coil2) </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">none</td><td></td></tr>
@@ -188,13 +188,13 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="measure_8c_source.html#l00048">48</a> of file <a class="el" href="measure_8c_source.html">measure.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="measure_8c_source.html#l00049">49</a> of file <a class="el" href="measure_8c_source.html">measure.c</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="measure_8h_ac5e4d3ca3005c4f2a3103576271d357d_cgraph.png" border="0" usemap="#ameasure_8h_ac5e4d3ca3005c4f2a3103576271d357d_cgraph" alt=""/></div>
 <map name="measure_8h_ac5e4d3ca3005c4f2a3103576271d357d_cgraph" id="measure_8h_ac5e4d3ca3005c4f2a3103576271d357d_cgraph">
-<area shape="rect" title="Reads value from ADC of PAD1." alt="" coords="5,5,136,32"/>
+<area shape="rect" title="Reads value from ADC1 (hall/coil1 ,Pad3 and Coil2)" alt="" coords="5,5,136,32"/>
 <area shape="rect" href="main_8h.html#a2ac9c311ff05671105348142908ecda3" title="Disables gyro in order to measure ADC on pin PC1." alt="" coords="184,5,279,32"/>
 <area shape="rect" href="measure_8h.html#a19cbc2c54977f6422dc53734e11748fe" title="This functions is used for delays in us. Example wait for ADC to stabilize." alt="" coords="327,5,403,32"/>
 </map>
@@ -204,7 +204,7 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="measure_8h_ac5e4d3ca3005c4f2a3103576271d357d_icgraph.png" border="0" usemap="#ameasure_8h_ac5e4d3ca3005c4f2a3103576271d357d_icgraph" alt=""/></div>
 <map name="measure_8h_ac5e4d3ca3005c4f2a3103576271d357d_icgraph" id="measure_8h_ac5e4d3ca3005c4f2a3103576271d357d_icgraph">
-<area shape="rect" title="Reads value from ADC of PAD1." alt="" coords="536,31,667,57"/>
+<area shape="rect" title="Reads value from ADC1 (hall/coil1 ,Pad3 and Coil2)" alt="" coords="536,31,667,57"/>
 <area shape="rect" href="calculations_8c.html#ae7ef43b64742b37fb4325492e1985278" title="Reads one period of samples from PAD1..3 and Coil1..2, calculates peak peak values and returns them a..." alt="" coords="325,31,488,57"/>
 <area shape="rect" href="calculations_8c.html#aa2d5daaead8e69186ad9e4bd751ea696" title="Measures 5 periods of Data and averages them. Displays samples, peak&#45;peak values and direction+distan..." alt="" coords="104,5,277,32"/>
 <area shape="rect" href="calculations_8c.html#ab5198f335d99998e989af5e09ed52d34" title="Measures one period of Data, displays samples, peak&#45;peak values and direction+distance of cable." alt="" coords="119,56,263,83"/>
@@ -230,7 +230,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Reads value from ADC of PAD2. </p>
+<p>Reads value from ADC3 (Pad1 and Pad2) </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">none</td><td></td></tr>
@@ -244,13 +244,13 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="measure_8c_source.html#l00086">86</a> of file <a class="el" href="measure_8c_source.html">measure.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="measure_8c_source.html#l00088">88</a> of file <a class="el" href="measure_8c_source.html">measure.c</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="measure_8h_a512f60472a91474ff08abcf7389cd275_cgraph.png" border="0" usemap="#ameasure_8h_a512f60472a91474ff08abcf7389cd275_cgraph" alt=""/></div>
 <map name="measure_8h_a512f60472a91474ff08abcf7389cd275_cgraph" id="measure_8h_a512f60472a91474ff08abcf7389cd275_cgraph">
-<area shape="rect" title="Reads value from ADC of PAD2." alt="" coords="5,5,136,32"/>
+<area shape="rect" title="Reads value from ADC3 (Pad1 and Pad2)" alt="" coords="5,5,136,32"/>
 <area shape="rect" href="main_8h.html#a2ac9c311ff05671105348142908ecda3" title="Disables gyro in order to measure ADC on pin PC1." alt="" coords="184,5,279,32"/>
 <area shape="rect" href="measure_8h.html#a19cbc2c54977f6422dc53734e11748fe" title="This functions is used for delays in us. Example wait for ADC to stabilize." alt="" coords="327,5,403,32"/>
 </map>
@@ -260,7 +260,7 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="measure_8h_a512f60472a91474ff08abcf7389cd275_icgraph.png" border="0" usemap="#ameasure_8h_a512f60472a91474ff08abcf7389cd275_icgraph" alt=""/></div>
 <map name="measure_8h_a512f60472a91474ff08abcf7389cd275_icgraph" id="measure_8h_a512f60472a91474ff08abcf7389cd275_icgraph">
-<area shape="rect" title="Reads value from ADC of PAD2." alt="" coords="536,31,667,57"/>
+<area shape="rect" title="Reads value from ADC3 (Pad1 and Pad2)" alt="" coords="536,31,667,57"/>
 <area shape="rect" href="calculations_8c.html#ae7ef43b64742b37fb4325492e1985278" title="Reads one period of samples from PAD1..3 and Coil1..2, calculates peak peak values and returns them a..." alt="" coords="325,31,488,57"/>
 <area shape="rect" href="calculations_8c.html#aa2d5daaead8e69186ad9e4bd751ea696" title="Measures 5 periods of Data and averages them. Displays samples, peak&#45;peak values and direction+distan..." alt="" coords="104,5,277,32"/>
 <area shape="rect" href="calculations_8c.html#ab5198f335d99998e989af5e09ed52d34" title="Measures one period of Data, displays samples, peak&#45;peak values and direction+distance of cable." alt="" coords="119,56,263,83"/>

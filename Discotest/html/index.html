@@ -67,17 +67,17 @@ $(function() {
 <div class="title">Cable Monitor </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p>This document is part of the documentation of the Cable Monitor, which is part of the <b>Electronics-Project Modules</b> in the <b>second year of the electronics engineering curriculum</b> at the School of Engineering of the Zurich University of Applied Sciences. <br  />
+<div class="textblock"><p>This doxygen contains the documentation of the Cable Monitor software, which is part of the Electronics-Project Modules in the second year of the electronics engineering curriculum at the School of Engineering of the Zurich University of Applied Sciences. <br  />
  It gives an overview over the code running on the STM32 discovery board. An example code was given but not used. Some functions regarding the touch display were adapted from it. <br  />
  The discovery board contains the microcontroller that measures the analog values sent from the sensor board and the display for the visual user output.</p>
 <dl class="section attention"><dt>Attention</dt><dd>As time was very critical, the software is only a draft and far from being a final software. Many things can be improved or added, e.g.: ADC with DMA, Interrups from ADC, struct as Pointer, moving average filter (Coils), direction detection.</dd></dl>
 <p>The rough code flow is shown here:</p>
-<p><img src="Ablaufdiagramm.png" alt="" width="20%" height="20%" class="inline"/></p>
-<p>After initializing, the zero levels of the pads/coils are measured and stored. The cable monitor measures a single or multiple periods in sequence (continuous), where the option is selectable on the touch display. <br  />
- First, all values from the ADCs are read. After subtracting the zerolevels, the calculations (distance, direction,current) can be done. <br  />
+<p><img src="Ablaufdiagramm.png" alt="" width="30%" height="30%" class="inline"/></p>
+<p>After initializing, the zero levels of the pads/coils are measured and stored. The cable monitor either measures a single period or multiple periods in sequence (continuous). The type of measurement is selectable on the touch display. <br  />
+ First, all values from the ADCs are read. After subtracting the zero levels, the calculations (distance, direction, current) can be done. <br  />
  After calculating, the results are shown on the display. The continuous mode measures 5 periods and averages them to get a more accurate measurement.</p>
-<p>This code is written for the evaluation board <b>STM32F429IDISCOVERY</b> (Discovery kit with STM32F429ZI MCU) placed on the baseboard with a mounted sensor board:</p>
-<p><img src="Cable_monitor_HW.png" alt="" width="20%" height="20%" class="inline"/></p>
+<p>The code is written for the evaluation board <b>STM32F429IDISCOVERY</b> (Discovery kit with STM32F429ZI MCU) placed on the baseboard with a mounted sensor board:</p>
+<p><img src="Cable_monitor_HW.png" alt="" width="30%" height="30%" class="inline"/></p>
 <hr  />
  <dl class="section author"><dt>Authors</dt><dd>Dominic Berger (<a href="#" onclick="location.href='mai'+'lto:'+'ber'+'ge'+'do1'+'@s'+'tud'+'en'+'ts.'+'zh'+'aw.'+'ch'; return false;">berge<span style="display: none;">.nosp@m.</span>do1@<span style="display: none;">.nosp@m.</span>stude<span style="display: none;">.nosp@m.</span>nts.<span style="display: none;">.nosp@m.</span>zhaw.<span style="display: none;">.nosp@m.</span>ch</a>), Jonathan Landolt (<a href="#" onclick="location.href='mai'+'lto:'+'lan'+'do'+'jon'+'@s'+'tud'+'en'+'ts.'+'zh'+'aw.'+'ch'; return false;">lando<span style="display: none;">.nosp@m.</span>jon@<span style="display: none;">.nosp@m.</span>stude<span style="display: none;">.nosp@m.</span>nts.<span style="display: none;">.nosp@m.</span>zhaw.<span style="display: none;">.nosp@m.</span>ch</a>) </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>18.12.2020 </dd></dl>

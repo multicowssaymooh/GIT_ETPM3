@@ -5,8 +5,8 @@
  * @n Reads the ADC Values of the coils and pads, in order to measure the electromagnetic and static field
  * 
  *
- * @author  Berger Dominic bergedo1@zhaw.students.ch | Landolt Jonathan landojon@students.zhaw.ch
- * @date	18.12.2020
+  * @author 		bergedo1,landojon
+  * @date			18.12.2020
 **/
 
 
@@ -40,7 +40,8 @@ void Delay_us (uint32_t delay)
 
 
 /**
- * @brief Reads value from ADC of PAD1
+ * @brief Reads value from ADC1
+ * (hall/coil1 ,Pad3 and Coil2)
  * @param none
  * @retval result pointer to uint16_t array with 3x 12bit values. result[0] = PC1/hall/coil1, result[1] = PA5/PAD3 , result[2] = PC3/Coil2
  *
@@ -79,7 +80,8 @@ uint16_t *Get_ADC1_Values(void)
 
 
 /**
- * @brief Reads value from ADC of PAD2
+ * @brief Reads value from ADC3
+ * (Pad1 and Pad2)
  * @param none
  * @retval result 12bit value from ADC. result[0] = PF8/PAD1, result[1] = PF6/PAD2
  */
@@ -133,12 +135,3 @@ uint16_t *Get_ADC3_Values(void)
 
 	return result;
 }
-
-
-
-
-
-
-
-
-

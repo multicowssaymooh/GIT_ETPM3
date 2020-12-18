@@ -1,6 +1,6 @@
 /** ***************************************************************************
  * @file
- * @brief Functions for the menue on the display and for the direction LEDs
+ * @brief Functions for the menu on the display and for the direction LEDs
  *
  * @n Functions for display adapted from Mr. Hochreutener
  * @n Provides the function MENU_check_transition() for polling user actions.
@@ -13,9 +13,10 @@
  * @n The function MENU_get_transition() returns the new menu item.
  *
  * @todo menu.c also contains the LED functions --> put LED functions in own file. (For details check set_LEDs_direction())
+ * @bug			Sometimes display isnt't initialized on the first try. Reset resolves the problem.
  *
- * @author  Landolt Jonathan, landojon@students.zhaw.ch
- * @date	18.12.2020
+  * @author 		bergedo1,landojon
+  * @date			18.12.2020
  *****************************************************************************/
 
 
@@ -185,7 +186,7 @@ void Display_peak_peak(uint16_t PP1, uint16_t PP2, uint16_t PP3)
  * @brief Displays signals from PADs as curve
  * @param Pad1, Pad2, Pad3 pointer values to be displayed
  * @retval none
- * @todo ADC_Nums aus calculations.c verwenden
+ * @todo use ADC_Nums from calculations.c
  *
  *****************************************************************************/
 void Display_Signal_Pads(uint16_t *PAD1,uint16_t *PAD2,uint16_t *PAD3)

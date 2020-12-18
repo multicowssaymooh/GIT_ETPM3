@@ -62,6 +62,7 @@ extern TIM_HandleTypeDef htim2;
 extern TIM_HandleTypeDef htim6;
 
 /* USER CODE BEGIN EV */
+/// Set every 1/2000Hz to get 40 measurements for one period
 uint8_t TIM2_ellapsed = 0;			///< New data is ready
 /* USER CODE END EV */
 

@@ -2,7 +2,7 @@
 @mainpage Cable Monitor
 
 
-This document is part of the documentation of the Cable Monitor, which is part of the <b>Electronics-Project Modules</b> in the <b>second year of the electronics engineering curriculum</b> 
+This doxygen contains the documentation of the Cable Monitor software, which is part of the Electronics-Project Modules in the second year of the electronics engineering curriculum
 at the School of Engineering of the Zurich University of Applied Sciences.
 @n It gives an overview over the code running on the STM32 discovery board. An example code was given but not used. Some functions regarding the touch display were adapted from it.
 @n The discovery board contains the microcontroller that measures the analog values sent from the sensor board and the display for the visual user output. 
@@ -12,21 +12,21 @@ at the School of Engineering of the Zurich University of Applied Sciences.
 
 The rough code flow is shown here:
 
-<img src="Ablaufdiagramm.png" width=20% height=20%>
+<img src="Ablaufdiagramm.png" width=30% height=30%>
 
 
 
-After initializing, the zero levels of the pads/coils are measured and stored. The cable monitor measures a single or multiple periods in sequence (continuous), where the option is selectable on the touch display.
-@n First, all values from the ADCs are read. After subtracting the zerolevels, the calculations (distance, direction,current) can be done. 
+After initializing, the zero levels of the pads/coils are measured and stored. The cable monitor either measures a single period or multiple periods in sequence (continuous). The type of measurement is selectable on the touch display.
+@n First, all values from the ADCs are read. After subtracting the zero levels, the calculations (distance, direction, current) can be done. 
 @n After calculating, the results are shown on the display.
 The continuous mode measures 5 periods and averages them to get a more accurate measurement.
 
 
 
-This code is written for the evaluation board
+The code is written for the evaluation board
 <b>STM32F429IDISCOVERY</b>  (Discovery kit with STM32F429ZI MCU) placed on the baseboard with a mounted sensor board:
 
-<img src="Cable_monitor_HW.png" width=20% height=20%>
+<img src="Cable_monitor_HW.png" width=30% height=30%>
 
 ---
 @authors	Dominic Berger (bergedo1@students.zhaw.ch), Jonathan Landolt (landojon@students.zhaw.ch)

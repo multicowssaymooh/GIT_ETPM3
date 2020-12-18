@@ -66,6 +66,7 @@ Struct_ADC_Values Get_Measurement_Data(type_of_measurement type)
 
 	  while(i<NO_SAMPLES)
 	  {
+		  // TIM2_ellapses set every 1/2000Hz to get 40 samples per period, see timer irq
 		  if(TIM2_ellapsed)
 		  {
 			  TIM2_ellapsed = 0;
@@ -208,7 +209,7 @@ void Single_Measurement(type_of_measurement type)
  * @brief Measures 5 periods of Data and averages them. Displays samples, peak-peak values and direction+distance of cable
  * @param type Specify which measurements are done (Pads or Coils); see ::type_of_measurement
  * @retval none
- * @todo Anzahl Messungen als Uebergabeparameter
+ * @todo pass number of periods as function parameter
  **/
 void Continuous_Measurement(type_of_measurement type)
 {
@@ -225,10 +226,12 @@ void Continuous_Measurement(type_of_measurement type)
 			PP2 = PP2 + Res.PP_Pad2;
 			PP3 = PP3 + Res.PP_Pad3;
 		}
+		//calculate mean
 		PP1 = (uint16_t)(PP1/i);
 		PP2 = (uint16_t)(PP2/i);
 		PP3 = (uint16_t)(PP3/i);
 
+		//subtract offset
 		PP1 = abs(PP1-Offset_PAD1);
 		PP2 = abs(PP2-Offset_PAD2);
 		PP3 = abs(PP3-Offset_PAD3);
@@ -251,7 +254,7 @@ void Continuous_Measurement(type_of_measurement type)
 		PP1 = (uint16_t)(PP1/i);
 		PP2 = (uint16_t)(PP2/i);
 
-		//subtract mean
+		//subtract offset
 		PP1 = abs(PP1-Offset_Coil1);
 		PP2 = abs(PP2-Offset_Coil2);
 
@@ -308,7 +311,7 @@ void UART_Transmit_Pad(uint16_t *pointer1,uint16_t *pointer2,uint16_t *pointer3)
  * @brief Find peakpeak value from given array
  * @param *array pointer to uint_16t array with samples
  * @retval result peakpeak value
- * @todo find size of array
+ * @todo calculate size of array
  **/
 uint16_t Find_Peakpeak(uint16_t *array)
 {
@@ -341,11 +344,10 @@ uint16_t Find_Peakpeak(uint16_t *array)
  * @brief Finds direction of mains cable
  * @param PP1,PP2,PP3 Peak-peak value from each PAD
  * @retval none
- * @todo Distance
+ * @todo Display distance at position which is cleared completely every iteration. (lower pixels stay on)
  **/
 void Get_Direction(uint16_t PP1, uint16_t PP2, uint16_t PP3)
 {
-
 
 	uint16_t sum=0,mean=0;
 	uint16_t distance=0;
@@ -358,6 +360,7 @@ void Get_Direction(uint16_t PP1, uint16_t PP2, uint16_t PP3)
 	sum = PP1+PP2+PP3;
 	mean = (uint16_t)(sum/3);
 
+	// find index (distance9 from measured value
 	for(i=200;i>=0;i--)
 	{
 		distance = LUT[i];
@@ -367,8 +370,6 @@ void Get_Direction(uint16_t PP1, uint16_t PP2, uint16_t PP3)
 			break;
 		}
 	}
-
-
 
 	char text[15];
 	snprintf(text, 15, "Distance%4dmm", (uint16_t)(distance & 0xffff));
