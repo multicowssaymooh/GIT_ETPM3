@@ -95,8 +95,6 @@ int main(void)
 
 	type_of_measurement type = PADS;
 
-
-
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
