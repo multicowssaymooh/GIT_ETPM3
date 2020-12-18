@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.20"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>demo_code: Todo List</title>
+<title>Cable Monitor: Todo List</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectlogo"><img alt="Logo" src="zhaw.jpg"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">demo_code
+   <div id="projectname">Cable Monitor
    </div>
    <div id="projectbrief">ZHAW ET.PM3</div>
   </td>
@@ -69,9 +69,9 @@ $(function() {
 <div class="contents">
 <div class="textblock"><dl class="reflist">
 <dt>Global <a class="el" href="calculations_8c.html#ae7ef43b64742b37fb4325492e1985278">Get_Measurement_Data</a>  (type_of_measurement type)</dt>
-<dd><a class="anchor" id="_todo000001"></a>Result_PADxy beinhaltelt auch Werte von Spulen --&gt; Unschön Name neu vergeben  </dd>
+<dd><a class="anchor" id="_todo000001"></a>update names in coil measurements, PAD1..2 hold values from coils1..2  </dd>
 <dt>Global <a class="el" href="calculations_8c.html#ab5198f335d99998e989af5e09ed52d34">Single_Measurement</a>  (type_of_measurement type)</dt>
-<dd><a class="anchor" id="_todo000002"></a>Offsets auch hier von PP Werte abziehen (Nicht nur im continuous).  </dd>
+<dd><a class="anchor" id="_todo000002"></a>Subtract offset/zerolevel from coil1..2  </dd>
 <dt>Global <a class="el" href="calculations_8c.html#aa2d5daaead8e69186ad9e4bd751ea696">Continuous_Measurement</a>  (type_of_measurement type)</dt>
 <dd><a class="anchor" id="_todo000003"></a>Anzahl Messungen als Uebergabeparameter  </dd>
 <dt>Global <a class="el" href="calculations_8c.html#a6069994576c2662a26ebda910ef5a1a0">UART_Transmit_Pad</a>  (uint16_t *pointer1, uint16_t *pointer2, uint16_t *pointer3)</dt>
@@ -80,14 +80,12 @@ $(function() {
 <dd><a class="anchor" id="_todo000005"></a>find size of array  </dd>
 <dt>Global <a class="el" href="calculations_8c.html#a0b9e354dddd65372bb98445d2b050293">Get_Direction</a>  (uint16_t PP1, uint16_t PP2, uint16_t PP3)</dt>
 <dd><a class="anchor" id="_todo000006"></a>Distance  </dd>
-<dt>Global <a class="el" href="measure_8c.html#ac5e4d3ca3005c4f2a3103576271d357d">Get_ADC1_Values</a>  (void)</dt>
-<dd><a class="anchor" id="_todo000007"></a>Überprüfen reihenfolge der AD Wandlungen. Pad1 in res0 etc. </dd>
-<dt>Global <a class="el" href="measure_8c.html#a512f60472a91474ff08abcf7389cd275">Get_ADC3_Values</a>  (void)</dt>
-<dd><a class="anchor" id="_todo000008"></a>Überprüfen reihenfolge der AD Wandlungen. Coil1 in res0 etc.  </dd>
+<dt>File <a class="el" href="menu_8c.html">menu.c</a>  </dt>
+<dd><a class="anchor" id="_todo000007"></a><a class="el" href="menu_8c.html" title="Functions for the menue on the display and for the direction LEDs.">menu.c</a> also contains the LED functions --&gt; put LED functions in own file. (For details check <a class="el" href="menu_8h.html#a05b41340719d6f383e67b962589bbf31" title="Enables or Disables all direction LEDs.">set_LEDs_direction()</a>) </dd>
 <dt>Global <a class="el" href="menu_8c.html#a57af956ec3440d227325d50e8d07b167">Display_Signal_Pads</a>  (uint16_t *PAD1, uint16_t *PAD2, uint16_t *PAD3)</dt>
-<dd><a class="anchor" id="_todo000009"></a>ADC_Nums aus <a class="el" href="calculations_8c.html" title="Calculations for the cable monitor.">calculations.c</a> verwenden </dd>
+<dd><a class="anchor" id="_todo000008"></a>ADC_Nums aus <a class="el" href="calculations_8c.html" title="Calculations for the cable monitor.">calculations.c</a> verwenden </dd>
 <dt>Page <a class="el" href="testing.html">Testing Firmware</a>  </dt>
-<dd><a class="anchor" id="_todo000010"></a>Define, run, document and evaluate all the important tests.</dd>
+<dd><a class="anchor" id="_todo000009"></a>Improve current measurement. Calculate mean of more values. </dd>
 </dl>
 </div></div><!-- contents -->
 </div><!-- PageDoc -->

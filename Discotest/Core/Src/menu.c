@@ -1,7 +1,8 @@
 /** ***************************************************************************
  * @file
- * @brief The menu Initializes and displays the menu.
- * @n File adapted from Mr. Hochreutener
+ * @brief Functions for the menue on the display and for the direction LEDs
+ *
+ * @n Functions for display adapted from Mr. Hochreutener
  * @n Provides the function MENU_check_transition() for polling user actions.
  * The variable MENU_transition is set to the touched menu item.
  * If no touch has occurred the variable MENU_transition is set to MENU_NONE
@@ -11,7 +12,7 @@
  * or MENU_check_transition() in the main while loop for polling.
  * @n The function MENU_get_transition() returns the new menu item.
  *
- * @attention menu.c also contains the LED functions. For details check set_LEDs_direction()
+ * @todo menu.c also contains the LED functions --> put LED functions in own file. (For details check set_LEDs_direction())
  *
  * @author  Landolt Jonathan, landojon@students.zhaw.ch
  * @date	18.12.2020
@@ -104,7 +105,7 @@ void blink_direction(void)
 
 /** ***************************************************************************
  * @brief Enables or Disables all direction LEDs
- * @param number 6=all leds, 1=led1, 2=led2 up to 5=led5
+ * @param number 6=all leds, 0=led1, 1=led2 up to 4=led5
  * @param state	0=on, 1=off
  * @retval none
  *****************************************************************************/

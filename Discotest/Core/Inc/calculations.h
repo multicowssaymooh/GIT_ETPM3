@@ -25,9 +25,13 @@ typedef struct {						/// Peak Peak value Pad 1
 	uint16_t array_pad3[50];
 } Struct_ADC_Values;
 
-
-uint16_t Offset_PAD1, Offset_PAD2, Offset_PAD3;
-uint16_t Offset_Coil1, Offset_Coil2;
+							/// Zeroing offset Pad 1
+uint16_t 	Offset_PAD1, 	/// Zeroing offset Pad 2
+			Offset_PAD2, 	/// Zeroing offset Pad 3
+			Offset_PAD3;
+							/// Zeroing offset Coil 1
+uint16_t 	Offset_Coil1,	/// Zeroing offset Coil 2
+			Offset_Coil2;
 
 
 Struct_ADC_Values Get_Measurement_Data(type_of_measurement type);

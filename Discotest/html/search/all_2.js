@@ -22,6 +22,5 @@ var searchData=
   ['blink_73',['blink',['../calculations_8c.html#ab2fc8e2508158b8232828ad0db0ef3ab',1,'calculations.c']]],
   ['blink_5fdirection_74',['blink_direction',['../menu_8h.html#a90f5784cf7908e1b4f9d1dd9a4f0a1c5',1,'blink_direction(void):&#160;menu.c'],['../menu_8c.html#a90f5784cf7908e1b4f9d1dd9a4f0a1c5',1,'blink_direction(void):&#160;menu.c']]],
   ['boot1_5fgpio_5fport_75',['BOOT1_GPIO_Port',['../main_8h.html#a70e2b63cb50fea2a3fae3e13112e3e20',1,'main.h']]],
-  ['boot1_5fpin_76',['BOOT1_Pin',['../main_8h.html#aebae48d3fc48ba1ec453ecd93f5f4b43',1,'main.h']]],
-  ['bug_20list_77',['Bug List',['../bug.html',1,'']]]
+  ['boot1_5fpin_76',['BOOT1_Pin',['../main_8h.html#aebae48d3fc48ba1ec453ecd93f5f4b43',1,'main.h']]]
 ];

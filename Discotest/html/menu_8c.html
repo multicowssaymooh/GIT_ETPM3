@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.20"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>demo_code: Src/menu.c File Reference</title>
+<title>Cable Monitor: Src/menu.c File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectlogo"><img alt="Logo" src="zhaw.jpg"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">demo_code
+   <div id="projectname">Cable Monitor
    </div>
    <div id="projectbrief">ZHAW ET.PM3</div>
   </td>
@@ -76,12 +76,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>The menu Initializes and displays the menu. <br  />
- File adapted from Mr. Hochreutener <br  />
- Provides the function <a class="el" href="menu_8c.html#a88e016ed6bb3eb9cfe66a3009bc6fbcf" title="Check for selection/transition.">MENU_check_transition()</a> for polling user actions. The variable MENU_transition is set to the touched menu item. If no touch has occurred the variable MENU_transition is set to MENU_NONE <br  />
- If the interrupt handler is enabled by calling BSP_TS_ITConfig(); the variable MENU_transition is set to the touched menu entry as above. <br  />
- Either call once BSP_TS_ITConfig() to enable the interrupt or <a class="el" href="menu_8c.html#a88e016ed6bb3eb9cfe66a3009bc6fbcf" title="Check for selection/transition.">MENU_check_transition()</a> in the main while loop for polling. <br  />
- The function <a class="el" href="menu_8c.html#a3de77014a7c52cdf6ff1f973eee6f3f6" title="Get menu selection/transition.">MENU_get_transition()</a> returns the new menu item.  
+<p>Functions for the menue on the display and for the direction LEDs.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;stm32f4xx.h&quot;</code><br />
 <code>#include &quot;stm32f429i_discovery.h&quot;</code><br />
@@ -94,11 +89,7 @@ Include dependency graph for menu.c:</div>
 <div class="dyncontent">
 <div class="center"><img src="menu_8c__incl.png" border="0" usemap="#a_src_2menu_8c" alt=""/></div>
 <map name="_src_2menu_8c" id="_src_2menu_8c">
-<<<<<<< Updated upstream
-<area shape="rect" title="The menu Initializes and displays the menu. &#160;&#160;File adapted from Mr. Hochreutener &#160;&#160;Provides the funct..." alt="" coords="425,5,514,32"/>
-=======
-<area shape="rect" title="The menu." alt="" coords="425,5,514,32"/>
->>>>>>> Stashed changes
+<area shape="rect" title="Functions for the menue on the display and for the direction LEDs." alt="" coords="425,5,514,32"/>
 <area shape="rect" title=" " alt="" coords="5,87,99,114"/>
 <area shape="rect" title=" " alt="" coords="123,87,280,114"/>
 <area shape="rect" title=" " alt="" coords="304,80,451,121"/>
@@ -107,7 +98,7 @@ Include dependency graph for menu.c:</div>
 <area shape="rect" href="gpio_8h.html" title=" " alt="" coords="774,87,831,114"/>
 <area shape="rect" title=" " alt="" coords="566,169,631,196"/>
 <area shape="rect" href="calculations_8h.html" title="See calculations.c." alt="" coords="655,169,758,196"/>
-<area shape="rect" href="main_8h.html" title=": Header for main.c file. This file contains the common defines of the application." alt="" coords="783,169,844,196"/>
+<area shape="rect" href="main_8h.html" title="See main.c." alt="" coords="783,169,844,196"/>
 <area shape="rect" title=" " alt="" coords="755,244,872,271"/>
 </map>
 </div>
@@ -185,14 +176,15 @@ Variables</h2></td></tr>
 <tr class="separator:a95a264bf1d48a89c6aa839d0156f91ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>The menu Initializes and displays the menu. <br  />
- File adapted from Mr. Hochreutener <br  />
+<div class="textblock"><p>Functions for the menue on the display and for the direction LEDs. </p>
+<hr  />
+<p><br  />
+ Functions for display adapted from Mr. Hochreutener <br  />
  Provides the function <a class="el" href="menu_8c.html#a88e016ed6bb3eb9cfe66a3009bc6fbcf" title="Check for selection/transition.">MENU_check_transition()</a> for polling user actions. The variable MENU_transition is set to the touched menu item. If no touch has occurred the variable MENU_transition is set to MENU_NONE <br  />
  If the interrupt handler is enabled by calling BSP_TS_ITConfig(); the variable MENU_transition is set to the touched menu entry as above. <br  />
  Either call once BSP_TS_ITConfig() to enable the interrupt or <a class="el" href="menu_8c.html#a88e016ed6bb3eb9cfe66a3009bc6fbcf" title="Check for selection/transition.">MENU_check_transition()</a> in the main while loop for polling. <br  />
- The function <a class="el" href="menu_8c.html#a3de77014a7c52cdf6ff1f973eee6f3f6" title="Get menu selection/transition.">MENU_get_transition()</a> returns the new menu item. </p>
-<hr  />
-<dl class="section attention"><dt>Attention</dt><dd><a class="el" href="menu_8c.html" title="The menu Initializes and displays the menu.   File adapted from Mr. Hochreutener   Provides the funct...">menu.c</a> also contains the LED functions. For details check <a class="el" href="menu_8c.html#a05b41340719d6f383e67b962589bbf31" title="Enables or Disables all direction LEDs.">set_LEDs_direction()</a></dd></dl>
+ The function <a class="el" href="menu_8c.html#a3de77014a7c52cdf6ff1f973eee6f3f6" title="Get menu selection/transition.">MENU_get_transition()</a> returns the new menu item.</p>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000007">Todo:</a></b></dt><dd><a class="el" href="menu_8c.html" title="Functions for the menue on the display and for the direction LEDs.">menu.c</a> also contains the LED functions --&gt; put LED functions in own file. (For details check <a class="el" href="menu_8c.html#a05b41340719d6f383e67b962589bbf31" title="Enables or Disables all direction LEDs.">set_LEDs_direction()</a>)</dd></dl>
 <dl class="section author"><dt>Author</dt><dd>Landolt Jonathan, <a href="#" onclick="location.href='mai'+'lto:'+'lan'+'do'+'jon'+'@s'+'tud'+'en'+'ts.'+'zh'+'aw.'+'ch'; return false;">lando<span style="display: none;">.nosp@m.</span>jon@<span style="display: none;">.nosp@m.</span>stude<span style="display: none;">.nosp@m.</span>nts.<span style="display: none;">.nosp@m.</span>zhaw.<span style="display: none;">.nosp@m.</span>ch</a> </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>18.12.2020 </dd></dl>
 
@@ -210,7 +202,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="menu_8c_source.html#l00040">40</a> of file <a class="el" href="menu_8c_source.html">menu.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="menu_8c_source.html#l00041">41</a> of file <a class="el" href="menu_8c_source.html">menu.c</a>.</p>
 
 </div>
 </div>
@@ -226,7 +218,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="menu_8c_source.html#l00040">40</a> of file <a class="el" href="menu_8c_source.html">menu.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="menu_8c_source.html#l00041">41</a> of file <a class="el" href="menu_8c_source.html">menu.c</a>.</p>
 
 </div>
 </div>
@@ -272,7 +264,7 @@ Variables</h2></td></tr>
 
 <p>Possible font sizes: 8 12 16 20 24. </p>
 
-<p class="definition">Definition at line <a class="el" href="menu_8c_source.html#l00035">35</a> of file <a class="el" href="menu_8c_source.html">menu.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="menu_8c_source.html#l00036">36</a> of file <a class="el" href="menu_8c_source.html">menu.c</a>.</p>
 
 </div>
 </div>
@@ -290,7 +282,7 @@ Variables</h2></td></tr>
 
 <p>Height of menu bar. </p>
 
-<p class="definition">Definition at line <a class="el" href="menu_8c_source.html#l00036">36</a> of file <a class="el" href="menu_8c_source.html">menu.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="menu_8c_source.html#l00037">37</a> of file <a class="el" href="menu_8c_source.html">menu.c</a>.</p>
 
 </div>
 </div>
@@ -308,7 +300,7 @@ Variables</h2></td></tr>
 
 <p>Margin around a menu entry. </p>
 
-<p class="definition">Definition at line <a class="el" href="menu_8c_source.html#l00037">37</a> of file <a class="el" href="menu_8c_source.html">menu.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="menu_8c_source.html#l00038">38</a> of file <a class="el" href="menu_8c_source.html">menu.c</a>.</p>
 
 </div>
 </div>
@@ -325,7 +317,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <p>Position of menu bar: 0 = top, (BSP_LCD_GetYSize()-MENU_HEIGHT) = bottom </p>
 
-<p class="definition">Definition at line <a class="el" href="menu_8c_source.html#l00039">39</a> of file <a class="el" href="menu_8c_source.html">menu.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="menu_8c_source.html#l00040">40</a> of file <a class="el" href="menu_8c_source.html">menu.c</a>.</p>
 
 </div>
 </div>
@@ -361,7 +353,7 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="menu_8c_source.html#l00096">96</a> of file <a class="el" href="menu_8c_source.html">menu.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="menu_8c_source.html#l00097">97</a> of file <a class="el" href="menu_8c_source.html">menu.c</a>.</p>
 
 </div>
 </div>
@@ -412,7 +404,7 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="menu_8c_source.html#l00138">138</a> of file <a class="el" href="menu_8c_source.html">menu.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="menu_8c_source.html#l00139">139</a> of file <a class="el" href="menu_8c_source.html">menu.c</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -473,11 +465,11 @@ Here is the caller graph for this function:</div>
   </table>
   </dd>
 </dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000009">Todo:</a></b></dt><dd>ADC_Nums aus <a class="el" href="calculations_8c.html" title="Calculations for the cable monitor.">calculations.c</a> verwenden</dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000008">Todo:</a></b></dt><dd>ADC_Nums aus <a class="el" href="calculations_8c.html" title="Calculations for the cable monitor.">calculations.c</a> verwenden</dd></dl>
 <p>&lt; Index for buffer</p>
 <p>&lt; Buffer with ADC input values</p>
 
-<p class="definition">Definition at line <a class="el" href="menu_8c_source.html#l00190">190</a> of file <a class="el" href="menu_8c_source.html">menu.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="menu_8c_source.html#l00191">191</a> of file <a class="el" href="menu_8c_source.html">menu.c</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -523,7 +515,7 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="menu_8c_source.html#l00283">283</a> of file <a class="el" href="menu_8c_source.html">menu.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="menu_8c_source.html#l00284">284</a> of file <a class="el" href="menu_8c_source.html">menu.c</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -563,7 +555,7 @@ There are timing issues when interrupt is enabled. It seems that polling is the 
 <p>The touchscreen interrupt is connected to PA15. <br  />
  The interrupt handler for external line 15 to 10 is called. </p>
 
-<p class="definition">Definition at line <a class="el" href="menu_8c_source.html#l00413">413</a> of file <a class="el" href="menu_8c_source.html">menu.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="menu_8c_source.html#l00414">414</a> of file <a class="el" href="menu_8c_source.html">menu.c</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -596,7 +588,7 @@ Here is the call graph for this function:</div>
 <hr  />
 <p>If the last transition has been consumed (MENU_NONE == MENU_transition) and the touchscreen has been touched for a defined period the variable MENU_transition is set to the touched item. </p>
 
-<p class="definition">Definition at line <a class="el" href="menu_8c_source.html#l00373">373</a> of file <a class="el" href="menu_8c_source.html">menu.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="menu_8c_source.html#l00374">374</a> of file <a class="el" href="menu_8c_source.html">menu.c</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -631,7 +623,7 @@ Here is the caller graph for this function:</div>
 <p>Each menu entry has two lines. Text and background colors are applied. <br  />
  These attributes are defined in the variable MENU_draw[]. </p>
 
-<p class="definition">Definition at line <a class="el" href="menu_8c_source.html#l00069">69</a> of file <a class="el" href="menu_8c_source.html">menu.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="menu_8c_source.html#l00070">70</a> of file <a class="el" href="menu_8c_source.html">menu.c</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -670,7 +662,7 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Menu_entry[item] or Menu_entry[0] if item not in range </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="menu_8c_source.html#l00339">339</a> of file <a class="el" href="menu_8c_source.html">menu.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="menu_8c_source.html#l00340">340</a> of file <a class="el" href="menu_8c_source.html">menu.c</a>.</p>
 
 </div>
 </div>
@@ -695,7 +687,7 @@ Here is the caller graph for this function:</div>
 <dl class="section return"><dt>Returns</dt><dd>the selected MENU_item or MENU_NONE if no MENU_item was selected</dd></dl>
 <p>MENU_transition is used as a flag. When the value is read by calling <a class="el" href="menu_8c.html#a3de77014a7c52cdf6ff1f973eee6f3f6" title="Get menu selection/transition.">MENU_get_transition()</a> this flag is cleared, respectively set to MENU_NONE. </p>
 
-<p class="definition">Definition at line <a class="el" href="menu_8c_source.html#l00358">358</a> of file <a class="el" href="menu_8c_source.html">menu.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="menu_8c_source.html#l00359">359</a> of file <a class="el" href="menu_8c_source.html">menu.c</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -727,7 +719,7 @@ Here is the caller graph for this function:</div>
 <p>Shows a hint at startup. </p>
 <hr  />
  
-<p class="definition">Definition at line <a class="el" href="menu_8c_source.html#l00300">300</a> of file <a class="el" href="menu_8c_source.html">menu.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="menu_8c_source.html#l00301">301</a> of file <a class="el" href="menu_8c_source.html">menu.c</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -777,7 +769,7 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section note"><dt>Note</dt><dd>Call <a class="el" href="menu_8c.html#a2cbb4c209c599e91da57c0d6cf8f710e" title="Draw the menu onto the display.">MENU_draw()</a> to update the display. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="menu_8c_source.html#l00326">326</a> of file <a class="el" href="menu_8c_source.html">menu.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="menu_8c_source.html#l00327">327</a> of file <a class="el" href="menu_8c_source.html">menu.c</a>.</p>
 
 </div>
 </div>
@@ -811,7 +803,7 @@ Here is the caller graph for this function:</div>
 <hr  />
  <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">number</td><td>6=all leds, 1=led1, 2=led2 up to 5=led5 </td></tr>
+    <tr><td class="paramname">number</td><td>6=all leds, 0=led1, 1=led2 up to 4=led5 </td></tr>
     <tr><td class="paramname">state</td><td>0=on, 1=off </td></tr>
   </table>
   </dd>
@@ -823,7 +815,7 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="menu_8c_source.html#l00111">111</a> of file <a class="el" href="menu_8c_source.html">menu.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="menu_8c_source.html#l00112">112</a> of file <a class="el" href="menu_8c_source.html">menu.c</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -870,7 +862,7 @@ Here is the caller graph for this function:</div>
 </div><!-- fragment -->
 <p>All the menu entries. </p>
 
-<p class="definition">Definition at line <a class="el" href="menu_8c_source.html#l00047">47</a> of file <a class="el" href="menu_8c_source.html">menu.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="menu_8c_source.html#l00048">48</a> of file <a class="el" href="menu_8c_source.html">menu.c</a>.</p>
 
 </div>
 </div>
@@ -896,7 +888,7 @@ Here is the caller graph for this function:</div>
 
 <p>Transition to this menu. </p>
 
-<p class="definition">Definition at line <a class="el" href="menu_8c_source.html#l00046">46</a> of file <a class="el" href="menu_8c_source.html">menu.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="menu_8c_source.html#l00047">47</a> of file <a class="el" href="menu_8c_source.html">menu.c</a>.</p>
 
 </div>
 </div>

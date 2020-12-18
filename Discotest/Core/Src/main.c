@@ -1,20 +1,11 @@
 /* USER CODE BEGIN Header */
 /**
   ******************************************************************************
-  * @file           : main.c
-  * @brief          : Main program body
-  ******************************************************************************
-  * @attention
+  * @file           main.c
+  * @brief          Main program body
   *
-  * <h2><center>&copy; Copyright (c) 2020 STMicroelectronics.
-  * All rights reserved.</center></h2>
-  *
-  * This software component is licensed by ST under Ultimate Liberty license
-  * SLA0044, the "License"; You may not use this file except in compliance with
-  * the License. You may obtain a copy of the License at:
-  *                             www.st.com/SLA0044
-  *
-  ******************************************************************************
+  * @n				Overview of software flow see mainpage
+   ******************************************************************************
   */
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
@@ -85,12 +76,6 @@ int main(void)
 {
   /* USER CODE BEGIN 1 */
 
-
-	uint32_t	adc_PC1=0,adc_PA5=0,adc_PC3=0;
-	uint32_t	adc_PF8=0, adc_PF6=0;
-	ADC_ChannelConfTypeDef sConfig = {0};
-	GPIO_InitTypeDef GPIO_InitStruct = {0};
-
 	uint8_t coninuous=0;
 	uint8_t buff=0;
 
@@ -150,39 +135,20 @@ int main(void)
   MENU_draw();
   MENU_hint();
 
-  //for(uint8_t k = 0; k<4;k++)
-  //{
-	  for(buff = 0;buff<5;buff++)
-	  {
-		  set_LEDs_direction(6,OFF);
-		  set_LEDs_direction(buff,ON);
-		  HAL_Delay(80);
-	  }
-  //}
+  for(buff = 0;buff<5;buff++)
+  {
+	  set_LEDs_direction(6,OFF);
+	  set_LEDs_direction(buff,ON);
+	  HAL_Delay(80);
+  }
+
   set_LEDs_direction(6,OFF);
-/*
-  HAL_GPIO_WritePin(GPIOC, GPIO_PIN_8, 0);
-  HAL_Delay(1000);
-  HAL_GPIO_WritePin(Suicide_GPIO_Port, Suicide_Pin, 1);
-  HAL_Delay(1000);
-*/
-  // Get 0 level
+
+  // Get zeroing offsets
   Continuous_Measurement(INIT);
 
   HAL_GPIO_WritePin(Suicide_GPIO_Port, Suicide_Pin, GPIO_PIN_SET);
 
-
-  char text[10];
-
-
-  //uint16_t adc_test[] = {0,0,0};
-  uint16_t *array_PAD;
-  uint16_t *array_Coil;
-  uint16_t *a;
-  uint16_t *b;
-  uint16_t *c;
-  uint16_t outputbuffer = 0;
-  Struct_ADC_Values Str_ADC_Values;
 
   while (1)
   {
@@ -194,15 +160,14 @@ int main(void)
 	  //if user button --> turn off device
 	  if(HAL_GPIO_ReadPin(B1_GPIO_Port, B1_Pin)) HAL_GPIO_WritePin(Suicide_GPIO_Port, Suicide_Pin, GPIO_PIN_RESET);
 
-
-	  HAL_Delay(200);
-
 	  if(coninuous)
 	  {
 		  Continuous_Measurement(type);
 	  }
 
 	  MENU_check_transition();
+
+	  HAL_Delay(200);
 
 	  switch (MENU_get_transition()) {
 	  		case MENU_NONE:					// No transition => do nothing
@@ -224,7 +189,6 @@ int main(void)
 
 	  //Coil/Pad change
 	  		case MENU_TWO:
-	  			//type = !type;
 	  			if(type == PADS)
 				{
 	  				type = COILS;
@@ -234,19 +198,14 @@ int main(void)
 	  				type = PADS;
 	  			}
 	  			Display_Type_of_Measurement(type);
-	  			//ADC_DMA_demo();
 	  			break;
 
 	  // Zero
 	  		case MENU_THREE:
 	  			HAL_GPIO_TogglePin(LD4_GPIO_Port, LD4_Pin);
-				//blink_direction();
 				set_LEDs_direction(6,ON);
 	  			Continuous_Measurement(INIT);
 	  			set_LEDs_direction(6,OFF);
-	  			HAL_GPIO_WritePin(Suicide_GPIO_Port, Suicide_Pin, GPIO_PIN_RESET);
-	  			//HAL_GPIO_WritePin(Suicide_GPIO_Port, Suicide_Pin, 0);
-	  			//ADC_DMA_dual_demo();
 	  			break;
 	  		case MENU_FOUR:
 	  			//ADC_DMA_scan_demo();

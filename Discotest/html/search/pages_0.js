@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['bug_20list_731',['Bug List',['../bug.html',1,'']]]
+  ['cable_20monitor_730',['Cable Monitor',['../index.html',1,'']]]
 ];

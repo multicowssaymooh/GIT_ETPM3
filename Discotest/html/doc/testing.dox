@@ -1,9 +1,9 @@
 /**
 @page testing Testing Firmware
 
-This testing was done with the final version of the software. Older versions of the software and their testprotocols are not provided.
+This testing was done with the current version of the software. Older versions of the software and their testprotocols are not provided.
 
-@todo Define, run, document and evaluate all the important tests.
+@todo Improve current measurement. Calculate mean of more values. 
 
 <h1>Test</h1>
 <table>
@@ -11,85 +11,73 @@ This testing was done with the final version of the software. Older versions of 
 	<th>Module</th><th>Test Conditions</th><th>Expected</th><th>Observed</th><th>Pass/Fail</th><th>Remarks</th>
 </tr>
 <tr>
-	<td>*Module*</td><td>*condition*</td><td>*expected*</td><td>*observed*</td><td>*Pass*</th><td>*Remarks*</td>
+	<td>Menu system</td><td>Touch menu item "Single"</td><td>Switch to state "Single"</td><td>*Display curve, peak peak value*</td><td>*Pass*</th><td>*-*</td>
 </tr>
 <tr>
-	<td>Menu system</td><td>Touch menu item "Single"</td><td>Switch to state "Single"</td><td>*observed*</td><td>*Pass*</th><td>*remarks*</td>
+	<td>Zeroing</td><td>Touch menu item "Zero"</td><td>Peak peak values < 30 </td><td>*LEDs blink one time*</td><td>*Pass*</th><td>*-*</td>
 </tr>
 <tr>
-	<td>Single measurement</td><td>Board 25cm away from single phase cable</td><td> No cable detected</td><td>*observed*</td><td>*Pass*</th><td>*Remarks*</td>
+	<td>Single measurement</td><td>Board 25cm away from single phase cable</td><td> No cable detected</td><td>*200mm*</td><td>*Pass*</th><td>*-*</td>
 </tr>
 <tr>
-	<td>Single measurement</td><td>Board 20cm away from single phase cable</td><td> Cable detected<br> Middle led on</br></td><td>*observed*</td><td>*Pass*</th><td>*Remarks*</td>
+	<td>Single measurement</td><td>Board 20cm away from single phase cable</td><td> Cable detected<br> LEDs blink</br></td><td>*176mm*</td><td>*Pass*</th><td>*-*</td>
 </tr>
 <tr>
-	<td>Single measurement</td><td>Board 10cm away from single phase cable</td><td> Display distance 10cm ±30% <br> Middle led on</br></td><td>*observed*</td><td>*Pass*</th><td>*Remarks*</td>
+	<td>Single measurement</td><td>Board 10cm away from single phase cable</td><td> Display distance 10cm ±30% <br> Middle led on</br></td><td>*78mm*</td><td>*Pass*</th><td>*-*</td>
 </tr>
 <tr>
-	<td>Single measurement</td><td>Board 5cm away from single phase cable</td><td> Display distance 5cm ±30% <br> Middle led on</br></td><td>*observed*</td><td>*Pass*</th><td>*Remarks*</td>
+	<td>Single measurement</td><td>Board 5cm away from single phase cable</td><td> Display distance 5cm ±30% <br> Middle led on</br></td><td>*38mm*</td><td>*Pass*</th><td>*-*</td>
 </tr>
 <tr>
-	<td>Single measurement</td><td>Board 0.5cm away from single phase cable</td><td> Display distance 0.5cm ±30%<br> Middle led on</br></td><td>*observed*</td><td>*Pass*</th><td>*Remarks*</td>
+	<td>Single measurement</td><td>Board 0.5cm away from single phase cable</td><td> Display distance 0.5cm ±30%<br> Middle led on</br></td><td>*5mm*</td><td>*Pass*</th><td>*-*</td>
 </tr>
 <tr>
-	<td>Single measurement</td><td>Board 5cm away from single phase cable <br> 45° angle to cable (left)</br></td><td> Display distance 5cm ±30%<br> Middle-left led on</br></td><td>*observed*</td><td>*Pass*</th><td>*Remarks*</td>
+	<td>Single measurement</td><td>Board 5cm away from single phase cable <br> 22.5°-45° angle to cable (left)</br></td><td> Display distance 5cm ±30%<br> Middle-left led on</br></td><td>*not yet implemented*</td><td>-</th><td>-</td>
 </tr>
 <tr>
-	<td>Single measurement</td><td>Board 5cm away from single phase cable <br> 90° angle to cable (left)</br></td><td> Display distance 0.5cm ±30%<br> Left led on</br></td><td>*observed*</td><td>*Pass*</th><td>*Remarks*</td>
+	<td>Single measurement</td><td>Board 5cm away from single phase cable <br> >45° angle to cable (left)</br></td><td> Display distance 0.5cm ±30%<br> Left led on</br></td><td>*LED left/right on*</td><td>*Pass*</th><td>*-*</td>
 </tr>
 <tr>
-	<td>Menu system</td><td>Touch menu item "Continuous"</td><td>Switch to state "Continuous"</td><td>*observed*</td><td>*Pass*</th><td>*remarks*</td>
+	<td>Menu system</td><td>Touch menu item "Continuous"</td><td>Switch to state "Continuous"</td><td>*Display curve, peak peak value*</td><td>*Pass*</th><td>*-*</td>
 </tr>
 <tr>
-	<td>Continuous measurement</td><td>Board 25cm away from single phase cable</td><td> No cable detected</td><td>*observed*</td><td>*Pass*</th><td>*Remarks*</td>
+	<td>Continuous measurement</td><td>Board 25cm away from single phase cable</td><td> No cable detected</td><td>*200mm*</td><td>*Pass*</th><td>*-*</td>
 </tr>
 <tr>
-	<td>Continuous measurement</td><td>Board 20cm away from single phase cable</td><td> Cable detected<br> Middle led on</br></td><td>*observed*</td><td>*Pass*</th><td>*Remarks*</td>
+	<td>Continuous measurement</td><td>Board 20cm away from single phase cable</td><td> Cable detected<br> LEDs blink</br></td><td>*200mm*</td><td>*Pass*</th><td>*-*</td>
 </tr>
 <tr>
-	<td>Continuous measurement</td><td>Board 10cm away from single phase cable</td><td> Display distance 10cm ±30% <br> Middle led on</br></td><td>*observed*</td><td>*Pass*</th><td>*Remarks*</td>
+	<td>Continuous measurement</td><td>Board 10cm away from single phase cable</td><td> Display distance 10cm ±30% <br> Middle led on</br></td><td>*98mm*</td><td>*Pass*</th><td>*-*</td>
 </tr>
 <tr>
-	<td>Continuous measurement</td><td>Board 5cm away from single phase cable</td><td> Display distance 5cm ±30% <br> Middle led on</br></td><td>*observed*</td><td>*Pass*</th><td>*Remarks*</td>
+	<td>Continuous measurement</td><td>Board 5cm away from single phase cable</td><td> Display distance 5cm ±30% <br> Middle led on</br></td><td>*53mm*</td><td>*Pass*</th><td>*-*</td>
 </tr>
 <tr>
-	<td>Continuous measurement</td><td>Board 0.5cm away from single phase cable</td><td> Display distance 0.5cm ±30%<br> Middle led on</br></td><td>*observed*</td><td>*Pass*</th><td>*Remarks*</td>
+	<td>Continuous measurement</td><td>Board 0.5cm away from single phase cable</td><td> Display distance 0.5cm ±30%<br> Middle led on</br></td><td>*6mm*</td><td>*Pass*</th><td>*-*</td>
 </tr>
 <tr>
-	<td>Continuous measurement</td><td>Board 5cm away from single phase cable <br> 45° angle to cable (left)</br></td><td> Display distance 5cm ±30%<br> Middle-left led on</br></td><td>*observed*</td><td>*Pass*</th><td>*Remarks*</td>
+	<td>Continuous measurement</td><td>Board 5cm away from single phase cable <br> 22.5°-45° angle to cable (left)</br></td><td> Display distance 5cm ±30%<br> Middle-left led on</br></td><td>*not yet implemented*</td><td>-</th><td>-</td>
 </tr>
 <tr>
-	<td>Continuous measurement</td><td>Board 5cm away from single phase cable <br> 90° angle to cable (left)</br></td><td> Display distance 0.5cm ±30%<br> Left led on</br></td><td>*observed*</td><td>*Pass*</th><td>*Remarks*</td>
+	<td>Continuous measurement</td><td>Board 5cm away from single phase cable <br> >45° angle to cable (left)</br></td><td> Display distance 0.5cm ±30%<br> Left led on</br></td><td>*LED left/right on*</td><td>*Pass*</th><td>*-*</td>
 </tr>
 <tr>
-	<td>Menu system</td><td>Touch menu item "Current mains"</td><td>Switch to state "Current mains"</td><td>*observed*</td><td>*Pass*</th><td>*remarks*</td>
+	<td>Menu system</td><td>Touch menu item "Pads/Coils"</td><td>Switch to "Coil"</td><td>*Display curve, peak peak value*</td><td>*Pass*</th><td>*Signals are very noisy*</td>
 </tr>
 <tr>
-	<td>Current mains measurement</td><td>Board 1cm away from single phase cable <br>Let 5A flow through cable</br></td><td> Display current 5A ±50%</td><td>*observed*</td><td>*Pass*</th><td>*Remarks*</td>
+	<td>Continuous Current measurement</td><td>Board 1cm away from single phase cable <br>Let 5A flow through cable</br></td><td> Display current 5A ±50%</td><td>*Signal to noisy*</td><td>*Fail*</th><td>*Try measuring with mean of more samples*</td>
 </tr>
 <tr>
-	<td>Current mains measurement</td><td>Board 1cm away from single phase cable <br>Let 1.2A flow through cable</br></td><td> Display current 1.2A ±50%</td><td>*observed*</td><td>*Pass*</th><td>*Remarks*</td>
+	<td>Coninuous Current measurement</td><td>Board 1cm away from single phase cable <br>Let 1.2A flow through cable</br></td><td> Display current 1.2A ±50%</td><td>*Signal to noisy*</td><td>*Fail*</th><td>*Try measuring with mean of more samples*</td>
 </tr>
 <tr>
-	<td>Menu system</td><td>Touch menu item "Current mains, PE, N"</td><td>Switch to state "Current mains, PE, N"</td><td>*observed*</td><td>*Pass*</th><td>*remarks*</td>
-</tr>
-<tr>
-	<td>Current mains, PE, N measurement</td><td>Board 0.5cm away from single phase cable <br>Let 5A flow through cable</br></td><td> Display current 5A ±50%</td><td>*observed*</td><td>*Pass*</th><td>*Remarks*</td>
-</tr>
-<tr>
-	<td>Current mains, PE, N measurement</td><td>Board 0.5cm away from a cable with neutral and protection earth<br>Let 1.2A flow through cable</br></td><td> Display current 1.2A ±50%</td><td>*observed*</td><td>*Pass*</th><td>*Remarks*</td>
-</tr>
-<tr>
-	<td>Menu system</td><td>Touch menu item "LED"</td><td>LEDs blink and turn off <br>Moving around the cable does not turn on the LEDs </br></td><td>*observed*</td><td>*Pass*</th><td>*remarks*</td>
-</tr>
-<tr>
-	<td>Menu system</td><td>Press blue button </td><td>Turn off the device</td><td>*observed*</td><td>*Pass*</th><td>*remarks*</td>
+	<td>Menu system</td><td>Press blue button </td><td>Turn off the device</td><td>*Device turnes off*</td><td>*Pass*</th><td>*-*</td>
 </tr>
 </table>
-@n Test date: 07.05.2020
-@n Tester: Hanspeter Hochreutener (hhrt@zhaw.ch)
+@n Test date: 18.12.2020
+@n Tester: bergedo1, landojon
 
 ---
-@author	Jonathan Landolt (landojon@students.zhaw.ch)
-@date 11.12.2020
+@author	bergedo1, landojon
+@date 18.12.2020
 */

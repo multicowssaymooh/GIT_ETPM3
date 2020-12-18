@@ -43,7 +43,6 @@ void Delay_us (uint32_t delay)
  * @brief Reads value from ADC of PAD1
  * @param none
  * @retval result pointer to uint16_t array with 3x 12bit values. result[0] = PC1/hall/coil1, result[1] = PA5/PAD3 , result[2] = PC3/Coil2
- * @todo Überprüfen reihenfolge der AD Wandlungen. Pad1 in res0 etc.
  *
  */
 uint16_t *Get_ADC1_Values(void)
@@ -66,7 +65,7 @@ uint16_t *Get_ADC1_Values(void)
 
 	gyro_disable();
 
-	/*
+#ifdef UART_DEBUG
 	char text[11];
 	snprintf(text, 10, "PC1=%4d\n", (uint16_t)(result[0] & 0xffff));
 	  HAL_UART_Transmit(&huart1, text, 9, 500);
@@ -74,7 +73,7 @@ uint16_t *Get_ADC1_Values(void)
 	  HAL_UART_Transmit(&huart1, text, 9, 500);
 	  snprintf(text, 10, "PC3=%4d\n", (uint16_t)(result[2] & 0xffff));
 	  HAL_UART_Transmit(&huart1, text, 9, 500);
-*/
+#endif
 	return result;
 }
 
@@ -83,7 +82,6 @@ uint16_t *Get_ADC1_Values(void)
  * @brief Reads value from ADC of PAD2
  * @param none
  * @retval result 12bit value from ADC. result[0] = PF8/PAD1, result[1] = PF6/PAD2
- * @todo Überprüfen reihenfolge der AD Wandlungen. Coil1 in res0 etc.
  */
 uint16_t *Get_ADC3_Values(void)
 {
@@ -124,16 +122,14 @@ uint16_t *Get_ADC3_Values(void)
 	result[0] = HAL_ADC_GetValue(&hadc3);
 	HAL_ADC_Stop(&hadc3);
 
-	/*
+#ifdef UART_DEBUG
 	char text[10];
 
 	snprintf(text, 10, "PF8=%4d\n", (uint16_t)(result[0] & 0xffff));
 	HAL_UART_Transmit(&huart1, text, 9, 500);
 	snprintf(text, 10, "PF6=%4d\n", (uint16_t)(result[1] & 0xffff));
 	HAL_UART_Transmit(&huart1, text, 9, 500);
-	*/
-
-
+#endif
 
 	return result;
 }

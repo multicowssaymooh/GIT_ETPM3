@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.20"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>demo_code: Src/calculations.c File Reference</title>
+<title>Cable Monitor: Src/calculations.c File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectlogo"><img alt="Logo" src="zhaw.jpg"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">demo_code
+   <div id="projectname">Cable Monitor
    </div>
    <div id="projectbrief">ZHAW ET.PM3</div>
   </td>
@@ -106,7 +106,7 @@ Include dependency graph for calculations.c:</div>
 <area shape="rect" href="menu_8h.html" title="See menu.c." alt="" coords="1029,87,1094,114"/>
 <area shape="rect" href="calculations_8h.html" title="See calculations.c." alt="" coords="1081,169,1183,196"/>
 <area shape="rect" title=" " alt="" coords="1169,87,1276,114"/>
-<area shape="rect" href="main_8h.html" title=": Header for main.c file. This file contains the common defines of the application." alt="" coords="752,169,813,196"/>
+<area shape="rect" href="main_8h.html" title="See main.c." alt="" coords="752,169,813,196"/>
 <area shape="rect" title=" " alt="" coords="724,244,841,271"/>
 <area shape="rect" title=" " alt="" coords="991,169,1057,196"/>
 </map>
@@ -159,7 +159,7 @@ Variables</h2></td></tr>
 <p><br  />
  Provides the function <a class="el" href="calculations_8c.html#ae7ef43b64742b37fb4325492e1985278" title="Reads one period of samples from PAD1..3 and Coil1..2, calculates peak peak values and returns them a...">Get_Measurement_Data()</a> to gather all values from Pads/Coils which returns a struct (see <a class="el" href="struct_struct___a_d_c___values.html">Struct_ADC_Values</a>) with all peak-peak values and array with samples <br  />
  This function is used in <a class="el" href="calculations_8c.html#ab5198f335d99998e989af5e09ed52d34" title="Measures one period of Data, displays samples, peak-peak values and direction+distance of cable.">Single_Measurement()</a> and <a class="el" href="calculations_8c.html#aa2d5daaead8e69186ad9e4bd751ea696" title="Measures 5 periods of Data and averages them. Displays samples, peak-peak values and direction+distan...">Continuous_Measurement()</a>, where it is called either once or 5 times to build the mean values. <br  />
- <a class="el" href="calculations_8c.html#a4fb47fc0d7f70084c6a70ee3182df9d2" title="Find peakpeak value from given array.">Find_Peakpeak()</a> calculates the peak-peak value from the given array. <a class="el" href="calculations_8c.html#a0b9e354dddd65372bb98445d2b050293" title="Finds direction of mains cable.">Get_Direction()</a> calculates the direction of the mains cable and displays the distance (TBD)</p>
+ <a class="el" href="calculations_8c.html#a4fb47fc0d7f70084c6a70ee3182df9d2" title="Find peakpeak value from given array.">Find_Peakpeak()</a> calculates the peak-peak value from the given array. <a class="el" href="calculations_8c.html#a0b9e354dddd65372bb98445d2b050293" title="Finds direction of mains cable.">Get_Direction()</a> calculates the direction of the mains cable and displays the distance</p>
 <dl class="section author"><dt>Author</dt><dd>bergedo1, landojon </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>18.12.2020 </dd></dl>
 
@@ -245,7 +245,7 @@ Variables</h2></td></tr>
 </dl>
 <dl class="todo"><dt><b><a class="el" href="todo.html#_todo000003">Todo:</a></b></dt><dd>Anzahl Messungen als Uebergabeparameter </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="calculations_8c_source.html#l00211">211</a> of file <a class="el" href="calculations_8c_source.html">calculations.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="calculations_8c_source.html#l00213">213</a> of file <a class="el" href="calculations_8c_source.html">calculations.c</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -372,7 +372,7 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="todo"><dt><b><a class="el" href="todo.html#_todo000006">Todo:</a></b></dt><dd>Distance </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="calculations_8c_source.html#l00347">347</a> of file <a class="el" href="calculations_8c_source.html">calculations.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="calculations_8c_source.html#l00346">346</a> of file <a class="el" href="calculations_8c_source.html">calculations.c</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -425,7 +425,7 @@ Here is the caller graph for this function:</div>
   </table>
   </dd>
 </dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000001">Todo:</a></b></dt><dd>Result_PADxy beinhaltelt auch Werte von Spulen --&gt; Unschön Name neu vergeben </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000001">Todo:</a></b></dt><dd>update names in coil measurements, PAD1..2 hold values from coils1..2 </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="calculations_8c_source.html#l00049">49</a> of file <a class="el" href="calculations_8c_source.html">calculations.c</a>.</p>
 <div class="dynheader">
@@ -485,9 +485,9 @@ Here is the caller graph for this function:</div>
   </table>
   </dd>
 </dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000002">Todo:</a></b></dt><dd>Offsets auch hier von PP Werte abziehen (Nicht nur im continuous). </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000002">Todo:</a></b></dt><dd>Subtract offset/zerolevel from coil1..2 </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="calculations_8c_source.html#l00180">180</a> of file <a class="el" href="calculations_8c_source.html">calculations.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="calculations_8c_source.html#l00174">174</a> of file <a class="el" href="calculations_8c_source.html">calculations.c</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">

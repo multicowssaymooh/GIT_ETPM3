@@ -4,25 +4,31 @@
 
 This document is part of the documentation of the Cable Monitor, which is part of the <b>Electronics-Project Modules</b> in the <b>second year of the electronics engineering curriculum</b> 
 at the School of Engineering of the Zurich University of Applied Sciences.
-@n It gives an overview over the code running on the STM32 discovery board.
-@n The discovery board contains the microcontroller that measures the analog values sent from the sensor board and the discplay for the visual user output. 
+@n It gives an overview over the code running on the STM32 discovery board. An example code was given but not used. Some functions regarding the touch display were adapted from it.
+@n The discovery board contains the microcontroller that measures the analog values sent from the sensor board and the display for the visual user output. 
 
-Here is an overview over the files included in the project:
-@n In the file measuring.c, the ADCs are initialised and the measurement data is acquired.
-@n The file menu.c controls the menu buttons on the display and the direction leds.
-@n pushbutton.c handles external interrupts.
-@n main.c puts everything together.
 
-@attention As time was very critical, the software is only a draft and far from being a final software. Many things can be improved or added, e.g.: Struct as Pointer, moving average filter, direction detection etc.
+@attention As time was very critical, the software is only a draft and far from being a final software. Many things can be improved or added, e.g.: ADC with DMA, Interrups from ADC, struct as Pointer, moving average filter (Coils), direction detection.
 
-@image html demo_screenshot.jpg
+The rough code flow is shown here:
+
+<img src="Ablaufdiagramm.png" width=20% height=20%>
+
+
+
+After initializing, the zero levels of the pads/coils are measured and stored. The cable monitor measures a single or multiple periods in sequence (continuous), where the option is selectable on the touch display.
+@n First, all values from the ADCs are read. After subtracting the zerolevels, the calculations (distance, direction,current) can be done. 
+@n After calculating, the results are shown on the display.
+The continuous mode measures 5 periods and averages them to get a more accurate measurement.
+
+
 
 This code is written for the evaluation board
-<b>STM32F429IDISCOVERY (Discovery kit with STM32F429ZI MCU)</b>.
+<b>STM32F429IDISCOVERY</b>  (Discovery kit with STM32F429ZI MCU) placed on the baseboard with a mounted sensor board:
 
+<img src="Cable_monitor_HW.png" width=20% height=20%>
 
 ---
 @authors	Dominic Berger (bergedo1@students.zhaw.ch), Jonathan Landolt (landojon@students.zhaw.ch)
-@date 11.12.2020
-@bug No known bugs.
+@date 18.12.2020
 */
