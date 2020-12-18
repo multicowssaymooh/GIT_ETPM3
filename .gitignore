@@ -129,3 +129,4 @@ local.properties
 *.map
 *.mk
 makefile
+Discotest/debug.log
