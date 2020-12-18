@@ -169,7 +169,7 @@ int main(void)
   // Get 0 level
   Continuous_Measurement(INIT);
 
-
+  HAL_GPIO_WritePin(Suicide_GPIO_Port, Suicide_Pin, GPIO_PIN_SET);
 
 
   char text[10];
@@ -190,6 +190,9 @@ int main(void)
 
     /* USER CODE BEGIN 3 */
 
+
+	  //if user button --> turn off device
+	  if(HAL_GPIO_ReadPin(B1_GPIO_Port, B1_Pin)) HAL_GPIO_WritePin(Suicide_GPIO_Port, Suicide_Pin, GPIO_PIN_RESET);
 
 
 	  HAL_Delay(200);
@@ -241,7 +244,7 @@ int main(void)
 				set_LEDs_direction(6,ON);
 	  			Continuous_Measurement(INIT);
 	  			set_LEDs_direction(6,OFF);
-	  			//HAL_GPIO_WritePin(Suicide_GPIO_Port, Suicide_Pin, 0);
+	  			HAL_GPIO_WritePin(Suicide_GPIO_Port, Suicide_Pin, GPIO_PIN_RESET);
 	  			//HAL_GPIO_WritePin(Suicide_GPIO_Port, Suicide_Pin, 0);
 	  			//ADC_DMA_dual_demo();
 	  			break;

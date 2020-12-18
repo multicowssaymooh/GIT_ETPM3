@@ -90,7 +90,7 @@ Include dependency graph for measure.c:</div>
 <div class="dyncontent">
 <div class="center"><img src="measure_8c__incl.png" border="0" usemap="#a_src_2measure_8c" alt=""/></div>
 <map name="_src_2measure_8c" id="_src_2measure_8c">
-<area shape="rect" title="Measurements from the ADC." alt="" coords="509,5,616,32"/>
+<area shape="rect" title="Measurements from the ADC." alt="" coords="579,5,685,32"/>
 <area shape="rect" title=" " alt="" coords="5,87,99,114"/>
 <area shape="rect" title=" " alt="" coords="123,87,280,114"/>
 <area shape="rect" title=" " alt="" coords="304,80,451,121"/>
@@ -98,6 +98,7 @@ Include dependency graph for measure.c:</div>
 <area shape="rect" href="gpio_8h.html" title=" " alt="" coords="674,87,731,114"/>
 <area shape="rect" href="adc_8h.html" title=" " alt="" coords="755,87,810,114"/>
 <area shape="rect" href="usart_8h.html" title=" " alt="" coords="834,87,897,114"/>
+<area shape="rect" href="measure_8h.html" title="See measure.c." alt="" coords="921,87,1004,114"/>
 <area shape="rect" href="main_8h.html" title=": Header for main.c file. This file contains the common defines of the application." alt="" coords="752,169,813,196"/>
 <area shape="rect" title=" " alt="" coords="724,244,841,271"/>
 </map>
@@ -170,11 +171,13 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="measure_8c_a19cbc2c54977f6422dc53734e11748fe_icgraph.png" border="0" usemap="#ameasure_8c_a19cbc2c54977f6422dc53734e11748fe_icgraph" alt=""/></div>
 <map name="measure_8c_a19cbc2c54977f6422dc53734e11748fe_icgraph" id="measure_8c_a19cbc2c54977f6422dc53734e11748fe_icgraph">
-<area shape="rect" title="This functions is used for delays in us. Example wait for ADC to stabilize." alt="" coords="655,31,731,57"/>
-<area shape="rect" href="main_8c.html#a2ac9c311ff05671105348142908ecda3" title="Disables gyro in order to measure on pin PC1." alt="" coords="512,31,607,57"/>
-<area shape="rect" href="measure_8c.html#ac5e4d3ca3005c4f2a3103576271d357d" title="Reads value from ADC of PAD1." alt="" coords="333,5,464,32"/>
-<area shape="rect" href="measure_8c.html#a512f60472a91474ff08abcf7389cd275" title="Reads value from ADC of PAD2." alt="" coords="333,56,464,83"/>
-<area shape="rect" href="calculations_8c.html#a91e6a19a001aad3ebbbdb9d01e24c9c9" title="Reads one period of samples from PAD1..3." alt="" coords="104,31,285,57"/>
+<area shape="rect" title="This functions is used for delays in us. Example wait for ADC to stabilize." alt="" coords="857,31,933,57"/>
+<area shape="rect" href="main_8c.html#a2ac9c311ff05671105348142908ecda3" title="Disables gyro in order to measure ADC on pin PC1." alt="" coords="715,31,809,57"/>
+<area shape="rect" href="measure_8c.html#ac5e4d3ca3005c4f2a3103576271d357d" title="Reads value from ADC of PAD1." alt="" coords="536,5,667,32"/>
+<area shape="rect" href="measure_8c.html#a512f60472a91474ff08abcf7389cd275" title="Reads value from ADC of PAD2." alt="" coords="536,56,667,83"/>
+<area shape="rect" href="calculations_8c.html#ae7ef43b64742b37fb4325492e1985278" title="Reads one period of samples from PAD1..3 and Coil1..2, calculates peak peak values and returns them a..." alt="" coords="325,31,488,57"/>
+<area shape="rect" href="calculations_8c.html#aa2d5daaead8e69186ad9e4bd751ea696" title="Measures 5 periods of Data and averages them. Displays samples, peak&#45;peak values and direction+distan..." alt="" coords="104,5,277,32"/>
+<area shape="rect" href="calculations_8c.html#ab5198f335d99998e989af5e09ed52d34" title="Measures one period of Data, displays samples, peak&#45;peak values and direction+distance of cable." alt="" coords="119,56,263,83"/>
 <area shape="rect" href="main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="The application entry point." alt="" coords="5,31,56,57"/>
 </map>
 </div>
@@ -219,7 +222,7 @@ Here is the call graph for this function:</div>
 <div class="center"><img src="measure_8c_ac5e4d3ca3005c4f2a3103576271d357d_cgraph.png" border="0" usemap="#ameasure_8c_ac5e4d3ca3005c4f2a3103576271d357d_cgraph" alt=""/></div>
 <map name="measure_8c_ac5e4d3ca3005c4f2a3103576271d357d_cgraph" id="measure_8c_ac5e4d3ca3005c4f2a3103576271d357d_cgraph">
 <area shape="rect" title="Reads value from ADC of PAD1." alt="" coords="5,5,136,32"/>
-<area shape="rect" href="main_8h.html#a2ac9c311ff05671105348142908ecda3" title="Disables gyro in order to measure on pin PC1." alt="" coords="184,5,279,32"/>
+<area shape="rect" href="main_8h.html#a2ac9c311ff05671105348142908ecda3" title="Disables gyro in order to measure ADC on pin PC1." alt="" coords="184,5,279,32"/>
 <area shape="rect" href="measure_8h.html#a19cbc2c54977f6422dc53734e11748fe" title="This functions is used for delays in us. Example wait for ADC to stabilize." alt="" coords="327,5,403,32"/>
 </map>
 </div>
@@ -228,9 +231,11 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="measure_8c_ac5e4d3ca3005c4f2a3103576271d357d_icgraph.png" border="0" usemap="#ameasure_8c_ac5e4d3ca3005c4f2a3103576271d357d_icgraph" alt=""/></div>
 <map name="measure_8c_ac5e4d3ca3005c4f2a3103576271d357d_icgraph" id="measure_8c_ac5e4d3ca3005c4f2a3103576271d357d_icgraph">
-<area shape="rect" title="Reads value from ADC of PAD1." alt="" coords="333,5,464,32"/>
-<area shape="rect" href="calculations_8c.html#a91e6a19a001aad3ebbbdb9d01e24c9c9" title="Reads one period of samples from PAD1..3." alt="" coords="104,5,285,32"/>
-<area shape="rect" href="main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="The application entry point." alt="" coords="5,5,56,32"/>
+<area shape="rect" title="Reads value from ADC of PAD1." alt="" coords="536,31,667,57"/>
+<area shape="rect" href="calculations_8c.html#ae7ef43b64742b37fb4325492e1985278" title="Reads one period of samples from PAD1..3 and Coil1..2, calculates peak peak values and returns them a..." alt="" coords="325,31,488,57"/>
+<area shape="rect" href="calculations_8c.html#aa2d5daaead8e69186ad9e4bd751ea696" title="Measures 5 periods of Data and averages them. Displays samples, peak&#45;peak values and direction+distan..." alt="" coords="104,5,277,32"/>
+<area shape="rect" href="calculations_8c.html#ab5198f335d99998e989af5e09ed52d34" title="Measures one period of Data, displays samples, peak&#45;peak values and direction+distance of cable." alt="" coords="119,56,263,83"/>
+<area shape="rect" href="main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="The application entry point." alt="" coords="5,31,56,57"/>
 </map>
 </div>
 
@@ -274,7 +279,7 @@ Here is the call graph for this function:</div>
 <div class="center"><img src="measure_8c_a512f60472a91474ff08abcf7389cd275_cgraph.png" border="0" usemap="#ameasure_8c_a512f60472a91474ff08abcf7389cd275_cgraph" alt=""/></div>
 <map name="measure_8c_a512f60472a91474ff08abcf7389cd275_cgraph" id="measure_8c_a512f60472a91474ff08abcf7389cd275_cgraph">
 <area shape="rect" title="Reads value from ADC of PAD2." alt="" coords="5,5,136,32"/>
-<area shape="rect" href="main_8h.html#a2ac9c311ff05671105348142908ecda3" title="Disables gyro in order to measure on pin PC1." alt="" coords="184,5,279,32"/>
+<area shape="rect" href="main_8h.html#a2ac9c311ff05671105348142908ecda3" title="Disables gyro in order to measure ADC on pin PC1." alt="" coords="184,5,279,32"/>
 <area shape="rect" href="measure_8h.html#a19cbc2c54977f6422dc53734e11748fe" title="This functions is used for delays in us. Example wait for ADC to stabilize." alt="" coords="327,5,403,32"/>
 </map>
 </div>
@@ -283,9 +288,11 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="measure_8c_a512f60472a91474ff08abcf7389cd275_icgraph.png" border="0" usemap="#ameasure_8c_a512f60472a91474ff08abcf7389cd275_icgraph" alt=""/></div>
 <map name="measure_8c_a512f60472a91474ff08abcf7389cd275_icgraph" id="measure_8c_a512f60472a91474ff08abcf7389cd275_icgraph">
-<area shape="rect" title="Reads value from ADC of PAD2." alt="" coords="333,5,464,32"/>
-<area shape="rect" href="calculations_8c.html#a91e6a19a001aad3ebbbdb9d01e24c9c9" title="Reads one period of samples from PAD1..3." alt="" coords="104,5,285,32"/>
-<area shape="rect" href="main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="The application entry point." alt="" coords="5,5,56,32"/>
+<area shape="rect" title="Reads value from ADC of PAD2." alt="" coords="536,31,667,57"/>
+<area shape="rect" href="calculations_8c.html#ae7ef43b64742b37fb4325492e1985278" title="Reads one period of samples from PAD1..3 and Coil1..2, calculates peak peak values and returns them a..." alt="" coords="325,31,488,57"/>
+<area shape="rect" href="calculations_8c.html#aa2d5daaead8e69186ad9e4bd751ea696" title="Measures 5 periods of Data and averages them. Displays samples, peak&#45;peak values and direction+distan..." alt="" coords="104,5,277,32"/>
+<area shape="rect" href="calculations_8c.html#ab5198f335d99998e989af5e09ed52d34" title="Measures one period of Data, displays samples, peak&#45;peak values and direction+distance of cable." alt="" coords="119,56,263,83"/>
+<area shape="rect" href="main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="The application entry point." alt="" coords="5,31,56,57"/>
 </map>
 </div>
 
