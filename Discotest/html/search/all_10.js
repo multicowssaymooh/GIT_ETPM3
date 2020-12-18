@@ -22,11 +22,13 @@ var searchData=
   ['stlink_5ftx_5fgpio_5fport_335',['STLINK_TX_GPIO_Port',['../main_8h.html#a45cc4545e6a6a5bd2549a5fc365c1878',1,'main.h']]],
   ['stlink_5ftx_5fpin_336',['STLINK_TX_Pin',['../main_8h.html#a4f7ac76e8023b5f3099424e51e5bc9f6',1,'main.h']]],
   ['struct_5fadc_5fvalues_337',['Struct_ADC_Values',['../struct_struct___a_d_c___values.html',1,'']]],
-  ['swclk_5fgpio_5fport_338',['SWCLK_GPIO_Port',['../main_8h.html#a54d419ccaa2653d1bceae3f1a7206890',1,'main.h']]],
-  ['swclk_5fpin_339',['SWCLK_Pin',['../main_8h.html#ad2e9165c92edc48968db01ca88c27822',1,'main.h']]],
-  ['swdio_5fgpio_5fport_340',['SWDIO_GPIO_Port',['../main_8h.html#a0d6c5c9d267a552e5bb02eb57498f683',1,'main.h']]],
-  ['swdio_5fpin_341',['SWDIO_Pin',['../main_8h.html#ac30893c7c5dd78cf02632dc653c3e74e',1,'main.h']]],
-  ['syscalls_2ec_342',['syscalls.c',['../syscalls_8c.html',1,'']]],
-  ['sysmem_2ec_343',['sysmem.c',['../sysmem_8c.html',1,'']]],
-  ['systemclock_5fconfig_344',['SystemClock_Config',['../main_8c.html#a70af21c671abfcc773614a9a4f63d920',1,'main.c']]]
+  ['suicide_5fgpio_5fport_338',['Suicide_GPIO_Port',['../main_8h.html#a37991698ac5c6e895b2ffea2faa63473',1,'main.h']]],
+  ['suicide_5fpin_339',['Suicide_Pin',['../main_8h.html#ac32dc091daa2aae2d370d06384b2767a',1,'main.h']]],
+  ['swclk_5fgpio_5fport_340',['SWCLK_GPIO_Port',['../main_8h.html#a54d419ccaa2653d1bceae3f1a7206890',1,'main.h']]],
+  ['swclk_5fpin_341',['SWCLK_Pin',['../main_8h.html#ad2e9165c92edc48968db01ca88c27822',1,'main.h']]],
+  ['swdio_5fgpio_5fport_342',['SWDIO_GPIO_Port',['../main_8h.html#a0d6c5c9d267a552e5bb02eb57498f683',1,'main.h']]],
+  ['swdio_5fpin_343',['SWDIO_Pin',['../main_8h.html#ac30893c7c5dd78cf02632dc653c3e74e',1,'main.h']]],
+  ['syscalls_2ec_344',['syscalls.c',['../syscalls_8c.html',1,'']]],
+  ['sysmem_2ec_345',['sysmem.c',['../sysmem_8c.html',1,'']]],
+  ['systemclock_5fconfig_346',['SystemClock_Config',['../main_8c.html#a70af21c671abfcc773614a9a4f63d920',1,'main.c']]]
 ];

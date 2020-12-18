@@ -2,18 +2,11 @@
  * @file
  * @brief Measurements from the ADC
  *
- * Initializes and displays the menu.  ANPASSEN TBD
- * @n Provides the function MENU_check_transition() for polling user actions.
- * The variable MENU_transition is set to the touched menu item.
- * If no touch has occurred the variable MENU_transition is set to MENU_NONE
- * @n If the interrupt handler is enabled by calling BSP_TS_ITConfig();
- * the variable MENU_transition is set to the touched menu entry as above.
- * @n Either call once BSP_TS_ITConfig() to enable the interrupt
- * or MENU_check_transition() in the main while loop for polling.
- * @n The function MENU_get_transition() returns the new menu item.
+ * @n Reads the ADC Values of the coils and pads, in order to measure the electromagnetic and static field
+ * 
  *
- * @author  Berger Dominic bergedo1@zhaw.students.ch
- * @date	30.04.2020
+ * @author  Berger Dominic bergedo1@zhaw.students.ch | Landolt Jonathan landojon@students.zhaw.ch
+ * @date	18.12.2020
 **/
 
 
@@ -150,89 +143,6 @@ uint16_t *Get_ADC3_Values(void)
 
 
 
-
-
-
-// ------------------------------------- delete ---------------------------------------------//
-//
-// 	  	/*
-//	    GPIO_InitStruct.Pin = GPIO_PIN_1|GPIO_PIN_3;
-//	    GPIO_InitStruct.Mode = GPIO_MODE_ANALOG;
-//	    GPIO_InitStruct.Pull = GPIO_NOPULL;
-//	    HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
-//
-//
-//	    GPIO_InitStruct.Pin = GPIO_PIN_5;
-//	    GPIO_InitStruct.Mode = GPIO_MODE_ANALOG;
-//	    GPIO_InitStruct.Pull = GPIO_NOPULL;
-//	    HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
-//		*/
-//
-//	    //Delay_us(10);
-//
-//	    //ADC1
-//	  	HAL_ADC_Start(&hadc1);
-//	  	HAL_ADC_PollForConversion(&hadc1, 50);
-//	  	adc_PC1 = HAL_ADC_GetValue(&hadc1);
-//	  	adc_PA5 = HAL_ADC_GetValue(&hadc1);
-//	  	adc_PC3 = HAL_ADC_GetValue(&hadc1);
-//
-//	  	HAL_ADC_Stop(&hadc1);
-//
-//	    gyro_disable();
-//
-//	    sConfig.Channel = ADC_CHANNEL_6;
-//	    sConfig.Rank = 1;
-//	    sConfig.SamplingTime = ADC_SAMPLETIME_3CYCLES;
-//	    if (HAL_ADC_ConfigChannel(&hadc3, &sConfig) != HAL_OK)
-//	    {
-//	      Error_Handler();
-//	    }
-//
-//	    HAL_ADC_Start(&hadc3);
-//	    HAL_ADC_PollForConversion(&hadc3, 10);
-//	    adc_PF8 = HAL_ADC_GetValue(&hadc3);
-//	    HAL_ADC_Stop(&hadc3);
-//
-//
-//	    sConfig.Channel = ADC_CHANNEL_4;
-//	    sConfig.Rank = 1;
-//	    sConfig.SamplingTime = ADC_SAMPLETIME_3CYCLES;
-//	    if (HAL_ADC_ConfigChannel(&hadc3, &sConfig) != HAL_OK)
-//	    {
-//	       Error_Handler();
-//	    }
-//
-//	    HAL_ADC_Start(&hadc3);
-//	    HAL_ADC_PollForConversion(&hadc3, 10);
-//	    adc_PF6 = HAL_ADC_GetValue(&hadc3);
-//	    HAL_ADC_Stop(&hadc3);
-//
-//	    HAL_GPIO_WritePin(LD4_GPIO_Port, LD4_Pin,0);
-//	    //while(1){}
-//
-//	    //testasldkfjasdlkfj
-//
-//	    /** Configure for the selected ADC regular channel its corresponding rank in the sequencer and its sample time.
-//	    */
-//
-//
-//	    //ADC1
-//
-//	    snprintf(text, 10, "PC1=%4d\n", (int)(adc_PC1 & 0xffff));
-//	    HAL_UART_Transmit(&huart1, text, 9, 500);
-//	    snprintf(text, 10, "PA5=%4d\n", (int)(adc_PA5 & 0xffff));
-//	    HAL_UART_Transmit(&huart1, text, 9, 500);
-//	    snprintf(text, 10, "PC3=%4d\n", (int)(adc_PC3 & 0xffff));
-//	    HAL_UART_Transmit(&huart1, text, 9, 500);
-//
-//	    //ADC3
-//	    snprintf(text, 10, "PF8=%4d\n", (int)(adc_PF8 & 0xffff));
-//	   	HAL_UART_Transmit(&huart1, text, 9, 500);
-//	   	snprintf(text, 10, "PF6=%4d\n", (int)(adc_PF6 & 0xffff));
-//	   	HAL_UART_Transmit(&huart1, text, 9, 500);
-//
-//
 
 
 

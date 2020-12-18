@@ -78,7 +78,7 @@ Directory dependency graph for Src:</div>
 <map name="dir__b596f468b52957496e4f78b80e029268__dep" id="dir__b596f468b52957496e4f78b80e029268__dep">
 <area shape="rect" href="dir_b596f468b52957496e4f78b80e029268.html" title="Src" alt="" coords="5,5,77,53"/>
 <area shape="rect" href="dir_e2489e887f17afa3cbc07a4ec152cdd2.html" title="Inc" alt="" coords="5,101,77,149"/>
-<area shape="rect" href="dir_000001_000000.html" title="36" alt="" coords="42,76,57,90"/>
+<area shape="rect" href="dir_000001_000000.html" title="34" alt="" coords="42,76,57,90"/>
 </map>
 </div>
 <table class="memberdecls">
@@ -108,7 +108,11 @@ Files</h2></td></tr>
 <tr class="memdesc:measure_8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Measurements from the ADC. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:menu_8c"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="menu_8c.html">menu.c</a> <a href="menu_8c_source.html">[code]</a></td></tr>
-<tr class="memdesc:menu_8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">The menu. <br /></td></tr>
+<tr class="memdesc:menu_8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">The menu Initializes and displays the menu. <br  />
+ Provides the function <a class="el" href="menu_8h.html#a88e016ed6bb3eb9cfe66a3009bc6fbcf" title="Check for selection/transition.">MENU_check_transition()</a> for polling user actions. The variable MENU_transition is set to the touched menu item. If no touch has occurred the variable MENU_transition is set to MENU_NONE <br  />
+ If the interrupt handler is enabled by calling BSP_TS_ITConfig(); the variable MENU_transition is set to the touched menu entry as above. <br  />
+ Either call once BSP_TS_ITConfig() to enable the interrupt or <a class="el" href="menu_8h.html#a88e016ed6bb3eb9cfe66a3009bc6fbcf" title="Check for selection/transition.">MENU_check_transition()</a> in the main while loop for polling. <br  />
+ The function <a class="el" href="menu_8h.html#a3de77014a7c52cdf6ff1f973eee6f3f6" title="Get menu selection/transition.">MENU_get_transition()</a> returns the new menu item. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:spi_8c"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="spi_8c.html">spi.c</a> <a href="spi_8c_source.html">[code]</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>

@@ -9,11 +9,11 @@ at the School of Engineering of the Zurich University of Applied Sciences.
 
 Here is an overview over the files included in the project:
 @n In the file measuring.c, the ADCs are initialised and the measurement data is acquired.
-@n The file menu.c controls the menu buttons on the display.
+@n The file menu.c controls the menu buttons on the display and the direction leds.
 @n pushbutton.c handles external interrupts.
 @n main.c puts everything together.
 
-@attention As time was very critical, the software is only a draft and nowehre near the final software. Many things can be improved or added: Struct as Pointer, moving average filter, direction detection etc.
+@attention As time was very critical, the software is only a draft and far from being a final software. Many things can be improved or added, e.g.: Struct as Pointer, moving average filter, direction detection etc.
 
 @image html demo_screenshot.jpg
 

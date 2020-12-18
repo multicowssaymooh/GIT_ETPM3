@@ -1,8 +1,6 @@
 /** ***************************************************************************
  * @file
- * @brief The menu
- *
- * Initializes and displays the menu.
+ * @brief The menu Initializes and displays the menu.
  * @n Provides the function MENU_check_transition() for polling user actions.
  * The variable MENU_transition is set to the touched menu item.
  * If no touch has occurred the variable MENU_transition is set to MENU_NONE
@@ -12,8 +10,10 @@
  * or MENU_check_transition() in the main while loop for polling.
  * @n The function MENU_get_transition() returns the new menu item.
  *
- * @author  Hanspeter Hochreutener, hhrt@zhaw.ch
- * @date	30.04.2020
+ * @attention menu.c also contains the LED functions. For details check set_LEDs_direction()
+ *
+ * @author  Landolt Jonathan, landojon@students.zhaw.ch
+ * @date	18.12.2020
  *****************************************************************************/
 
 
