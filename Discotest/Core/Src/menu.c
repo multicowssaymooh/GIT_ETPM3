@@ -1,6 +1,7 @@
 /** ***************************************************************************
  * @file
  * @brief The menu Initializes and displays the menu.
+ * @n File adapted from Mr. Hochreutener
  * @n Provides the function MENU_check_transition() for polling user actions.
  * The variable MENU_transition is set to the touched menu item.
  * If no touch has occurred the variable MENU_transition is set to MENU_NONE

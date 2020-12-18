@@ -83,7 +83,7 @@ This testing was done with the final version of the software. Older versions of 
 	<td>Menu system</td><td>Touch menu item "LED"</td><td>LEDs blink and turn off <br>Moving around the cable does not turn on the LEDs </br></td><td>*observed*</td><td>*Pass*</th><td>*remarks*</td>
 </tr>
 <tr>
-	<td>Menu system</td><td>Touch menu item "PWR"</td><td>Turn off the device</td><td>*observed*</td><td>*Pass*</th><td>*remarks*</td>
+	<td>Menu system</td><td>Press blue button </td><td>Turn off the device</td><td>*observed*</td><td>*Pass*</th><td>*remarks*</td>
 </tr>
 </table>
 @n Test date: 07.05.2020
