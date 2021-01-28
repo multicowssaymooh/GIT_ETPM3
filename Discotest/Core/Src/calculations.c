@@ -371,6 +371,7 @@ void Get_Direction(uint16_t PP1, uint16_t PP2, uint16_t PP3)
 			break;
 		}
 	}
+	if (distance > 201) distance=0;
 
 //	char text[15];
 //	snprintf(text, 15, "Distance%4dmm", (uint16_t)(distance & 0xffff));
@@ -411,7 +412,7 @@ void Get_Direction(uint16_t PP1, uint16_t PP2, uint16_t PP3)
 	else
 	{
 		// if cable present(between 10cm and 20cm)
-		if(sum>110)
+		if(sum>108)
 		{
 			snprintf(text, 15, "Distance%4dmm", (uint16_t)(distance & 0xffff));
 			BSP_LCD_SetTextColor(LCD_COLOR_BLACK);
@@ -421,7 +422,7 @@ void Get_Direction(uint16_t PP1, uint16_t PP2, uint16_t PP3)
 		}
 		else
 		{
-			if(sum>75)
+			if(sum>65)
 			{
 				blink = !blink;
 				set_LEDs_direction(6, blink);
