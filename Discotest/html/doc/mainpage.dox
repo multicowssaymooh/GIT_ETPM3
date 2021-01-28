@@ -10,7 +10,7 @@ at the School of Engineering of the Zurich University of Applied Sciences.
 
 @attention As time was very critical, the software is only a draft and far from being a final software. Many things can be improved or added, e.g.: ADC with DMA, Interrups from ADC, struct as Pointer, moving average filter (Coils), direction detection.
 
-The rough code flow is shown here:
+The rough flowchart of the software is shown here:
 
 <img src="Ablaufdiagramm.png" width=30% height=30%>
 

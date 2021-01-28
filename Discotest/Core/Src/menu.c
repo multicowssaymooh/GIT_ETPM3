@@ -277,6 +277,27 @@ void Display_Signal_Pads(uint16_t *PAD1,uint16_t *PAD2,uint16_t *PAD3)
 
 
 /** ***************************************************************************
+ * @brief Displays measured current
+ * @param type
+ * @retval none
+ *
+ *****************************************************************************/
+void Display_Current(uint16_t PP1, uint16_t PP2)
+{
+	char text[15];
+	uint16_t current=0;
+	current = (PP1+PP2)/2;
+	current = 5*current -150;
+	snprintf(text, 15, "Current %4dmA", (uint16_t)(current & 0xffff));
+	BSP_LCD_SetTextColor(LCD_COLOR_BLACK);
+	BSP_LCD_SetFont(&Font20);
+	BSP_LCD_DisplayStringAt(15, 240, (uint8_t *)text, LEFT_MODE);
+
+
+}
+
+
+/** ***************************************************************************
  * @brief Displays type of measurement (PADS/COILS)
  * @param type
  * @retval none

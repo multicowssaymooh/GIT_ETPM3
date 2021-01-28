@@ -71,7 +71,7 @@ $(function() {
  It gives an overview over the code running on the STM32 discovery board. An example code was given but not used. Some functions regarding the touch display were adapted from it. <br  />
  The discovery board contains the microcontroller that measures the analog values sent from the sensor board and the display for the visual user output.</p>
 <dl class="section attention"><dt>Attention</dt><dd>As time was very critical, the software is only a draft and far from being a final software. Many things can be improved or added, e.g.: ADC with DMA, Interrups from ADC, struct as Pointer, moving average filter (Coils), direction detection.</dd></dl>
-<p>The rough code flow is shown here:</p>
+<p>The rough flowchart of the software is shown here:</p>
 <p><img src="Ablaufdiagramm.png" alt="" width="30%" height="30%" class="inline"/></p>
 <p>After initializing, the zero levels of the pads/coils are measured and stored. The cable monitor either measures a single period or multiple periods in sequence (continuous). The type of measurement is selectable on the touch display. <br  />
  First, all values from the ADCs are read. After subtracting the zero levels, the calculations (distance, direction, current) can be done. <br  />

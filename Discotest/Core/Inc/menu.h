@@ -53,6 +53,7 @@ void set_LEDs_direction(uint8_t number, uint8_t state);
 void Display_peak_peak(uint16_t PP1, uint16_t PP2, uint16_t PP3);
 void Display_Signal_Pads(uint16_t *PAD1,uint16_t *PAD2,uint16_t *PAD3);
 void Display_Type_of_Measurement(type_of_measurement type);
+void Display_Current(uint16_t PP1, uint16_t PP2);
 
 #endif
 

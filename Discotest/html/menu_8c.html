@@ -76,7 +76,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Functions for the menue on the display and for the direction LEDs.  
+<p>Functions for the menu on the display and for the direction LEDs.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;stm32f4xx.h&quot;</code><br />
 <code>#include &quot;stm32f429i_discovery.h&quot;</code><br />
@@ -88,8 +88,8 @@ $(function() {
 Include dependency graph for menu.c:</div>
 <div class="dyncontent">
 <div class="center"><img src="menu_8c__incl.png" border="0" usemap="#a_src_2menu_8c" alt=""/></div>
-<map name="_src_2menu_8c" id="_src_2menu_8c">
-<area shape="rect" title="Functions for the menue on the display and for the direction LEDs." alt="" coords="425,5,514,32"/>
+<map name="_src_2menu_8c" id="a_src_2menu_8c">
+<area shape="rect" title="Functions for the menu on the display and for the direction LEDs." alt="" coords="425,5,514,32"/>
 <area shape="rect" title=" " alt="" coords="5,87,99,114"/>
 <area shape="rect" title=" " alt="" coords="123,87,280,114"/>
 <area shape="rect" title=" " alt="" coords="304,80,451,121"/>
@@ -176,7 +176,7 @@ Variables</h2></td></tr>
 <tr class="separator:a95a264bf1d48a89c6aa839d0156f91ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Functions for the menue on the display and for the direction LEDs. </p>
+<div class="textblock"><p>Functions for the menu on the display and for the direction LEDs. </p>
 <hr  />
 <p><br  />
  Functions for display adapted from Mr. Hochreutener <br  />
@@ -184,7 +184,7 @@ Variables</h2></td></tr>
  If the interrupt handler is enabled by calling BSP_TS_ITConfig(); the variable MENU_transition is set to the touched menu entry as above. <br  />
  Either call once BSP_TS_ITConfig() to enable the interrupt or <a class="el" href="menu_8c.html#a88e016ed6bb3eb9cfe66a3009bc6fbcf" title="Check for selection/transition.">MENU_check_transition()</a> in the main while loop for polling. <br  />
  The function <a class="el" href="menu_8c.html#a3de77014a7c52cdf6ff1f973eee6f3f6" title="Get menu selection/transition.">MENU_get_transition()</a> returns the new menu item.</p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000007">Todo:</a></b></dt><dd><a class="el" href="menu_8c.html" title="Functions for the menue on the display and for the direction LEDs.">menu.c</a> also contains the LED functions --&gt; put LED functions in own file. (For details check <a class="el" href="menu_8c.html#a05b41340719d6f383e67b962589bbf31" title="Enables or Disables all direction LEDs.">set_LEDs_direction()</a>) </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000007">Todo:</a></b></dt><dd><a class="el" href="menu_8c.html" title="Functions for the menu on the display and for the direction LEDs.">menu.c</a> also contains the LED functions --&gt; put LED functions in own file. (For details check <a class="el" href="menu_8c.html#a05b41340719d6f383e67b962589bbf31" title="Enables or Disables all direction LEDs.">set_LEDs_direction()</a>) </dd></dl>
 <dl class="bug"><dt><b><a class="el" href="bug.html#_bug000001">Bug:</a></b></dt><dd>Sometimes display isnt't initialized on the first try. Reset resolves the problem.</dd></dl>
 <dl class="section author"><dt>Author</dt><dd>bergedo1,landojon </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>18.12.2020 </dd></dl>
